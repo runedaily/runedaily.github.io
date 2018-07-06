@@ -17,25 +17,25 @@ window.onload = function() {
 		"Taverley Slayer Shop", "Canifis Slayer Shop", "Pineapples & Seaweed", "Modified Helms", "Reaper Task", "Soul Obby"];
 
 	//Common Daily
-	const comday = ["Treasure Hunter Spins", "Daily Challenge", "Menaphos rep ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of trades",
+	const comday = ["Treasure Hunter Keys", "Daily Challenge", "Menaphos Reputation ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of Trades",
 		"Guthixian Cache", "Sink Hole", "Divine Locations", "Wilderness Warbands", "Wicked Hood", "Big Chinchompa", "Reaper Task", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
 		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machine", "Player Owned Ports", "VisWax",
-		 "Liberation of Mazcab (Every 2 Days 'Raid FC' FC"];
+		 "Liberation of Mazcab (Every 2 Days, 'Raid FC' FC)"];
 
-	const comweek = ["Agoroth Twice", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Shattered Worlds"];
+	const comweek = ["Agoroth (Twice)", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Shattered Worlds"];
 
-	const commonth = ["Giant oyster", "Troll invasion", "God Statues", "Premier Club Vault"];
+	const commonth = ["Giant Oyster", "Troll Invasion", "God Statues", "Premier Club Vault"];
 
 	//RS3
-	const rs3day = ["Treasure Hunter Spins", "Daily Challenge", "Menaphos rep ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of trades",
-		"Guthixian Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal tree blossom", "Shooting Star", "Bork", "Wilderness Warbands",
+	const rs3day = ["Treasure Hunter Keys", "Daily Challenge", "Menaphos Reputation ('SoulObby' FC)", "Modified Skilling Helms", "Nemi Forest ('NemiForest' FC)", "Jack of Trades",
+		"Guthixian Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal Tree Blossom", "Shooting Star", "Bork", "Wilderness Warbands",
 		"Wicked Hood", "Big Chinchompa", "Soul Reaper", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
 		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machinetal", "Player Owned Ports", "VisWax",
 		 "Liberation of Mazcab (Every 2 Days 'Raid FC' FC"];
 
-	const rs3week = ["Agoroth Twice", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Replay Broken Home", "Rush Of Blood", "Shattered Worlds"];
+	const rs3week = ["Agoroth (Twice)", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Replay Broken Home", "Rush Of Blood", "Shattered Worlds"];
 
-	const rs3month = ["Giant oyster", "Troll invasion", "God Statues", "Premier Club Vault"];
+	const rs3month = ["Giant Oyster", "Troll Invasion", "God Statues", "Premier Club Vault"];
 
 	
 
@@ -48,6 +48,10 @@ window.onload = function() {
 	//Valesco
 	populateTable("valesco1", valMain);
 	populateTable("valesco2", valIron);
+	//Common
+	populateTable("commday", comday);
+	populateTable("commweek", comweek);
+	populateTable("commmonth", commonth);
 	//RS3
 	populateTable("rs3daily", rs3day);
 	populateTable("rs3weekly", rs3week);
