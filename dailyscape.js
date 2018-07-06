@@ -1,5 +1,5 @@
 window.onload = function() {
-	//DAYAN
+	//Dayan
 	const dayanMain = ["Spins", "Divine Location", "Motherlode Maw", "Crystal Tree", "Crystal Sandstone", "Daily Challenge", "Red Sandstone", 
 		"Modified Helms", "Oo'glog Feather Shop", "Taverley Slayer Shop", "Shilo Village Slayer Shop", "Shilo Village Feather Shop", 
 		"Vis Wax", "Player Owned Ports", "Logs from Coeden", "Port Sarim Feather Shop", "Void Knight Runes Shop", "Lunar Isle Runes Shop", 
@@ -9,11 +9,29 @@ window.onload = function() {
 		"Taverley Slayer Shop", "Canifis Slayer Shop", "Aquarium", "Pineapples and Seaweed from Arhein", "Catherby Herb Patch", 
 		"Catherby Fruit Tree", "Brimhaven Fruit Tree", "Modified Helms", "Serenity Posts"];
 
+	//Valesco
+	const valMain = ["Nemi Forest", "Daily Challenge", "Player Owned Ports", 
+		"Taverley Slayer Shop", "Canifis Slayer Shop", "Modified Helms", "Reaper Task", "Soul Obby"];
+
+	const valIron = ["Jack of Trades Aura", "Nemi Forest", "Daily Challenge", "Player Owned Ports", 
+		"Taverley Slayer Shop", "Canifis Slayer Shop", "Pineapples & Seaweed", "Modified Helms", "Reaper Task", "Soul Obby"];
+
+	//Common Daily
+	const comday = ["Treasure Hunter Spins", "Daily Challenge", "Menaphos rep ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of trades",
+		"Guthixian Cache", "Sink Hole", "Divine Locations", "Wilderness Warbands", "Wicked Hood", "Big Chinchompa", "Reaper Task", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
+		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machine", "Player Owned Ports", "VisWax",
+		 "Liberation of Mazcab (Every 2 Days 'Raid FC' FC"];
+
+	const comweek = ["Agoroth Twice", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Shattered Worlds"];
+
+	const commonth = ["Giant oyster", "Troll invasion", "God Statues", "Premier Club Vault"];
+
 	//RS3
-	const rs3day = ["Treasure Hunter Keys", "Daily Challenge", "Menaphos Reputation ('SoulObby' FC)", "Modified Skilling Helms", "Nemi Forest ('NemiForest' FC)", "Jack of Trades",
-		"Guthixian Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal Tree Blossom", "Shooting Star", "Bork", "Wilderness Warbands",
+	const rs3day = ["Treasure Hunter Spins", "Daily Challenge", "Menaphos rep ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of trades",
+		"Guthixian Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal tree blossom", "Shooting Star", "Bork", "Wilderness Warbands",
 		"Wicked Hood", "Big Chinchompa", "Soul Reaper", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
-		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machinetal", "Player Owned Ports", "VisWax", "Liberation of Mazcab (Every 2 Days 'Raid FC' FC)"];
+		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machinetal", "Player Owned Ports", "VisWax",
+		 "Liberation of Mazcab (Every 2 Days 'Raid FC' FC"];
 
 	const rs3week = ["Agoroth Twice", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Replay Broken Home", "Rush Of Blood", "Shattered Worlds"];
 
@@ -27,6 +45,9 @@ window.onload = function() {
 	//Dayan
 	populateTable("dayan1", dayanMain);
 	populateTable("dayan2", dayanIron);
+	//Valesco
+	populateTable("valesco1", valMain);
+	populateTable("valesco2", valIron);
 	//RS3
 	populateTable("rs3daily", rs3day);
 	populateTable("rs3weekly", rs3week);
