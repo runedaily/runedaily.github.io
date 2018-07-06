@@ -18,9 +18,9 @@ window.onload = function() {
 
 	//Common Daily
 	const comday = ["Treasure Hunter Keys", "Daily Challenge", "Menaphos Reputation ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of Trades",
-		"Guthixian Cache", "Sink Hole", "Divine Locations", "Wilderness Warbands", "Wicked Hood", "Big Chinchompa", "Reaper Task", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
-		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machine", "Player Owned Ports", "VisWax",
-		 "Liberation of Mazcab (Every 2 Days, 'Raid FC' FC)"];
+		"Guthixian Cache", "Sink Hole", "Divine Locations", "Wilderness Warbands", "Wicked Hood", "Big Chinchompa", "Reaper Task", "Broad Bolts (Taverly Shop + Other Slayer Master)", 
+		"Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machine", "Player Owned Ports",
+		 "VisWax", "Liberation of Mazcab (Every 2 Days, 'Raid FC' FC)"];
 
 	const comweek = ["Agoroth (Twice)", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Shattered Worlds"];
 
