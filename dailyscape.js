@@ -11,7 +11,7 @@ window.onload = function() {
 
 	//RS3
 	const rs3day = ["Treasure Hunter Spins", "Daily Challenge", "Menaphos rep ('Soul Obby FC')", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of trades",
-		"Guthician Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal tree blossom", "Shooting Star", "Bork", "Wilderness Warbands",
+		"Guthixian Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal tree blossom", "Shooting Star", "Bork", "Wilderness Warbands",
 		"Wicked Hood", "Big Chinchompa", "Soul Reaper", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
 		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machinetal", "Player Owned Ports", "VisWax"];
 
