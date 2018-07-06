@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Runescape daily tracker</title>
+  <script src="dailyscape.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dailyscape.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="C:\Users\Adrian\Desktop\rsdaily-master\index.html">Runescape Daily Checker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="C:\Users\Adrian\Desktop\rsdaily-master\index.html">RS3 Dailies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://reddit.com/r/runescape/">RS3 Reddit</a>
+      </li>
+    </ul>
+  </div>  
+</nav>
+
+<body>
+    <div class="table_container">
+     <table id="rs3daily_table" class="activity_table table table-striped">
+        <tr>
+          <th>Dailies</th>
+          <td><button id="rs3daily_reset_button" class="reset_button btn btn-secondary active">Reset</button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="table_container">
+      <table id="rs3weekly_table" class="activity_table table table table-striped">
+        <tr>
+          <th>Weeklies</th>
+          <td><button id="rs3weekly_reset_button" class="reset_button btn btn-secondary active">Reset</button></td>
+        </tr>
+      </table>
+    </div>
+      <div class="table_container">
+      <table id="rs3monthly_table" class="activity_table table table table-striped">
+        <tr>
+          <th>Monthlies</th>
+          <td><button id="rs3monthly_reset_button" class="reset_button btn btn-secondary active">Reset</button></td>
+        </tr>
+      </table>
+    </div>
+
+    
+    <table style="visibility:hidden">
+      <tr id="sample_row">
+        <td id="daily_name_0" class="activity_name">Name</td>
+        <td id="daily_colour_0" class="activity_colour"></td>
+      </tr>
+    </table>
+  </body>
+
+
+
+<footer class="footer">
+    <span class="text-muted">Made By: Dayan & Valesco</span>
+</footer>
+
+</body>
+</html>
