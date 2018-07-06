@@ -10,10 +10,10 @@ window.onload = function() {
 		"Catherby Fruit Tree", "Brimhaven Fruit Tree", "Modified Helms", "Serenity Posts"];
 
 	//RS3
-	const rs3day = ["Treasure Hunter Spins", "Daily Challenge", "Menaphos rep ('Soul Obby FC')", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of trades",
+	const rs3day = ["Treasure Hunter Spins", "Daily Challenge", "Menaphos rep ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of trades",
 		"Guthixian Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal tree blossom", "Shooting Star", "Bork", "Wilderness Warbands",
 		"Wicked Hood", "Big Chinchompa", "Soul Reaper", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
-		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machinetal", "Player Owned Ports", "VisWax"];
+		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machinetal", "Player Owned Ports", "VisWax", "Liberation of Mazcab (Every 2 Days 'Raid FC' FC"];
 
 	const rs3week = ["Agoroth Twice", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Replay Broken Home", "Rush Of Blood", "Shattered Worlds"];
 
