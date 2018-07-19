@@ -4,6 +4,8 @@ window.onload = function() {
 		"Modified Helms", "Oo'glog Feather Shop", "Taverley Slayer Shop", "Shilo Village Slayer Shop", "Shilo Village Feather Shop", 
 		"Vis Wax", "Player Owned Ports", "Logs from Coeden", "Port Sarim Feather Shop", "Void Knight Runes Shop", "Lunar Isle Runes Shop", 
 		"Magic Guild Runes Shop", "Edgeville Runes Shop"];
+
+
 	
 	const dayanIron = ["Jack of Trades Aura", "Nemi Forest", "Daily Challenge", "Crystal Sandstone", "Red Sandstone", "Player Owned Ports", 
 		"Taverley Slayer Shop", "Canifis Slayer Shop", "Aquarium", "Pineapples and Seaweed from Arhein", "Catherby Herb Patch", 
@@ -17,25 +19,106 @@ window.onload = function() {
 		"Taverley Slayer Shop", "Canifis Slayer Shop", "Pineapples & Seaweed", "Modified Helms", "Reaper Task", "Soul Obby"];
 
 	//Common Daily
-	const comday = ["Treasure Hunter Keys", "Daily Challenge", "Menaphos Reputation ('SoulObby' FC)", "Modified Skilling Helms", "Nemi forest ('NemiForest' FC)", "Jack of Trades",
-		"Guthixian Cache", "Sink Hole", "Divine Locations", "Wilderness Warbands", "Wicked Hood", "Big Chinchompa", "Reaper Task", "Broad Bolts (Taverly Shop + Other Slayer Master)", 
-		"Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machine", "Player Owned Ports",
-		 "VisWax", "Liberation of Mazcab (Every 2 Days, 'Raid FC' FC)"];
+	const commday = [
+	{daily : "Treasure Hunter Keys", url : "http://runescape.wikia.com/wiki/Treasure_Hunter"},
+	{daily : "Daily Challenge", url : "http://runescape.wikia.com/wiki/Challenge_System"},
+	{daily : "Menaphos Obelisk ('SoulObby' FC)", url : "http://runescape.wikia.com/wiki/Soul_obelisk_(Menaphos)"},
+	{daily : "Modified Skilling Helms", url : "http://runescape.wikia.com/wiki/Category:Modified_skill_helms"},
+	{daily : "Nemi Forest ('NemiForest' FC)", url : "https://www.reddit.com/r/NemiForest/new/"},
+	{daily : "Jack of Trades", url : "http://runescape.wikia.com/wiki/Jack_of_trades_aura/Routines" },
+	{daily : "Guthixian Cache", url : "http://runescape.wikia.com/wiki/Guthixian_Cache"},
+	{daily : "Sinkholes", url : "http://runescape.wikia.com/wiki/Sinkholes"},
+	{daily : "Miscellania", url : "http://runescape.wikia.com/wiki/Calculator:Other/Miscellania"},
+	{daily : "Evil Tree", url : "http://runescape.wikia.com/wiki/Evil_Tree"}, 
+	{daily : "Divine Locations", url : "http://runescape.wikia.com/wiki/Divine_location"},
+	{daily : "Shooting Star", url : "http://runescape.wikia.com/wiki/Shooting_Star"},
+	{daily : "Bork", url : "http://runescape.wikia.com/wiki/Bork"},
+	{daily : "Wilderness Warbands", url : "http://runescape.wikia.com/wiki/Wilderness_Warbands"},
+	{daily : "Wicked Hood Runes", url : "http://runescape.wikia.com/wiki/Wicked_hood"},
+	{daily : "Big Chinchompa", url : "http://runescape.wikia.com/wiki/Big_Chinchompa"},
+	{daily : "Soul Reaper", url : "http://runescape.wikia.com/wiki/Soul_Reaper"},
+	{daily : "Broad Bolts (Taverly Shop + Other Slayer Master)", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_broad_arrowheads"},
+	{daily : "Rune Shop Run", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_runes"},
+	{daily : "Traveling Merchant ('WhirlPoolDnD' FC)",url : "http://runescape.wikia.com/wiki/Travelling_Merchant%27s_Shop"},
+	{daily : "Motherlode Maw", url : "http://runescape.wikia.com/wiki/Motherlode_Maw"},
+	{daily : "Crystal Sand Stone", url : "http://runescape.wikia.com/wiki/Crystal-flecked_sandstone"},
+	{daily : "Sand Stone", url : "http://runescape.wikia.com/wiki/Red_sandstone"},
+	{daily : "Invention Machine", url : "http://runescape.wikia.com/wiki/Machines"},
+	{daily : "Player Owned Ports", url : "http://runescape.wikia.com/wiki/Player-owned_port"},
+	{daily : "VisWax", url : "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366"},
+	{daily : "Liberation of Mazcab (Every 2 Days 'Raid FC' FC)", url : "http://runescape.wikia.com/wiki/Liberation_of_Mazcab"}
+	];
 
-	const comweek = ["Agoroth (Twice)", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Shattered Worlds"];
+	const commweek = [
+	{daily : "Agoroth (Twice)", url : "http://runescape.wikia.com/wiki/Agoroth"},
+	{daily : "Penguin Hide and Seek", url : "http://2016.world60pengs.com/"},
+	{daily : "Tears of Guthix", url : "http://runescape.wikia.com/wiki/Tears_of_Guthix"},
+	{daily : "Meg", url : "http://runescape.wikia.com/wiki/Meg"},
+	{daily : "Familiarisation", url : "http://runescape.wikia.com/wiki/Familiarisation"},
+	{daily : "Shattered Worlds", url : "http://runescape.wikia.com/wiki/Shattered_Worlds"}
+	];
 
-	const commonth = ["Giant Oyster", "Troll Invasion", "God Statues", "Premier Club Vault"];
+	const commmonth = [
+	{daily : "Giant Oyster", url : "http://runescape.wikia.com/wiki/Giant_Oyster"},
+	{daily : "Troll Invasion", url : "http://runescape.wikia.com/wiki/Troll_Invasion"},
+	{daily : "God Statues", url : "http://runescape.wikia.com/wiki/God_Statues"},
+	{daily : "Premier Club Vault", url : "http://runescape.wikia.com/wiki/Premier_Club_Vault"}
+	];
 
 	//RS3
-	const rs3day = ["Treasure Hunter Keys", "Daily Challenge", "Menaphos Reputation ('SoulObby' FC)", "Modified Skilling Helms", "Nemi Forest ('NemiForest' FC)", "Jack of Trades",
-		"Guthixian Cache", "Fish Flingers", "Sink Hole", "Miscellania", "Evil Trees", "Divine Locations", "Crystal Tree Blossom", "Shooting Star", "Bork", "Wilderness Warbands",
-		"Wicked Hood", "Big Chinchompa", "Soul Reaper", "Broad Bolts (Taverly Shop + Other Slayer Master)", "Rune Shop Run", "Feather Shop Run", "Traveling Merchant ('WhirlPoolDnD' FC)",
-		"Yak Hide", "Seaweed & Pineapples", "Motherlode Maw", "Crystal Sand Stone", "Sand Stone", "Invention Machinetal", "Player Owned Ports", "VisWax",
-		 "Liberation of Mazcab (Every 2 Days 'Raid FC' FC"];
+	const rs3day = [
+	{daily : "Treasure Hunter Keys", url : "http://runescape.wikia.com/wiki/Treasure_Hunter"},
+	{daily : "Daily Challenge", url : "http://runescape.wikia.com/wiki/Challenge_System"},
+	{daily : "Menaphos Obelisk ('SoulObby' FC)", url : "http://runescape.wikia.com/wiki/Soul_obelisk_(Menaphos)"},
+	{daily : "Modified Skilling Helms", url : "http://runescape.wikia.com/wiki/Category:Modified_skill_helms"},
+	{daily : "Nemi Forest ('NemiForest' FC)", url : "https://www.reddit.com/r/NemiForest/new/"},
+	{daily : "Jack of Trades", url : "http://runescape.wikia.com/wiki/Jack_of_trades_aura/Routines" },
+	{daily : "Guthixian Cache", url : "http://runescape.wikia.com/wiki/Guthixian_Cache"},
+	{daily : "Fish Flingers", url : "http://runescape.wikia.com/wiki/Fish_Flingers"},
+	{daily : "Sinkholes", url : "http://runescape.wikia.com/wiki/Sinkholes"},
+	{daily : "Miscellania", url : "http://runescape.wikia.com/wiki/Calculator:Other/Miscellania"},
+	{daily : "Evil Tree", url : "http://runescape.wikia.com/wiki/Evil_Tree"}, 
+	{daily : "Divine Locations", url : "http://runescape.wikia.com/wiki/Divine_location"},
+	{daily : "Crystal Tree Blossom", url : "http://runescape.wikia.com/wiki/Crystal_tree_blossom"},
+	{daily : "Shooting Star", url : "http://runescape.wikia.com/wiki/Shooting_Star"},
+	{daily : "Bork", url : "http://runescape.wikia.com/wiki/Bork"},
+	{daily : "Wilderness Warbands", url : "http://runescape.wikia.com/wiki/Wilderness_Warbands"},
+	{daily : "Wicked Hood Runes", url : "http://runescape.wikia.com/wiki/Wicked_hood"},
+	{daily : "Big Chinchompa", url : "http://runescape.wikia.com/wiki/Big_Chinchompa"},
+	{daily : "Soul Reaper", url : "http://runescape.wikia.com/wiki/Soul_Reaper"},
+	{daily : "Broad Bolts (Taverly Shop + Other Slayer Master)", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_broad_arrowheads"},
+	{daily : "Rune Shop Run", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_runes"},
+	{daily : "Feather Shop Run", url : "FIX"},
+	{daily : "Traveling Merchant ('WhirlPoolDnD' FC)",url : "http://runescape.wikia.com/wiki/Travelling_Merchant%27s_Shop"},
+	{daily : "Yak Hide", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_yak-hide"},
+	{daily : "Seaweed & Pineapples", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_seaweed_and_pineapples_from_Arhein"},
+	{daily : "Motherlode Maw", url : "http://runescape.wikia.com/wiki/Motherlode_Maw"},
+	{daily : "Crystal Sand Stone", url : "http://runescape.wikia.com/wiki/Crystal-flecked_sandstone"},
+	{daily : "Sand Stone", url : "http://runescape.wikia.com/wiki/Red_sandstone"},
+	{daily : "Invention Machine", url : "http://runescape.wikia.com/wiki/Machines"},
+	{daily : "Player Owned Ports", url : "http://runescape.wikia.com/wiki/Player-owned_port"},
+	{daily : "VisWax", url : "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366"},
+	{daily : "Liberation of Mazcab (Every 2 Days 'Raid FC' FC)", url : "http://runescape.wikia.com/wiki/Liberation_of_Mazcab"}
+	];
 
-	const rs3week = ["Agoroth (Twice)", "Penguin Hide and Seek", "Tears of Guthix", "Capping Clan Citadel", "Meg", "Familiarisation", "Replay Broken Home", "Rush Of Blood", "Shattered Worlds"];
+	const rs3week = [
+	{daily : "Agoroth (Twice)", url : "http://runescape.wikia.com/wiki/Agoroth"},
+	{daily : "Penguin Hide and Seek", url : "http://2016.world60pengs.com/"},
+	{daily : "Tears of Guthix", url : "http://runescape.wikia.com/wiki/Tears_of_Guthix"},
+	{daily : "Capping Clan Citadel", url : "http://runescape.wikia.com/wiki/Clan_Citadel"},
+	{daily : "Meg", url : "http://runescape.wikia.com/wiki/Meg"},
+	{daily : "Familiarisation", url : "http://runescape.wikia.com/wiki/Familiarisation"},
+	{daily : "Replay Broken Home", url : "http://runescape.wikia.com/wiki/Broken_Home/Quick_guide"},
+	{daily : "Rush Of Blood", url : "http://runescape.wikia.com/wiki/Rush_of_Blood"},
+	{daily : "Shattered Worlds", url : "http://runescape.wikia.com/wiki/Shattered_Worlds"}
+	];
 
-	const rs3month = ["Giant Oyster", "Troll Invasion", "God Statues", "Premier Club Vault"];
+	const rs3month = [
+	{daily : "Giant Oyster", url : "http://runescape.wikia.com/wiki/Giant_Oyster"},
+	{daily : "Troll Invasion", url : "http://runescape.wikia.com/wiki/Troll_Invasion"},
+	{daily : "God Statues", url : "http://runescape.wikia.com/wiki/God_Statues"},
+	{daily : "Premier Club Vault", url : "http://runescape.wikia.com/wiki/Premier_Club_Vault"}
+	];
 
 	
 
@@ -49,9 +132,9 @@ window.onload = function() {
 	populateTable("valesco1", valMain);
 	populateTable("valesco2", valIron);
 	//Common
-	populateTable("commday", comday);
-	populateTable("commweek", comweek);
-	populateTable("commmonth", commonth);
+	populateTable("commday", commday);
+	populateTable("commweek", commweek);
+	populateTable("commmonth", commmonth);
 	//RS3
 	populateTable("rs3daily", rs3day);
 	populateTable("rs3weekly", rs3week);
@@ -74,8 +157,21 @@ window.onload = function() {
 			newRow.id = tableName + "_row_" + rowID;
 			newRowNameElem.id = tableName + "_name_" + rowID;
 			newRowColourElem.id = tableName + "_colour_" + rowID;
-			
-			newRowNameElem.innerHTML = data[rowID];
+
+
+			if (!! data[rowID].url) {
+				newRowNameElem.children[0].href = data[rowID].url;
+				newRowNameElem.children[0].innerHTML = data[rowID].daily;
+			}
+			else {
+				newRowNameElem.children[0].innerHTML = data[rowID];
+			}
+			console.log(!!data[rowID].url)
+
+
+		
+
+
 			
 			if(rowID % 2 == 0) {
 				newRowNameElem.classList += " even_row";
