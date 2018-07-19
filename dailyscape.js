@@ -97,6 +97,7 @@ window.onload = function() {
 	{daily : "VisWax", url : "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366"},
 	{daily : "Bloodwood Tree (Every 6H)", url : "http://runescape.wikia.com/wiki/Bloodwood_tree"},
 	{daily : "Goebie Bands (Supply Run)", url : "http://runescape.wikia.com/wiki/Supply_run"},
+	{daily : "Phoenix", url : "http://runescape.wikia.com/wiki/Phoenix_Lair"},
 	{daily : "Liberation of Mazcab (Every 2 Days 'Raid FC' FC)", url : "http://runescape.wikia.com/wiki/Liberation_of_Mazcab"}
 	];
 
