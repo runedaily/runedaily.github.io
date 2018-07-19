@@ -44,6 +44,7 @@ window.onload = function() {
 	{daily : "Player Owned Ports", url : "http://runescape.wikia.com/wiki/Player-owned_port"},
 	{daily : "VisWax", url : "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366"},
 	{daily : "Bloodwood Tree (Every 6H)", url : "http://runescape.wikia.com/wiki/Bloodwood_tree"},
+	{daily : "Goebie Bands (Supply Run)", url : "http://runescape.wikia.com/wiki/Supply_run"},
 	];
 
 	const commweek = [
