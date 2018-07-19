@@ -88,7 +88,7 @@ window.onload = function() {
 	{daily : "Soul Reaper", url : "http://runescape.wikia.com/wiki/Soul_Reaper"},
 	{daily : "Broad Bolts (Taverly Shop + Other Slayer Master)", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_broad_arrowheads"},
 	{daily : "Rune Shop Run", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_runes"},
-	{daily : "Feather Shop Run", url : "FIX"},
+	{daily : "Feather Shop Run", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_feathers"},
 	{daily : "Traveling Merchant ('WhirlPoolDnD' FC)",url : "http://runescape.wikia.com/wiki/Travelling_Merchant%27s_Shop"},
 	{daily : "Yak Hide", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_yak-hide"},
 	{daily : "Seaweed & Pineapples", url : "http://runescape.wikia.com/wiki/Money_making_guide/Buying_seaweed_and_pineapples_from_Arhein"},
