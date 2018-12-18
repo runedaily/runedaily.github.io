@@ -12,13 +12,12 @@ window.onload = function() {
 		"Catherby Fruit Tree", "Brimhaven Fruit Tree", "Modified Helms", "Serenity Posts"];
 
 	//Valesco
-	const valMain = ["Nemi Forest", "Daily Challenge", "Player Owned Ports", 
-		"Taverley Slayer Shop", "Canifis Slayer Shop", "Modified Helms", "Reaper Task", "Shop Run", "VisWax", "Tiltos",
-			];
+	const valMain = ["Player Owned Farm", "Divine Location", "Motherloade Maw", "Rune Shop Run", "Slayer Gem Shop Run", 
+		"Player Owned Ports", "Viswax", "Modified Helm", "Ooglog Meat Shop"];
 
 	const valIron = ["Jack of Trades Aura", "Nemi Forest", "Daily Challenge", "Player Owned Ports", 
-		"Taverley Slayer Shop", "Canifis Slayer Shop", "Pineapples & Seaweed", "Modified Helms", "Reaper Task", "Shop Run",
-			"VisWax", "Merchant"];
+		"Slayer Shop run", "Modified Helms", "Reaper Task", "Shop Run", "VisWax", "Merchant", 
+		"Player Owned Farms", "Ooglog Meat Shop"];
 
 	//Common Daily
 	const commday = [
