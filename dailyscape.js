@@ -17,7 +17,7 @@ window.onload = function() {
 
 	const valIron = ["Jack of Trades Aura", "Nemi Forest", "Daily Challenge", "Player Owned Ports", 
 		"Slayer Shop run", "Modified Helms", "Reaper Task", "Shop Run", "VisWax", "Merchant", 
-		"Player Owned Farms", "Ooglog Meat Shop"];
+		"Player Owned Farms", "Ooglog Meat Shop", "Sand Stone"];
 
 	//Common Daily
 	const commday = [
