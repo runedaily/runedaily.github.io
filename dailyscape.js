@@ -12,7 +12,6 @@ window.onload = function() {
 		"Catherby Fruit Tree", "Brimhaven Fruit Tree", "Modified Helms", "Serenity Posts"];
 
 	//Valesco
-
 	const valIron = ["Jack of Trades Aura", "Daily Challenge", "Player Owned Ports", 
 		"Player Owned Farms", "Slayer Shop run", "Shop Run", "Modified Helms", 
 		"VisWax", "Merchant", "Ooglog Meat Shop", "Sand Stone", "Reaper Task"];
@@ -126,7 +125,6 @@ window.onload = function() {
 	populateTable("dayan1", dayanMain);
 	populateTable("dayan2", dayanIron);
 	//Valesco
-	populateTable("valesco1", valMain);
 	populateTable("valesco2", valIron);
 	//Common
 	populateTable("commday", commday);
