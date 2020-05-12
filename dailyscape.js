@@ -141,8 +141,8 @@ window.onload = function() {
 	populateTable("valesco2", valIron);
 	//Akazaron
 	populateTable("akazaron1", akazaronDaily);
-	populateTable("akazaron1", akazaronWeekly);
-	populateTable("akazaron1", akazaronMonthlies);
+	populateTable("akazaron2", akazaronWeekly);
+	populateTable("akazaron3", akazaronMonthlies);
 	//Common
 	populateTable("commday", commday);
 	populateTable("commweek", commweek);
