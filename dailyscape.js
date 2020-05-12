@@ -5,7 +5,6 @@ window.onload = function () {
         "Vis Wax", "Player Owned Ports", "Logs from Coeden", "Port Sarim Feather Shop", "Void Knight Runes Shop", "Lunar Isle Runes Shop",
         "Magic Guild Runes Shop", "Edgeville Runes Shop"];
 
-
     const dayanIron = ["Jack of Trades Aura", "Nemi Forest", "Daily Challenge", "Crystal Sandstone", "Red Sandstone", "Player Owned Ports",
         "Taverley Slayer Shop", "Canifis Slayer Shop", "Aquarium", "Pineapples and Seaweed from Arhein", "Catherby Herb Patch",
         "Catherby Fruit Tree", "Brimhaven Fruit Tree", "Modified Helms", "Serenity Posts"];
@@ -14,6 +13,16 @@ window.onload = function () {
     const valIron = ["Jack of Trades Aura", "Daily Challenge", "Player Owned Ports",
         "Player Owned Farms", "Slayer Shop run", "Shop Run", "Modified Helms",
         "VisWax", "Merchant", "Ooglog Meat Shop", "Sand Stone", "Reaper Task"];
+
+    //Akazaron
+    const akazaronDaily = ["Jack of Trades Aura", "Daily Challenge", "Player Owned Ports",
+        "Player Owned Farms", "Slayer Shop run", "Shop Run", "Modified Helms",
+        "VisWax", "Merchant", "Ooglog Meat Shop", "Sand Stone", "Reaper Task", "Soul Obby",
+        "Nemi Forest", "Jack of Trades", "Cache", "Wicked Hood Runes", "Big Chin"];
+
+    const akazaronWeekly = ["Meg", "Herby Werby", "Penguin", "Tears of Guthix", "Familiarisation"];
+
+    const akazaronMonthlies = ["Oyster", "Troll Invasion", "God Statues"];
 
     //Common Daily
     const commday = [
@@ -140,6 +149,10 @@ window.onload = function () {
     populateTable("dayan2", dayanIron);
     //Valesco
     populateTable("valesco2", valIron);
+    //Akazaron
+    populateTable("akazaron1", akazaronDaily);
+    populateTable("akazaron2", akazaronWeekly);
+    populateTable("akazaron3", akazaronMonthlies);
     //Common
     populateTable("commday", commday);
     populateTable("commweek", commweek);
@@ -148,7 +161,6 @@ window.onload = function () {
     populateTable("rs3daily", rs3day);
     populateTable("rs3weekly", rs3week);
     populateTable("rs3monthly", rs3month);
-
 
     function populateTable(tableName, data) {
         let tableElem = document.getElementById(tableName + "_table");
@@ -173,7 +185,7 @@ window.onload = function () {
             } else {
                 newRowNameElem.children[0].innerHTML = data[rowID];
             }
-            console.log(!!data[rowID].url)
+            console.log(!!data[rowID].url);
 
             if (rowID % 2 == 0) {
                 newRowNameElem.classList += " even_row";
@@ -207,4 +219,4 @@ window.onload = function () {
             }
         });
     }
-}
+};
