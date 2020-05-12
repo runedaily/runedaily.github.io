@@ -15,7 +15,20 @@ window.onload = function() {
 	const valIron = ["Jack of Trades Aura", "Daily Challenge", "Player Owned Ports", 
 		"Player Owned Farms", "Slayer Shop run", "Shop Run", "Modified Helms", 
 		"VisWax", "Merchant", "Ooglog Meat Shop", "Sand Stone", "Reaper Task"];
+	
+	//Akazaron
+	const akazaronDaily = ["Jack of Trades Aura", "Daily Challenge", "Player Owned Ports", 
+		"Player Owned Farms", "Slayer Shop run", "Shop Run", "Modified Helms", 
+		"VisWax", "Merchant", "Ooglog Meat Shop", "Sand Stone", "Reaper Task", "Soul Obby",
+		"Nemi Forest", "Jack of Trades", "Cache", "Wicked Hood Runes", "Big Chin"];
+	
+	const akazaronWeekly = ["Meg", "Herby Werby", "Penguin", "Tears of Guthix", "Familiarisation"];
+	
+	const akazaronMonthlies = ["Oyster", "Troll Invasion", "God Statues"];
+	
+	
 
+	
 	//Common Daily
 	const commday = [
 	{daily : "Treasure Hunter Keys (IronManBTW)", url : "http://runescape.wikia.com/wiki/Treasure_Hunter"},
@@ -126,6 +139,10 @@ window.onload = function() {
 	populateTable("dayan2", dayanIron);
 	//Valesco
 	populateTable("valesco2", valIron);
+	//Akazaron
+	populateTable("akazaron1", akazaronDaily);
+	populateTable("akazaron1", akazaronWeekly);
+	populateTable("akazaron1", akazaronMonthlies);
 	//Common
 	populateTable("commday", commday);
 	populateTable("commweek", commweek);
