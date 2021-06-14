@@ -26,120 +26,102 @@ window.onload = function () {
 
     //Common Daily
     const commday = [
-        {daily: "Treasure Hunter Keys (IronManBTW)", url: "https://runescape.wiki/Treasure_Hunter"},
-        {daily: "Daily Challenge", url: "https://runescape.wiki/Challenge_System"},
-        {daily: "Modified Skilling Helms", url: "https://runescape.wiki/Category:Modified_skill_helms"},
+        {daily: "Treasure Hunter Keys (IronManBTW)", url: "https://runescape.wiki/w/Treasure_Hunter"},
+        {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System"},
+        {daily: "Modified Skilling Helms", url: "https://runescape.wiki/w/Category:Modified_skill_helms"},
         {daily: "Nemi Forest ('NemiForest' FC)", url: "https://www.reddit.com/r/NemiForest/new/"},
-        {daily: "Jack of Trades", url: "https://runescape.wiki/Jack_of_trades_aura/Routines"},
-        {daily: "Guthixian Cache", url: "https://runescape.wiki/Guthixian_Cache"},
-        {daily: "Sinkholes", url: "https://runescape.wiki/Sinkholes"},
-        {daily: "Miscellania", url: "https://runescape.wiki/Calculator:Other/Miscellania"},
-        {daily: "Divine Locations", url: "https://runescape.wiki/Divine_location"},
-        {daily: "Wilderness Warbands", url: "https://runescape.wiki/Wilderness_Warbands"},
-        {daily: "Wicked Hood Runes", url: "https://runescape.wiki/Wicked_hood"},
-        {daily: "Soul Reaper", url: "https://runescape.wiki/Soul_Reaper"},
-        {
-            daily: "Broad Bolts (Taverly Shop + Other Slayer Master)",
-            url: "https://runescape.wiki/Money_making_guide/Buying_broad_arrowheads"
-        },
-        {daily: "Rune Shop Run", url: "https://runescape.wiki/Money_making_guide/Buying_runes"},
-        {
-            daily: "Traveling Merchant ('WhirlPoolDnD' FC)",
-            url: "https://runescape.wiki/Travelling_Merchant%27s_Shop"
-        },
-        {daily: "Motherlode Maw", url: "https://runescape.wiki/Motherlode_Maw"},
-        {daily: "Crystal Sand Stone", url: "https://runescape.wiki/Crystal-flecked_sandstone"},
-        {daily: "Sand Stone", url: "https://runescape.wiki/Red_sandstone"},
-        {daily: "Invention Machine", url: "https://runescape.wiki/Machines"},
-        {daily: "Player Owned Ports", url: "https://runescape.wiki/Player-owned_port"},
+        {daily: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines"},
+        {daily: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache"},
+        {daily: "Sinkholes", url: "https://runescape.wiki/w/Sinkholes"},
+        {daily: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania"},
+        {daily: "Divine Locations", url: "https://runescape.wiki/w/Divine_location"},
+        {daily: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands"},
+        {daily: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood"},
+        {daily: "Soul Reaper", url: "https://runescape.wiki/w/Soul_Reaper"},
+        {daily: "Broad Bolts (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads"},
+        {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes"},
+        {daily: "Traveling Merchant ('WhirlPoolDnD' FC)", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop"},
+        {daily: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw"},
+        {daily: "Crystal Sand Stone", url: "https://runescape.wiki/w/Crystal-flecked_sandstone"},
+        {daily: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone"},
+        {daily: "Invention Machine", url: "https://runescape.wiki/w/Machines"},
+        {daily: "Player Owned Ports", url: "https://runescape.wiki/w/Player-owned_port"},
         {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366"},
-        {daily: "Bloodwood Tree (Every 6H)", url: "https://runescape.wiki/Bloodwood_tree"},
-        {daily: "Goebie Bands (Supply Run)", url: "https://runescape.wiki/Supply_run"},
+        {daily: "Bloodwood Tree (Every 6H)", url: "https://runescape.wiki/w/Bloodwood_tree"},
+        {daily: "Goebie Bands (Supply Run)", url: "https://runescape.wiki/w/Supply_run"},
     ];
 
     const commweek = [
-        {daily: "Agoroth (Twice)", url: "https://runescape.wiki/Agoroth"},
+        {daily: "Agoroth (Twice)", url: "https://runescape.wiki/w/Agoroth"},
         {daily: "Penguin Hide and Seek", url: "http://2016.world60pengs.com/"},
-        {daily: "Tears of Guthix", url: "https://runescape.wiki/Tears_of_Guthix"},
-        {daily: "Meg", url: "https://runescape.wiki/Meg"},
-        {daily: "Shattered Worlds", url: "https://runescape.wiki/Shattered_Worlds"}
+        {daily: "Tears of Guthix", url: "https://runescape.wiki/w/Tears_of_Guthix"},
+        {daily: "Meg", url: "https://runescape.wiki/w/Meg"},
+        {daily: "Shattered Worlds", url: "https://runescape.wiki/w/Shattered_Worlds"},
     ];
 
     const commmonth = [
-        {daily: "Giant Oyster", url: "https://runescape.wiki/Giant_Oyster"},
-        {daily: "Troll Invasion", url: "https://runescape.wiki/Troll_Invasion"},
-        {daily: "God Statues", url: "https://runescape.wiki/God_Statues"},
-        {daily: "Premier Club Vault", url: "https://runescape.wiki/Premier_Club_Vault"}
+        {daily: "Giant Oyster", url: "https://runescape.wiki/w/Giant_Oyster"},
+        {daily: "Troll Invasion", url: "https://runescape.wiki/w/Troll_Invasion"},
+        {daily: "God Statues", url: "https://runescape.wiki/w/God_Statues"},
+        {daily: "Premier Club Vault", url: "https://runescape.wiki/w/Premier_Club_Vault"},
     ];
 
     //RS3
     const rs3day = [
-        {daily: "Treasure Hunter Keys", url: "https://runescape.wiki/Treasure_Hunter"},
-        {daily: "Daily Challenge", url: "https://runescape.wiki/Challenge_System"},
-        {daily: "Menaphos Obelisk ('SoulObby' FC)", url: "https://runescape.wiki/Soul_obelisk_(Menaphos)"},
-        {daily: "Modified Skilling Helms", url: "https://runescape.wiki/Category:Modified_skill_helms"},
+        {daily: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter"},
+        {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System"},
+        {daily: "Menaphos Obelisk ('SoulObby' FC)", url: "https://runescape.wiki/w/Soul_obelisk_(Menaphos)"},
+        {daily: "Modified Skilling Helms", url: "https://runescape.wiki/w/Category:Modified_skill_helms"},
         {daily: "Nemi Forest ('NemiForest' FC)", url: "https://www.reddit.com/r/NemiForest/new/"},
-        {daily: "Jack of Trades", url: "https://runescape.wiki/Jack_of_trades_aura/Routines"},
-        {daily: "Guthixian Cache", url: "https://runescape.wiki/Guthixian_Cache"},
-        {daily: "Fish Flingers", url: "https://runescape.wiki/Fish_Flingers"},
-        {daily: "Sinkholes", url: "https://runescape.wiki/Sinkholes"},
-        {daily: "Miscellania", url: "https://runescape.wiki/Calculator:Other/Miscellania"},
-        {daily: "Evil Tree", url: "https://runescape.wiki/Evil_Tree"},
-        {daily: "Divine Locations", url: "https://runescape.wiki/Divine_location"},
-        {daily: "Crystal Tree Blossom", url: "https://runescape.wiki/Crystal_tree_blossom"},
-        {daily: "Shooting Star", url: "https://runescape.wiki/Shooting_Star"},
-        {daily: "Bork", url: "https://runescape.wiki/Bork"},
-        {daily: "Wilderness Warbands", url: "https://runescape.wiki/Wilderness_Warbands"},
-        {daily: "Wicked Hood Runes", url: "https://runescape.wiki/Wicked_hood"},
-        {daily: "Big Chinchompa", url: "https://runescape.wiki/Big_Chinchompa"},
-        {daily: "Soul Reaper", url: "https://runescape.wiki/Soul_Reaper"},
-        {
-            daily: "Broad Bolts (Taverly Shop + Other Slayer Master)",
-            url: "https://runescape.wiki/Money_making_guide/Buying_broad_arrowheads"
-        },
-        {daily: "Rune Shop Run", url: "https://runescape.wiki/Money_making_guide/Buying_runes"},
-        {daily: "Feather Shop Run", url: "https://runescape.wiki/Money_making_guide/Buying_feathers"},
-        {
-            daily: "Traveling Merchant ('WhirlPoolDnD' FC)",
-            url: "https://runescape.wiki/Travelling_Merchant%27s_Shop"
-        },
-        {daily: "Yak Hide", url: "https://runescape.wiki/Money_making_guide/Buying_yak-hide"},
-        {
-            daily: "Seaweed & Pineapples",
-            url: "https://runescape.wiki/Money_making_guide/Buying_seaweed_and_pineapples_from_Arhein"
-        },
-        {daily: "Motherlode Maw", url: "https://runescape.wiki/Motherlode_Maw"},
-        {daily: "Crystal Sand Stone", url: "https://runescape.wiki/Crystal-flecked_sandstone"},
-        {daily: "Sand Stone", url: "https://runescape.wiki/Red_sandstone"},
-        {daily: "Invention Machine", url: "https://runescape.wiki/Machines"},
-        {daily: "Player Owned Ports", url: "https://runescape.wiki/Player-owned_port"},
+        {daily: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines"},
+        {daily: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache"},
+        {daily: "Fish Flingers", url: "https://runescape.wiki/w/Fish_Flingers"},
+        {daily: "Sinkholes", url: "https://runescape.wiki/w/Sinkholes"},
+        {daily: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania"},
+        {daily: "Evil Tree", url: "https://runescape.wiki/w/Evil_Tree"},
+        {daily: "Divine Locations", url: "https://runescape.wiki/w/Divine_location"},
+        {daily: "Crystal Tree Blossom", url: "https://runescape.wiki/w/Crystal_tree_blossom"},
+        {daily: "Shooting Star", url: "https://runescape.wiki/w/Shooting_Star"},
+        {daily: "Bork", url: "https://runescape.wiki/w/Bork"},
+        {daily: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands"},
+        {daily: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood"},
+        {daily: "Big Chinchompa", url: "https://runescape.wiki/w/Big_Chinchompa"},
+        {daily: "Soul Reaper", url: "https://runescape.wiki/w/Soul_Reaper"},
+        {daily: "Broad Bolts (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads"},
+        {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes"},
+        {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers"},
+        {daily: "Traveling Merchant ('WhirlPoolDnD' FC)", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop"},
+        {daily: "Yak Hide", url: "https://runescape.wiki/w/Money_making_guide/Buying_yak-hide"},
+        {daily: "Seaweed & Pineapples", url: "https://runescape.wiki/w/Money_making_guide/Buying_seaweed_and_pineapples_from_Arhein"},
+        {daily: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw"},
+        {daily: "Crystal Sand Stone", url: "https://runescape.wiki/w/Crystal-flecked_sandstone"},
+        {daily: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone"},
+        {daily: "Invention Machine", url: "https://runescape.wiki/w/Machines"},
+        {daily: "Player Owned Ports", url: "https://runescape.wiki/w/Player-owned_port"},
         {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366"},
-        {daily: "Bloodwood Tree (Every 6H)", url: "https://runescape.wiki/Bloodwood_tree"},
-        {daily: "Goebie Bands (Supply Run)", url: "https://runescape.wiki/Supply_run"},
-        {daily: "Phoenix", url: "https://runescape.wiki/Phoenix_Lair"},
-        {
-            daily: "Liberation of Mazcab (Every 2 Days 'Raid FC' FC)",
-            url: "https://runescape.wiki/Liberation_of_Mazcab"
-        }
+        {daily: "Bloodwood Tree (Every 6H)", url: "https://runescape.wiki/w/Bloodwood_tree"},
+        {daily: "Goebie Bands (Supply Run)", url: "https://runescape.wiki/w/Supply_run"},
+        {daily: "Phoenix", url: "https://runescape.wiki/w/Phoenix_Lair"},
+        {daily: "Liberation of Mazcab (Every 2 Days 'Raid FC' FC)", url: "https://runescape.wiki/w/Liberation_of_Mazcab"},
     ];
 
     const rs3week = [
-        {daily: "Agoroth (Twice)", url: "https://runescape.wiki/Agoroth"},
+        {daily: "Agoroth (Twice)", url: "https://runescape.wiki/w/Agoroth"},
         {daily: "Penguin Hide and Seek", url: "http://2016.world60pengs.com/"},
-        {daily: "Tears of Guthix", url: "https://runescape.wiki/Tears_of_Guthix"},
-        {daily: "Capping Clan Citadel", url: "https://runescape.wiki/Clan_Citadel"},
-        {daily: "Meg", url: "https://runescape.wiki/Meg"},
-        {daily: "Familiarisation", url: "https://runescape.wiki/Familiarisation"},
-        {daily: "Replay Broken Home", url: "https://runescape.wiki/Broken_Home/Quick_guide"},
-        {daily: "Rush Of Blood", url: "https://runescape.wiki/Rush_of_Blood"},
-        {daily: "Shattered Worlds", url: "https://runescape.wiki/Shattered_Worlds"}
+        {daily: "Tears of Guthix", url: "https://runescape.wiki/w/Tears_of_Guthix"},
+        {daily: "Capping Clan Citadel", url: "https://runescape.wiki/w/Clan_Citadel"},
+        {daily: "Meg", url: "https://runescape.wiki/w/Meg"},
+        {daily: "Familiarisation", url: "https://runescape.wiki/w/Familiarisation"},
+        {daily: "Replay Broken Home", url: "https://runescape.wiki/w/Broken_Home/Quick_guide"},
+        {daily: "Rush Of Blood", url: "https://runescape.wiki/w/Rush_of_Blood"},
+        {daily: "Shattered Worlds", url: "https://runescape.wiki/w/Shattered_Worlds"}
     ];
 
     const rs3month = [
-        {daily: "Giant Oyster", url: "https://runescape.wiki/Giant_Oyster"},
-        {daily: "Troll Invasion", url: "https://runescape.wiki/Troll_Invasion"},
-        {daily: "God Statues", url: "https://runescape.wiki/God_Statues"},
-        {daily: "Premier Club Vault", url: "https://runescape.wiki/Premier_Club_Vault"}
+        {daily: "Giant Oyster", url: "https://runescape.wiki/w/Giant_Oyster"},
+        {daily: "Troll Invasion", url: "https://runescape.wiki/w/Troll_Invasion"},
+        {daily: "God Statues", url: "https://runescape.wiki/w/God_Statues"},
+        {daily: "Premier Club Vault", url: "https://runescape.wiki/w/Premier_Club_Vault"}
     ];
 
     const rowElem = document.getElementById("sample_row");
