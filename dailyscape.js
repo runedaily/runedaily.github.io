@@ -181,6 +181,8 @@ window.onload = function () {
 
             if (!!data[rowID].url) {
                 newRowNameElem.children[0].href = data[rowID].url;
+                newRowNameElem.children[0].target = "_blank";
+                newRowNameElem.children[0].setAttribute('rel', 'noopener noreferrer');
                 newRowNameElem.children[0].innerHTML = data[rowID].daily;
             } else {
                 newRowNameElem.children[0].innerHTML = data[rowID];
