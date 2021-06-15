@@ -101,19 +101,6 @@ window.onload = function () {
 
     const rowElem = document.getElementById("sample_row");
 
-    //Dayan
-    populateTable("dayan1", dayanMain);
-    populateTable("dayan2", dayanIron);
-    //Valesco
-    populateTable("valesco2", valIron);
-    //Akazaron
-    populateTable("akazaron1", akazaronDaily);
-    populateTable("akazaron2", akazaronWeekly);
-    populateTable("akazaron3", akazaronMonthlies);
-    //Common
-    populateTable("commday", commday);
-    populateTable("commweek", commweek);
-    populateTable("commmonth", commmonth);
     //RS3
     populateTable("rs3daily", rs3day);
     populateTable("rs3weekly", rs3week);
