@@ -107,14 +107,14 @@ window.onload = function () {
             newRow.completed = false;
 
             newRowNameElem.style.width = "80%";
-            newRowColourElem.style.backgroundColor = "#B31047";
+            newRowColourElem.style.backgroundColor = "#7D0A0A";
             newRowColourElem.addEventListener("click", function () {
                 newRow.completed = !newRow.completed;
 
                 if (newRow.completed) {
-                    newRowColourElem.style.backgroundColor = "#FBFFFA";
+                    newRowColourElem.style.backgroundColor = "#163600";
                 } else {
-                    newRowColourElem.style.backgroundColor = "#B31047";
+                    newRowColourElem.style.backgroundColor = "#7D0A0A";
                 }
             });
         }
@@ -123,7 +123,7 @@ window.onload = function () {
 
         resetButton.addEventListener("click", function () {
             for (let rowID = 0; rowID < data.length; rowID++) {
-                document.getElementById(tableName + "_colour_" + rowID).style.backgroundColor = "#B31047";
+                document.getElementById(tableName + "_colour_" + rowID).style.backgroundColor = "#7D0A0A";
                 document.getElementById(tableName + "_row_" + rowID).completed = false;
             }
         });
