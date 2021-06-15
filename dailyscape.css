@@ -7,6 +7,14 @@ footer {
     text-align:center;
 }
 
+.taskName {
+    width: 70%;
+}
+
+.clickzone {
+    cursor: pointer;
+}
+
 .completed {
     background-color: #163600;
 }

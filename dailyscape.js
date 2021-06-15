@@ -83,6 +83,7 @@ window.onload = function () {
             newRowNameElem.classList.add('taskName');
 
             newRowColourElem.id = tableName + "_colour_" + rowID;
+            newRowColourElem.classList.add('clickzone');
             newRowColourElem.classList.add('uncompleted');
 
             if (!!data[rowID].url) {
@@ -110,7 +111,6 @@ window.onload = function () {
 
             newRow.completed = false;
 
-            newRowNameElem.style.width = "80%";
             newRowColourElem.addEventListener("click", function () {
                 newRow.completed = !newRow.completed;
                 newRowColourElem.classList.toggle('uncompleted');
@@ -122,8 +122,8 @@ window.onload = function () {
 
         resetButton.addEventListener("click", function () {
             for (let rowID = 0; rowID < data.length; rowID++) {
-                document.getElementById(tableName + "_colour_" + rowID).classList.toggle('uncompleted');
-                document.getElementById(tableName + "_colour_" + rowID).classList.toggle('completed');
+                document.getElementById(tableName + "_colour_" + rowID).classList.remove('completed');
+                document.getElementById(tableName + "_colour_" + rowID).classList.add('uncompleted');
 
                 document.getElementById(tableName + "_row_" + rowID).completed = false;
             }
