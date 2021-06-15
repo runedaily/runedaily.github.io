@@ -1,7 +1,12 @@
+body {
+    background:#000;
+    color: #c3c3c3;
+}
+
 footer {
     text-align:center;
 }
 
 .muted a {
-    color:gray;
+    color:#777;
 }
