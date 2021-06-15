@@ -68,13 +68,12 @@ window.onload = function () {
 
     //RS3
     const rs3day = [
-        {daily: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter"},
-        {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System"},
-        {daily: "Broad Bolts (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads"},
-        {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes"},
-        {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366"},
-        {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers"},
-
+        {daily: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter", desc: "Use 2 free daily keys"},
+        {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", desc: "Get xp"},
+        {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes", desc: "~2m profit"},
+        {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366", desc: "~1m profit"},
+        {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", desc: "~320k profit"},
+        {daily: "Broad Bolts (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", desc: "~115k profit"},
         {daily: "Menaphos Obelisk ('SoulObby' FC)", url: "https://runescape.wiki/w/Soul_obelisk_(Menaphos)"},
         {daily: "Modified Skilling Helms", url: "https://runescape.wiki/w/Category:Modified_skill_helms"},
         {daily: "Nemi Forest ('NemiForest' FC)", url: "https://www.reddit.com/r/NemiForest/new/"},
@@ -167,9 +166,14 @@ window.onload = function () {
                 newRowNameElem.children[0].target = "_blank";
                 newRowNameElem.children[0].setAttribute('rel', 'noopener noreferrer');
                 newRowNameElem.children[0].innerHTML = data[rowID].daily;
+
+                if (!!data[rowID].desc) {
+                    newRowNameElem.children[1].innerHTML = data[rowID].desc;
+                }
             } else {
                 newRowNameElem.children[0].innerHTML = data[rowID];
             }
+
             console.log(!!data[rowID].url);
 
             if (rowID % 2 == 0) {
