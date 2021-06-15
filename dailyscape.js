@@ -101,9 +101,9 @@ window.onload = function () {
             console.log(!!data[rowID].url);
 
             if (rowID % 2 == 0) {
-                newRow.classList += " even_row";
+                newRow.classList.add('odd_row');
             } else {
-                newRow.classList += " odd_row";
+                newRow.classList.add('even_row')
             }
 
             tableElem.appendChild(newRow);
