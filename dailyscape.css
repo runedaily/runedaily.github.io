@@ -15,6 +15,10 @@ footer {
     background-color: #7D0A0A;
 }
 
+.even_row {
+    background-color: #333;
+}
+
 .muted a {
     color:#777;
 }
