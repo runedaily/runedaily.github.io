@@ -168,7 +168,7 @@ window.onload = function () {
                 newRowNameElem.children[0].innerHTML = data[rowID].daily;
 
                 if (!!data[rowID].desc) {
-                    newRowNameElem.children[1].innerHTML = data[rowID].desc;
+                    newRowColourElem.innerHTML = data[rowID].desc;
                 }
             } else {
                 newRowNameElem.children[0].innerHTML = data[rowID];
