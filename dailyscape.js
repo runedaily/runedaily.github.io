@@ -4,7 +4,7 @@ window.onload = function () {
         {daily: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter", short: true, desc: "Use 2 free daily keys"},
         {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", short: true, desc: "Get xp"},
         {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes", short: true, desc: "~2m profit"},
-        {daily: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true},
+        {daily: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "~18k profit Withdraw Soul/Fire, craft Air/Astral, teleport for vis"},
         {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366", short: true, desc: "~1m profit"},
         {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", short: true, desc: "~320k profit (or fletch headless arrows)"},
         {daily: "Broad Bolts (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, desc: "~115k profit"},
