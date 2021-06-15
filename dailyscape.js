@@ -53,7 +53,7 @@ window.onload = function () {
     const rs3month = [
         {daily: "Giant Oyster", url: "https://runescape.wiki/w/Giant_Oyster", short: true},
         {daily: "Troll Invasion", url: "https://runescape.wiki/w/Troll_Invasion", short: true},
-        {daily: "God Statues", url: "https://runescape.wiki/w/God_Statues", short: true,
+        {daily: "God Statues", url: "https://runescape.wiki/w/God_Statues", short: true},
         {daily: "Premier Club Vault", url: "https://runescape.wiki/w/Premier_Club_Vault", short: true}
     ];
 
