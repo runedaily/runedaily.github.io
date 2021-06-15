@@ -1,29 +1,4 @@
 window.onload = function () {
-    //Dayan
-    const dayanMain = ["Spins", "Divine Location", "Motherlode Maw", "Crystal Tree", "Crystal Sandstone", "Daily Challenge", "Red Sandstone",
-        "Modified Helms", "Oo'glog Feather Shop", "Taverley Slayer Shop", "Shilo Village Slayer Shop", "Shilo Village Feather Shop",
-        "Vis Wax", "Player Owned Ports", "Logs from Coeden", "Port Sarim Feather Shop", "Void Knight Runes Shop", "Lunar Isle Runes Shop",
-        "Magic Guild Runes Shop", "Edgeville Runes Shop"];
-
-    const dayanIron = ["Jack of Trades Aura", "Nemi Forest", "Daily Challenge", "Crystal Sandstone", "Red Sandstone", "Player Owned Ports",
-        "Taverley Slayer Shop", "Canifis Slayer Shop", "Aquarium", "Pineapples and Seaweed from Arhein", "Catherby Herb Patch",
-        "Catherby Fruit Tree", "Brimhaven Fruit Tree", "Modified Helms", "Serenity Posts"];
-
-    //Valesco
-    const valIron = ["Jack of Trades Aura", "Daily Challenge", "Player Owned Ports",
-        "Player Owned Farms", "Slayer Shop run", "Shop Run", "Modified Helms",
-        "VisWax", "Merchant", "Ooglog Meat Shop", "Sand Stone", "Reaper Task"];
-
-    //Akazaron
-    const akazaronDaily = ["Jack of Trades Aura", "Daily Challenge", "Player Owned Ports",
-        "Player Owned Farms", "Slayer Shop run", "Shop Run", "Modified Helms",
-        "VisWax", "Merchant", "Ooglog Meat Shop", "Sand Stone", "Reaper Task", "Soul Obby",
-        "Nemi Forest", "Jack of Trades", "Cache", "Wicked Hood Runes", "Big Chin"];
-
-    const akazaronWeekly = ["Meg", "Herby Werby", "Penguin", "Tears of Guthix", "Familiarisation"];
-
-    const akazaronMonthlies = ["Oyster", "Troll Invasion", "God Statues"];
-
     //Common Daily
     const commday = [
         {daily: "Treasure Hunter Keys (IronManBTW)", url: "https://runescape.wiki/w/Treasure_Hunter"},
