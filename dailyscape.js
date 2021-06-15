@@ -72,7 +72,7 @@ window.onload = function () {
         {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", desc: "Get xp"},
         {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes", desc: "~2m profit"},
         {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366", desc: "~1m profit"},
-        {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", desc: "~320k profit"},
+        {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", desc: "~320k profit (or fletch headless arrows)"},
         {daily: "Broad Bolts (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", desc: "~115k profit"},
         {daily: "Menaphos Obelisk ('SoulObby' FC)", url: "https://runescape.wiki/w/Soul_obelisk_(Menaphos)"},
         {daily: "Modified Skilling Helms", url: "https://runescape.wiki/w/Category:Modified_skill_helms"},
