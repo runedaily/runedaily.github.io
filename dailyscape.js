@@ -79,7 +79,9 @@ window.onload = function () {
 
             newRow.id = tableName + "_row_" + rowID;
             newRowNameElem.id = tableName + "_name_" + rowID;
+            newRowNameElem.classList.add('taskName');
             newRowColourElem.id = tableName + "_colour_" + rowID;
+            newRowColourElem.classList.add('uncompleted');
 
             if (!!data[rowID].url) {
                 newRowNameElem.children[0].href = data[rowID].url;
@@ -97,9 +99,9 @@ window.onload = function () {
             console.log(!!data[rowID].url);
 
             if (rowID % 2 == 0) {
-                newRowNameElem.classList += " even_row";
+                newRow.classList += " even_row";
             } else {
-                newRowNameElem.classList += " odd_row";
+                newRow.classList += " odd_row";
             }
 
             tableElem.appendChild(newRow);
@@ -110,6 +112,9 @@ window.onload = function () {
             newRowColourElem.style.backgroundColor = "#7D0A0A";
             newRowColourElem.addEventListener("click", function () {
                 newRow.completed = !newRow.completed;
+
+                newRowColourElem.classList.toggle('uncompleted');
+                newRowColourElem.classList.toggle('completed');
 
                 if (newRow.completed) {
                     newRowColourElem.style.backgroundColor = "#163600";
