@@ -78,8 +78,10 @@ window.onload = function () {
             let newRowColourElem = newRow.children[1];
 
             newRow.id = tableName + "_row_" + rowID;
+
             newRowNameElem.id = tableName + "_name_" + rowID;
             newRowNameElem.classList.add('taskName');
+
             newRowColourElem.id = tableName + "_colour_" + rowID;
             newRowColourElem.classList.add('uncompleted');
 
@@ -109,18 +111,10 @@ window.onload = function () {
             newRow.completed = false;
 
             newRowNameElem.style.width = "80%";
-            newRowColourElem.style.backgroundColor = "#7D0A0A";
             newRowColourElem.addEventListener("click", function () {
                 newRow.completed = !newRow.completed;
-
                 newRowColourElem.classList.toggle('uncompleted');
                 newRowColourElem.classList.toggle('completed');
-
-                if (newRow.completed) {
-                    newRowColourElem.style.backgroundColor = "#163600";
-                } else {
-                    newRowColourElem.style.backgroundColor = "#7D0A0A";
-                }
             });
         }
 
@@ -128,7 +122,9 @@ window.onload = function () {
 
         resetButton.addEventListener("click", function () {
             for (let rowID = 0; rowID < data.length; rowID++) {
-                document.getElementById(tableName + "_colour_" + rowID).style.backgroundColor = "#7D0A0A";
+                document.getElementById(tableName + "_colour_" + rowID).classList.toggle('uncompleted');
+                document.getElementById(tableName + "_colour_" + rowID).classList.toggle('completed');
+
                 document.getElementById(tableName + "_row_" + rowID).completed = false;
             }
         });

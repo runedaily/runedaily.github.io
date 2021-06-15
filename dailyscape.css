@@ -7,6 +7,14 @@ footer {
     text-align:center;
 }
 
+.completed {
+    background-color: #163600;
+}
+
+.uncompleted {
+    background-color: #7D0A0A;
+}
+
 .muted a {
     color:#777;
 }
