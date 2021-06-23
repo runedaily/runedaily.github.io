@@ -39,7 +39,7 @@ window.onload = function () {
     ];
 
     const rs3week = [
-        {daily: "Capping Clan Citadel", url: "https://runescape.wiki/w/Clan_Citadel"},
+        {daily: "Capping Clan Citadel", url: "https://runescape.wiki/w/Clan_Citadel", short: true, desc: "Get skill xp, set xp bonus, make clan happy"},
         {daily: "Meg", url: "https://runescape.wiki/w/Meg", short: true},
         {daily: "Tears of Guthix", url: "https://runescape.wiki/w/Tears_of_Guthix", short: true},
         {daily: "Agoroth (Twice)", url: "https://runescape.wiki/w/Agoroth", short: true},
