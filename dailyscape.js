@@ -39,11 +39,11 @@ window.onload = function () {
     ];
 
     const rs3week = [
+        {daily: "Capping Clan Citadel", url: "https://runescape.wiki/w/Clan_Citadel"},
+        {daily: "Meg", url: "https://runescape.wiki/w/Meg", short: true},
+        {daily: "Tears of Guthix", url: "https://runescape.wiki/w/Tears_of_Guthix", short: true},
         {daily: "Agoroth (Twice)", url: "https://runescape.wiki/w/Agoroth", short: true},
         {daily: "Penguin Hide and Seek", url: "http://2016.world60pengs.com/", short: true},
-        {daily: "Tears of Guthix", url: "https://runescape.wiki/w/Tears_of_Guthix", short: true},
-        {daily: "Meg", url: "https://runescape.wiki/w/Meg", short: true},
-        {daily: "Capping Clan Citadel", url: "https://runescape.wiki/w/Clan_Citadel"},
         {daily: "Shattered Worlds", url: "https://runescape.wiki/w/Shattered_Worlds", short: true},
         {daily: "Familiarisation", url: "https://runescape.wiki/w/Familiarisation"},
         {daily: "Replay Broken Home", url: "https://runescape.wiki/w/Broken_Home/Quick_guide"},
