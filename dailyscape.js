@@ -2,7 +2,7 @@ window.onload = function () {
     //RS3
     const rs3day = [
         {daily: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter", short: true, desc: "Use 2 free daily keys"},
-        {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", short: true, desc: "Get xp"},
+        {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", short: true, desc: "Get xp, treasure hunter key"},
         {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes", short: true, desc: "~2m profit"},
         {daily: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "~18k profit Withdraw Soul/Fire, craft Air/Astral, teleport for vis"},
         {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366", short: true, desc: "~1m profit"},
