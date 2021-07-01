@@ -8,7 +8,7 @@ window.onload = function () {
         {daily: "VisWax", url: "http://services.runescape.com/m=forum/forums.ws?75,76,331,66006366", short: true, desc: "~1m profit"},
         {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", short: true, desc: "~29k profit per shop (11k feathers) up to ~319k profit<br>(or <a href=\"https://runescape.wiki/w/Money_making_guide/Fletching_headless_arrows\" target=\"_blank\" rel=\"noreferrer noopener\">fletch headless arrows</a> from yew logs - ~341k profit per 11k up to ~3.75m profit)"}, // 11k headless arrows = 517k - 11k feathers cost 81000, 315 yew logs = 94,500 profit 341500
         {daily: "Broad Arrowheads (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, desc: "~96k profit"},
-        {daily: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true},
+        {daily: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer. Get resources for ~300k profit"},
         {daily: "Modified Skilling Helms", url: "https://runescape.wiki/w/Category:Modified_skill_helms", short: true},
         {daily: "Nemi Forest ('NemiForest' FC)", url: "https://www.reddit.com/r/NemiForest/new/", short: true},
         {daily: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines", short: true},
