@@ -43,7 +43,7 @@ window.onload = function () {
         {daily: "Meg", url: "https://runescape.wiki/w/Meg", short: true, desc: "XP lamp and coins"},
         {daily: "Tears of Guthix", url: "https://runescape.wiki/w/Tears_of_Guthix", short: true, desc: "Gain xp for lowest level skill"},
         {daily: "Big Top Bonanza", url: "https://runescape.wiki/w/Balthazar_Beauregard%27s_Big_Top_Bonanza", short: true, desc: "Do circus tricks for xp"},
-        {daily: "Wisps of the Grove", url: "https://runescape.wiki/w/Wisps_of_the_Grove"},
+        {daily: "Wisps of the Grove", url: "https://runescape.wiki/w/Wisps_of_the_Grove", desc: "Farming & Hunting XP, Vinny pet"},
         {daily: "Agoroth (Twice)", url: "https://runescape.wiki/w/Agoroth", short: true},
         {daily: "Penguin Hide and Seek", url: "http://2016.world60pengs.com/", short: true},
         {daily: "Shattered Worlds", url: "https://runescape.wiki/w/Shattered_Worlds", short: true},
