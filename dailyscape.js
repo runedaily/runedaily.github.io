@@ -11,7 +11,7 @@ window.onload = function () {
         {daily: "Meat Packs from Oo'glog", url: "https://runescape.wiki/w/Money_making_guide/Buying_Meat_from_Oo%27glog", short: true, desc: "Buy raw meat packs 43k, sell for ~460k profit"},
         {daily: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true, desc: "Buy vial of water + eye of newt packs and bomb vials for ~270k profit"},
         {daily: "Yak Hide", url: "https://runescape.wiki/w/Money_making_guide/Buying_yak-hide", short: true, desc: "Buy Yak Hide packs for ~109k profit"},
-        {daily: "Broad Arrowheads (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, desc: "~96k profit"},
+        {daily: "Broad Arrowheads (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, desc: "~156k profit"},
         {daily: "Modified Skilling Helms", url: "https://runescape.wiki/w/Category:Modified_skill_helms", short: true},
         {daily: "Nemi Forest ('NemiForest' FC)", url: "https://www.reddit.com/r/NemiForest/new/", short: true},
         {daily: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines", short: true},
