@@ -5,7 +5,7 @@ window.onload = function () {
         {daily: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", short: true, desc: "Get xp, treasure hunter key"},
         {daily: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "~85k profit - Withdraw Soul/Fire, see <a href=\"https://runescape.wiki/w/Wicked_hood#Runecrafting\" target=\"_blank\" rel=\"noreferrer noopener\">crafting profitability table</a>, teleport for vis"},
         {daily: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes", short: true, desc: "~2m profit"},
-        {daily: "VisWax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "~1m profit"},
+        {daily: "VisWax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "~500k profit"},
         {daily: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", short: true, desc: "~29k profit per shop (11k feathers) up to ~319k profit<br>(or <a href=\"https://runescape.wiki/w/Money_making_guide/Fletching_headless_arrows\" target=\"_blank\" rel=\"noreferrer noopener\">fletch headless arrows</a> from yew logs - ~341k profit per 11k up to ~3.75m profit)"}, // 11k headless arrows = 517k - 11k feathers cost 81000, 315 yew logs = 94,500 profit 341500
         {daily: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer. Get resources for ~300k profit"},
         {daily: "Meat Packs from Oo'glog", url: "https://runescape.wiki/w/Money_making_guide/Buying_Meat_from_Oo%27glog", short: true, desc: "Buy raw meat packs 43k, sell for ~460k profit"},
