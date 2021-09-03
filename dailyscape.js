@@ -12,6 +12,8 @@ window.onload = function () {
         {daily: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true, desc: "Buy vial of water + eye of newt packs and bomb vials for ~270k profit"},
         {daily: "Yak Hide", url: "https://runescape.wiki/w/Money_making_guide/Buying_yak-hide", short: true, desc: "Buy Yak Hide packs for ~109k profit"},
         {daily: "Broad Arrowheads (Taverly Shop + Other Slayer Master)", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, desc: "~96k profit"},
+        {daily: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask"},
+        {daily: "Crystal Sand Stone", url: "https://runescape.wiki/w/Crystal-flecked_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask"},
         {daily: "Modified Skilling Helms", url: "https://runescape.wiki/w/Category:Modified_skill_helms", short: true},
         {daily: "Nemi Forest ('NemiForest' FC)", url: "https://www.reddit.com/r/NemiForest/new/", short: true},
         {daily: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines", short: true},
@@ -22,8 +24,7 @@ window.onload = function () {
         {daily: "Soul Reaper", url: "https://runescape.wiki/w/Soul_Reaper", short: true},
         {daily: "Traveling Merchant ('WhirlPoolDnD' FC)", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop", short: true},
         {daily: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw", short: true},
-        {daily: "Crystal Sand Stone", url: "https://runescape.wiki/w/Crystal-flecked_sandstone", short: true},
-        {daily: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone", short: true},
+
         {daily: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true},
         {daily: "Player Owned Ports", url: "https://runescape.wiki/w/Player-owned_port", short: true},
         {daily: "Bloodwood Tree (Every 6H)", url: "https://runescape.wiki/w/Bloodwood_tree", short: true},
