@@ -48,6 +48,7 @@ window.onload = function () {
         {daily: "Big Top Bonanza", url: "https://runescape.wiki/w/Balthazar_Beauregard%27s_Big_Top_Bonanza", short: true, desc: "Do circus tricks for xp"},
         {daily: "Charge Anachronia Totems", url: "https://runescape.wiki/w/Totem", desc: "Recharge totems weekly and optionally swap out"},
         {daily: "Wisps of the Grove", url: "https://runescape.wiki/w/Wisps_of_the_Grove", desc: "Farming & Hunting XP, Vinny pet"},
+        {daily: "Herby Werby", url: "https://runescape.wiki/w/Herby_Werby", desc: "Herb bag and Totem pieces"},
         {daily: "Agoroth (Twice)", url: "https://runescape.wiki/w/Agoroth", short: true},
         {daily: "Penguin Hide and Seek", url: "http://2016.world60pengs.com/", short: true},
         {daily: "Shattered Worlds", url: "https://runescape.wiki/w/Shattered_Worlds", short: true},
