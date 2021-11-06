@@ -61,6 +61,7 @@ window.onload = function () {
         {daily: "Giant Oyster", url: "https://runescape.wiki/w/Giant_Oyster", short: true},
         {daily: "Troll Invasion", url: "https://runescape.wiki/w/Troll_Invasion", short: true},
         {daily: "God Statues", url: "https://runescape.wiki/w/God_Statues", short: true},
+        {daily: "Effigy Incubator", url: "https://runescape.wiki/w/Effigy_Incubator", short: true},
         {daily: "Solomon's Store", url: "https://secure.runescape.com/m=mtxn_rs_shop/index?jptg=ia&jptv=sgs_page#category/FreeItem", short: true, desc: "Free cosmetics, check loyalty points and sales"},
         {daily: "Premier Club Vault", url: "https://runescape.wiki/w/Premier_Club_Vault", short: true}
     ];
