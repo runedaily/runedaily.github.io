@@ -1,6 +1,33 @@
 body {
     background:#000;
     color: #c3c3c3;
+    padding-top: 75px;
+}
+
+.table_container {
+    padding-top: 75px;
+    margin-top: -75px;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color: #343a40;
+
+}
+
+.navbar-nav > li > .dropdown-menu > a {
+    color: #FFF;
+}
+
+.navbar-nav > li > .dropdown-menu > a:hover{
+    color: #000;
+}
+
+.activity_table th {
+    font-size: 1.5em;
+}
+
+.activity_table a {
+    color: #FFF;
 }
 
 footer {

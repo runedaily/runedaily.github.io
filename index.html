@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Runescape daily tracker</title>
+    <title>Runescape Dailies, Weeklies and Monthlies</title>
 
     <meta charset="utf-8">
     <link rel="shortcut icon" href="TkiKjWM.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="dailyscape.css?v=1">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
     <script src="dailyscape.js?v=2"></script>
 </head>
 <body>
 
-<nav class="navbar nav-pills navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-        <span class="navbar-brand">Runescape Daily Checker</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a href="#rs3daily_table" class="nav-link">Dailies</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#rs3weekly_table" class="nav-link">Weeklies</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#rs3monthly_table" class="nav-link">Monthlies</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More Resources
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://reddit.com/r/runescape/" target="_blank" rel="noreferrer noopener">RS3 Reddit</a>
-                        <a class="dropdown-item" href="https://www.reddit.com/r/runescape/comments/aln4jy/whatre_your_dailyscape_routines/" target="_blank" rel="noreferrer noopener">Old dailyscape links</a>
-                        <a class="dropdown-item" href="https://runescape.wiki/w/Distractions_and_Diversions" target="_blank" rel="noreferrer noopener">Distractions and Diversions</a>
-                        <a class="dropdown-item" href="https://runescape.wiki/w/RuneScape:Grand_Exchange_Market_Watch/Alchemy" target="_blank" rel="noreferrer noopener">High Alchemy</a>
-                        <a class="dropdown-item" href="https://runescape.wiki/w/Overload#Production_costs" target="_blank" rel="noreferrer noopener">Overload Crafting</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <span class="navbar-brand">Runescape Repeatables</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href="#dailies" class="nav-link">Dailies</a>
+            </li>
+            <li class="nav-item">
+                <a href="#weeklies" class="nav-link">Weeklies</a>
+            </li>
+            <li class="nav-item">
+                <a href="#monthlies" class="nav-link">Monthlies</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More Resources
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://reddit.com/r/runescape/" target="_blank" rel="noreferrer noopener">RS3 Reddit</a>
+                    <a class="dropdown-item" href="https://www.reddit.com/r/runescape/comments/aln4jy/whatre_your_dailyscape_routines/" target="_blank" rel="noreferrer noopener">Old dailyscape links</a>
+                    <a class="dropdown-item" href="https://runescape.wiki/w/Distractions_and_Diversions" target="_blank" rel="noreferrer noopener">Distractions and Diversions</a>
+                    <a class="dropdown-item" href="https://runescape.wiki/w/RuneScape:Grand_Exchange_Market_Watch/Alchemy" target="_blank" rel="noreferrer noopener">High Alchemy</a>
+                    <a class="dropdown-item" href="https://runescape.wiki/w/Overload#Production_costs" target="_blank" rel="noreferrer noopener">Overload Crafting</a>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>
 
-<div class="table_container">
-    <table id="rs3daily_table" class="activity_table table table-striped">
-        <tr>
-            <th>Dailies</th>
-            <td>
-                <button id="rs3daily_reset_button" class="reset_button btn btn-secondary active">Reset</button>
-            </td>
-        </tr>
-    </table>
-</div>
-<div class="table_container">
-    <table id="rs3weekly_table" class="activity_table table table table-striped">
-        <tr>
-            <th>Weeklies</th>
-            <td>
-                <button id="rs3weekly_reset_button" class="reset_button btn btn-secondary active">Reset</button>
-            </td>
-        </tr>
-    </table>
-</div>
-<div class="table_container">
-    <table id="rs3monthly_table" class="activity_table table table table-striped">
-        <tr>
-            <th>Monthlies</th>
-            <td>
-                <button id="rs3monthly_reset_button" class="reset_button btn btn-secondary active">Reset</button>
-            </td>
-        </tr>
-    </table>
+<div class="container-xl">
+    <div class="table_container" id="dailies">
+        <table id="rs3daily_table" class="activity_table table table-dark table-striped table-hover">
+            <tr>
+                <th>Dailies</th>
+                <td>
+                    <button id="rs3daily_reset_button" class="reset_button btn btn-secondary active">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="table_container" id="weeklies">
+        <table id="rs3weekly_table" class="activity_table table table-dark table-striped table-hover">
+            <tr>
+                <th>Weeklies</th>
+                <td>
+                    <button id="rs3weekly_reset_button" class="reset_button btn btn-secondary active">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="table_container" id="monthlies">
+        <table id="rs3monthly_table" class="activity_table table table-dark table-striped table-hover">
+            <tr>
+                <th>Monthlies</th>
+                <td>
+                    <button id="rs3monthly_reset_button" class="reset_button btn btn-secondary active">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <table style="visibility:hidden">
