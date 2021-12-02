@@ -7,11 +7,11 @@ body {
 .table_container {
     padding-top: 75px;
     margin-top: -75px;
+    margin-bottom: 75px;
 }
 
 .navbar-nav > li > .dropdown-menu {
     background-color: #343a40;
-
 }
 
 .navbar-nav > li > .dropdown-menu > a {
@@ -29,6 +29,7 @@ body {
 .activity_table td.activity_name {
     padding:0;
     height: 100%;
+    width: 70%;
     min-height:50px;
     position:relative;
 }
@@ -52,40 +53,32 @@ body {
     color: #4083ca;
 }
 
-.activity_colour a,
-.activity_colour a:active,
-.activity_colour a:link,
-.activity_colour a:visited {
+.activity_table td.activity_colour {
+    cursor: pointer;
+}
+
+.activity_table td.activity_colour a,
+.activity_table td.activity_colour a:active,
+.activity_table td.activity_colour a:link,
+.activity_table td.activity_colour a:visited {
     color: #FFF;
     text-decoration: underline;
 }
 
-.activity_colour a:hover {
+.activity_table td.activity_colour a:hover {
     color: #4083ca;
+}
+
+.activity_table tr[data-completed="true"] .activity_colour {
+    background-color: #163600;
+}
+
+.activity_table tr[data-completed="false"] .activity_colour {
+    background-color: #590505;
 }
 
 footer {
     text-align:center;
-}
-
-.taskName {
-    width: 70%;
-}
-
-.clickzone {
-    cursor: pointer;
-}
-
-.completed {
-    background-color: #163600;
-}
-
-.uncompleted {
-    background-color: #590505;
-}
-
-.even_row {
-    background-color: #111;
 }
 
 .muted a {

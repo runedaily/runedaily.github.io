@@ -66,7 +66,9 @@ window.onload = function () {
         {daily: "Premier Club Vault", url: "https://runescape.wiki/w/Premier_Club_Vault", short: true}
     ];
 
-    const rowElem = document.getElementById("sample_row");
+    const rowElem = document.querySelector('#sample_row');
+
+    const storage = window.localStorage;
 
     //RS3
     populateTable("rs3daily", rs3day);
@@ -74,7 +76,7 @@ window.onload = function () {
     populateTable("rs3monthly", rs3month);
 
     function populateTable(tableName, data) {
-        let tableElem = document.getElementById(tableName + "_table");
+        let tableElem = document.querySelector('#' + tableName + '_table tbody');
 
         if (!tableElem) {
             console.warn("Table does not exist: " + tableName);
@@ -85,56 +87,54 @@ window.onload = function () {
             let newRow = rowElem.cloneNode(true);
             let newRowNameElem = newRow.children[0];
             let newRowColourElem = newRow.children[1];
+            let newRowNameAnchor = newRowNameElem.firstChild;
 
             newRow.id = tableName + "_row_" + rowID;
-
             newRowNameElem.id = tableName + "_name_" + rowID;
-            newRowNameElem.classList.add('taskName');
-
             newRowColourElem.id = tableName + "_colour_" + rowID;
-            newRowColourElem.classList.add('clickzone');
-            newRowColourElem.classList.add('uncompleted');
 
             if (!!data[rowID].url) {
-                newRowNameElem.children[0].href = data[rowID].url;
-                newRowNameElem.children[0].target = "_blank";
-                newRowNameElem.children[0].setAttribute('rel', 'noopener noreferrer');
-                newRowNameElem.children[0].innerHTML = data[rowID].daily;
+                newRowNameAnchor.href = data[rowID].url;
+                newRowNameAnchor.target = "_blank";
+                newRowNameAnchor.setAttribute('rel', 'noopener noreferrer');
+                newRowNameAnchor.innerHTML = data[rowID].daily;
 
                 if (!!data[rowID].desc) {
                     newRowColourElem.innerHTML = data[rowID].desc;
                 }
             } else {
-                newRowNameElem.children[0].innerHTML = data[rowID];
+                newRowNameAnchor.innerHTML = data[rowID];
             }
 
-            console.log(!!data[rowID].url);
-
-            if (rowID % 2 == 0) {
-                newRow.classList.add('odd_row');
-            } else {
-                newRow.classList.add('even_row')
-            }
+            let taskName = newRowNameAnchor.innerHTML;
+            let taskState = storage.getItem(taskName) ?? 'false';
 
             tableElem.appendChild(newRow);
 
-            newRow.completed = false;
+            newRow.dataset.completed = taskState;
 
             newRowColourElem.addEventListener("click", function () {
-                newRow.completed = !newRow.completed;
-                newRowColourElem.classList.toggle('uncompleted');
-                newRowColourElem.classList.toggle('completed');
+                console.log( newRow.dataset.completed);
+
+                let newState = (newRow.dataset.completed === 'true') ? 'false' : 'true'
+                newRow.dataset.completed = newState;
+
+                if (newState === 'true') {
+                    storage.setItem(taskName, newState)
+                } else {
+                    storage.removeItem(taskName);
+                }
             });
         }
 
-        let resetButton = document.getElementById(tableName + "_reset_button");
-
+        let resetButton = document.querySelector('#' + tableName + '_reset_button');
         resetButton.addEventListener("click", function () {
             for (let rowID = 0; rowID < data.length; rowID++) {
-                document.getElementById(tableName + "_colour_" + rowID).classList.remove('completed');
-                document.getElementById(tableName + "_colour_" + rowID).classList.add('uncompleted');
+                let rowTarget = document.querySelector('#' + tableName + '_row_' + rowID);
+                rowTarget.dataset.completed = false;
 
-                document.getElementById(tableName + "_row_" + rowID).completed = false;
+                let taskName = rowTarget.querySelector('.activity_name a').innerHTML;
+                storage.removeItem(taskName);
             }
         });
     }
