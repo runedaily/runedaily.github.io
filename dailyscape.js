@@ -11,6 +11,7 @@ var rs3daily = [
     {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
     {task: "Bloodwood Tree", url: "https://runescape.wiki/w/Bloodwood_tree", desc: "Fletch bakriminel bolts. Every 6H"},
     {task: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw", short: true, desc: "Receive treasure from motherlode maw"},
+    {task: "Gorajo Card", url: "https://runescape.wiki/w/Gorajo_card", short: true, desc: "Consistent yak card gives a guaranteed Meilyr combination potion recipe"},
 
     {task: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "~85k profit - Withdraw Soul/Fire, see <a href=\"https://runescape.wiki/w/Wicked_hood#Runecrafting\" target=\"_blank\" rel=\"noreferrer noopener\">crafting profitability table</a>, teleport for vis"},
     {task: "VisWax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "~500k profit"},
@@ -25,6 +26,7 @@ var rs3daily = [
     {task: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true, shop: true, desc: "Buy vial of water + eye of newt packs and bomb vials for ~270k profit"},
     {task: "Yak Hide", url: "https://runescape.wiki/w/Money_making_guide/Buying_yak-hide", short: true, shop: true, desc: "Buy Yak Hide packs for ~109k profit"},
     {task: "Broad Arrowheads", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, shop: true, desc: "~96k profit (Taverly Shop + Other Slayer Master)"},
+
 
     {task: "Nemi Forest", url: "https://www.reddit.com/r/NemiForest/new/", desc: "'NemiForest' FC"},
     {task: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache", desc: "Divination D&D"},
