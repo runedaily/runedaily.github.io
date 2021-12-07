@@ -138,4 +138,69 @@ window.onload = function () {
             }
         });
     }
+
+    const countdownDaily = function () {
+        let nextmidnight = new Date();
+        nextmidnight.setUTCHours(24);
+        nextmidnight.setUTCMinutes(0);
+        nextmidnight.setUTCSeconds(0);
+
+        let nowtime = new Date();
+        let remainingtime = (nextmidnight.getTime() - nowtime.getTime()) / 1000;
+
+        let returndata = [
+            Math.floor(remainingtime % 86400 / 3600), //h
+            Math.floor(remainingtime % 3600 / 60), //m
+            Math.floor(remainingtime % 60) //s
+        ];
+
+        document.getElementById('countdown-daily').innerHTML = returndata[0].toString().padStart(2, '0') + ':' + returndata[1].toString().padStart(2, '0') + ':' + returndata[2].toString().padStart(2, '0');
+    }
+    setInterval(countdownDaily, 1000);
+
+    const countdownWeekly = function () {
+        let resetday = 3;
+        let nextweek = new Date();
+        nextweek.setUTCHours(0);
+        nextweek.setUTCMinutes(0);
+        nextweek.setUTCSeconds(0);
+
+        nextweek.setUTCDate(nextweek.getUTCDate() + (resetday + ( 7 - nextweek.getUTCDay()) ) % 7);
+
+        let nowtime = new Date();
+        let remainingtime = (nextweek.getTime() - nowtime.getTime()) / 1000;
+
+        let returndata = [
+            Math.floor(remainingtime / 86400), //d
+            Math.floor(remainingtime % 86400 / 3600), //h
+            Math.floor(remainingtime % 3600 / 60), //m
+            Math.floor(remainingtime % 60) //s
+        ];
+
+        document.getElementById('countdown-weekly').innerHTML = returndata[0].toString().padStart(2, '0') + ':' + returndata[1].toString().padStart(2, '0') + ':' + returndata[2].toString().padStart(2, '0') + ':' + returndata[3].toString().padStart(2, '0');
+    }
+    setInterval(countdownWeekly, 1000);
+
+    const countdownMonthly = function () {
+        let nextmonth = new Date();
+        nextmonth.setUTCHours(24);
+        nextmonth.setUTCMinutes(0);
+        nextmonth.setUTCSeconds(0);
+
+        nextmonth.setUTCMonth(nextmonth.getUTCMonth() + 1);
+        nextmonth.setUTCDate(1);
+
+        let nowtime = new Date();
+        let remainingtime = (nextmonth.getTime() - nowtime.getTime()) / 1000;
+
+        let returndata = [
+            Math.floor(remainingtime / 86400), //d
+            Math.floor(remainingtime % 86400 / 3600), //h
+            Math.floor(remainingtime % 3600 / 60), //m
+            Math.floor(remainingtime % 60) //s
+        ];
+
+        document.getElementById('countdown-monthly').innerHTML = returndata[0].toString().padStart(2, '0') + ':' + returndata[1].toString().padStart(2, '0') + ':' + returndata[2].toString().padStart(2, '0') + ':' + returndata[3].toString().padStart(2, '0');
+    }
+    setInterval(countdownMonthly, 1000);
 };

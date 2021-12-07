@@ -77,6 +77,10 @@ body {
     background-color: #590505;
 }
 
+.countdown {
+    font-size: 1rem;
+}
+
 footer {
     text-align:center;
 }
