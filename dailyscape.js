@@ -213,10 +213,18 @@ const countDown = function(timeFrame) {
 };
 
 window.onload = function () {
-    for (const timeFrame of ['rs3daily', 'rs3weekly', 'rs3monthly']) {
+    const timeframes = ['rs3daily', 'rs3weekly', 'rs3monthly'];
+
+    for (const timeFrame of timeframes) {
         populateTable(timeFrame);
         checkReset(timeFrame);
         countDown(timeFrame);
-        setInterval(countDown, 1000, timeFrame);
     }
+
+    setInterval(function() {
+        for (const timeFrame of timeframes) {
+            checkReset(timeFrame);
+            countDown(timeFrame);
+        }
+    }, 1000);
 };
