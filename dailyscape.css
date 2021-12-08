@@ -2,6 +2,7 @@ body {
     background:#000;
     color: #c3c3c3;
     padding-top: 75px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 .table_container {
@@ -22,6 +23,16 @@ body {
     color: #000;
 }
 
+/* remove silly tbody top border from bs5 :/ */
+.table > :not(:first-child) {
+    border-top: 0;
+}
+
+/* reset padding back to what it was like in bs4 */
+.table > :not(caption) > * > * {
+    padding: 0.75rem;
+}
+
 .activity_table th {
     font-size: 1.5em;
 }
@@ -30,7 +41,8 @@ body {
     padding:0;
     height: 100%;
     width: 70%;
-    min-height:50px;
+    min-height:69px;
+    min-width: 300px;
     position:relative;
 }
 
@@ -45,7 +57,9 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    padding: .75rem;
+    padding: 1rem;
+    line-height: 1rem;
+    text-decoration: none;
 }
 
 .activity_table td.activity_name a:hover {
@@ -55,6 +69,7 @@ body {
 
 .activity_table td.activity_colour {
     cursor: pointer;
+    min-width: 300px;
 }
 
 .activity_table td.activity_colour a,
@@ -71,10 +86,12 @@ body {
 
 .activity_table tr[data-completed="true"] .activity_colour {
     background-color: #163600;
+    box-shadow: inset 0 0 0 9999px #163600;
 }
 
 .activity_table tr[data-completed="false"] .activity_colour {
     background-color: #590505;
+    box-shadow: inset 0 0 0 9999px #590505;
 }
 
 .countdown {

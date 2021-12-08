@@ -1,51 +1,53 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>RS3 Dailies, Weeklies and Monthlies</title>
-
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="TkiKjWM.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="dailyscape.css?v=5">
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <title>RS3 Dailies, Weeklies and Monthlies</title>
+    <link rel="shortcut icon" href="TkiKjWM.png">
 
-    <script src="dailyscape.js?v=5"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="dailyscape.css?v=6">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script src="dailyscape.js?v=6"></script>
 </head>
 <body>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <span class="navbar-brand">Runescape Repeatables</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a href="#dailies" class="nav-link">Dailies</a>
-            </li>
-            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a href="#weeklies" class="nav-link">Weeklies</a>
-            </li>
-            <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-                <a href="#monthlies" class="nav-link" >Monthlies</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    More Resources
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" data-toggle="collapse" data-target=".navbar-collapse.show">
-                    <a class="dropdown-item" href="https://reddit.com/r/runescape/" target="_blank" rel="noreferrer noopener">RS3 Reddit</a>
-                    <a class="dropdown-item" href="https://www.reddit.com/r/runescape/comments/aln4jy/whatre_your_dailyscape_routines/" target="_blank" rel="noreferrer noopener">Old dailyscape links</a>
-                    <a class="dropdown-item" href="https://runescape.wiki/w/Distractions_and_Diversions" target="_blank" rel="noreferrer noopener">Distractions and Diversions</a>
-                    <a class="dropdown-item" href="https://runescape.wiki/w/RuneScape:Grand_Exchange_Market_Watch/Alchemy" target="_blank" rel="noreferrer noopener">High Alchemy</a>
-                    <a class="dropdown-item" href="https://runescape.wiki/w/Overload#Production_costs" target="_blank" rel="noreferrer noopener">Overload Crafting</a>
-                    <a class="dropdown-item" href="https://pvme.github.io" target="_blank" rel="noreferrer noopener">PVM Encyclopedia</a>
-                </div>
-            </li>
-        </ul>
+    <div class="container-fluid">
+        <span class="navbar-brand">Runescape Repeatables</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a href="#dailies" class="nav-link">Dailies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#weeklies" class="nav-link">Weeklies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#monthlies" class="nav-link" >Monthlies</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More Resources
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://reddit.com/r/runescape/" target="_blank" rel="noreferrer noopener">RS3 Reddit</a>
+                        <a class="dropdown-item" href="https://www.reddit.com/r/runescape/comments/aln4jy/whatre_your_dailyscape_routines/" target="_blank" rel="noreferrer noopener">Old dailyscape links</a>
+                        <a class="dropdown-item" href="https://runescape.wiki/w/Distractions_and_Diversions" target="_blank" rel="noreferrer noopener">Distractions and Diversions</a>
+                        <a class="dropdown-item" href="https://runescape.wiki/w/RuneScape:Grand_Exchange_Market_Watch/Alchemy" target="_blank" rel="noreferrer noopener">High Alchemy</a>
+                        <a class="dropdown-item" href="https://runescape.wiki/w/Overload#Production_costs" target="_blank" rel="noreferrer noopener">Overload Crafting</a>
+                        <a class="dropdown-item" href="https://pvme.github.io" target="_blank" rel="noreferrer noopener">PVM Encyclopedia</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 

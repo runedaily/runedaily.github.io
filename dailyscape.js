@@ -212,6 +212,23 @@ const countDown = function(timeFrame) {
     document.getElementById('countdown-' + timeFrame).innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
 };
 
+/**
+ * Make bootstrap 5 dropdown menus collaps after link is clicked
+ * old method of adding `data-toggle="collapse" data-target=".navbar-collapse.show"` to the <li>s was preventing navigation by the same element
+ */
+const dropdownMenuHelper = function() {
+    const navLinks = document.querySelectorAll('.nav-item:not(.dropdown), .dropdown-item');
+    const menuToggle = document.getElementById('navbarSupportedContent');
+    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+    navLinks.forEach( function(l) {
+        l.addEventListener('click', function() {
+            if (menuToggle.classList.contains('show')) {
+                bsCollapse.toggle();
+            }
+        });
+    });
+}
+
 window.onload = function () {
     const timeframes = ['rs3daily', 'rs3weekly', 'rs3monthly'];
 
@@ -220,6 +237,8 @@ window.onload = function () {
         checkReset(timeFrame);
         countDown(timeFrame);
     }
+
+    dropdownMenuHelper();
 
     setInterval(function() {
         for (const timeFrame of timeframes) {
