@@ -104,6 +104,7 @@ body {
 
 .countdown {
     font-size: 1rem;
+    white-space: nowrap;
 }
 
 footer {
