@@ -74,7 +74,7 @@ const populateTable = function(timeFrame) {
     const targetTable = document.querySelector('#' + timeFrame + '_table tbody');
 
     if (!targetTable) {
-        console.warn("Table does not exist: " + timeFrame);
+        console.warn('Table does not exist: ' + timeFrame);
         return;
     }
 
@@ -102,7 +102,7 @@ const populateTable = function(timeFrame) {
 
         newRow.dataset.completed = taskState;
 
-        newRowColor.addEventListener("click", function () {
+        newRowColor.addEventListener('click', function () {
             let newState = (newRow.dataset.completed === 'true') ? 'false' : 'true'
             newRow.dataset.completed = newState;
 
@@ -117,7 +117,7 @@ const populateTable = function(timeFrame) {
     }
 
     let resetButton = document.querySelector('#' + timeFrame + '_reset_button');
-    resetButton.addEventListener("click", function () {
+    resetButton.addEventListener('click', function () {
         resetTable(timeFrame);
     });
 };
