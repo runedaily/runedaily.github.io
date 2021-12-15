@@ -1,5 +1,7 @@
 const storage = window.localStorage;
 
+var dragRow; //global for currently dragged row
+
 var rs3daily = [
     {task: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter", short: true, desc: "Use 2 free daily keys"},
     {task: "Traveling Merchant", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop", short: true, desc: "Buy rare items from traveling merchant in deep sea fishing hub ('WhirlPoolDnD' FC)"},
@@ -27,7 +29,6 @@ var rs3daily = [
     {task: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true, shop: true, desc: "Buy vial of water + eye of newt packs and bomb vials for ~270k profit"},
     {task: "Yak Hide", url: "https://runescape.wiki/w/Money_making_guide/Buying_yak-hide", short: true, shop: true, desc: "Buy Yak Hide packs for ~109k profit"},
     {task: "Broad Arrowheads", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, shop: true, desc: "~96k profit (Taverly Shop + Other Slayer Master)"},
-
 
     {task: "Nemi Forest", url: "https://www.reddit.com/r/NemiForest/new/", desc: "'NemiForest' FC"},
     {task: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache", desc: "Divination D&D"},
@@ -69,46 +70,39 @@ var rs3monthly = [
 const populateTable = function(timeFrame) {
     let data = window[timeFrame];
 
-    const rowElem = document.querySelector('#sample_row');
+    const sampleRow = document.querySelector('#sample_row');
+    const targetTable = document.querySelector('#' + timeFrame + '_table tbody');
 
-    let tableElem = document.querySelector('#' + timeFrame + '_table tbody');
-
-    if (!tableElem) {
+    if (!targetTable) {
         console.warn("Table does not exist: " + timeFrame);
         return;
     }
 
-    for (let rowID = 0; rowID < data.length; rowID++) {
-        let newRow = rowElem.cloneNode(true);
-        let newRowNameElem = newRow.children[0];
-        let newRowColourElem = newRow.children[1];
-        let newRowNameAnchor = newRowNameElem.firstChild;
+    for (let row in data) {
+        let rowClone = sampleRow.content.cloneNode(true);
+        let newRow = rowClone.querySelector('tr');
+        let newRowAnchor = rowClone.querySelector('td.activity_name a');
+        let newRowColor = rowClone.querySelector('td.activity_color');
 
-        newRow.id = timeFrame + "_row_" + rowID;
-        newRowNameElem.id = timeFrame + "_name_" + rowID;
-        newRowColourElem.id = timeFrame + "_colour_" + rowID;
+        if (!!data[row].url) {
+            newRowAnchor.href = data[row].url;
+            newRowAnchor.innerHTML = data[row].task;
 
-        if (!!data[rowID].url) {
-            newRowNameAnchor.href = data[rowID].url;
-            newRowNameAnchor.target = "_blank";
-            newRowNameAnchor.setAttribute('rel', 'noopener noreferrer');
-            newRowNameAnchor.innerHTML = data[rowID].task;
-
-            if (!!data[rowID].desc) {
-                newRowColourElem.innerHTML = data[rowID].desc;
+            if (!!data[row].desc) {
+                newRowColor.innerHTML = data[row].desc;
             }
         } else {
-            newRowNameAnchor.innerHTML = data[rowID];
+            newRowAnchor.innerHTML = data[row];
         }
 
-        let taskName = newRowNameAnchor.innerHTML;
+        let taskName = newRowAnchor.innerHTML;
         let taskState = storage.getItem(taskName) ?? 'false';
 
-        tableElem.appendChild(newRow);
+        targetTable.appendChild(newRow);
 
         newRow.dataset.completed = taskState;
 
-        newRowColourElem.addEventListener("click", function () {
+        newRowColor.addEventListener("click", function () {
             let newState = (newRow.dataset.completed === 'true') ? 'false' : 'true'
             newRow.dataset.completed = newState;
 
@@ -129,14 +123,65 @@ const populateTable = function(timeFrame) {
 };
 
 /**
+ * Attach drag and drop functionality after elements added to DOM
+ * @param {String} timeFrame
+ */
+const draggableTable = function(timeFrame) {
+
+    const targetRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
+
+    for (let row of targetRows) {
+        row.addEventListener('dragstart', function(e) {
+            dragRow = e.target;
+        });
+
+        row.addEventListener('dragenter', function(e) {
+            this.classList.add('dragover');
+        });
+
+        row.addEventListener('dragover', function(e) {
+            e.preventDefault();
+
+            //requery this in case rows already reordered since load
+            let rowArray = Array.from(document.querySelectorAll('#' + timeFrame + '_table tbody tr'));
+            let dragOverRow = e.target.closest('tr');
+
+            if (rowArray.indexOf(dragRow) < rowArray.indexOf(dragOverRow)) {
+                dragOverRow.after(dragRow);
+            } else {
+                dragOverRow.before(dragRow);
+            }
+        });
+
+        row.addEventListener('dragleave', function(e) {
+            this.classList.remove('dragover');
+        });
+
+        row.addEventListener('dragend', function(e) {
+            this.classList.remove('dragover');
+
+            for (let clearrow of targetRows) {
+                clearrow.classList.remove('dragover');
+            }
+        });
+
+        row.addEventListener('drop', function(e) {
+            e.stopPropagation();
+            return false;
+        });
+    }
+}
+
+/**
  * Takes a timeframe name and clear the associated localstorage and toggle the html data off
  * @param {String} timeFrame
  */
 const resetTable = function(timeFrame) {
     let data = window[timeFrame];
 
-    for (let rowID = 0; rowID < data.length; rowID++) {
-        let rowTarget = document.querySelector('#' + timeFrame + '_row_' + rowID);
+    const tableRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
+
+    for (const rowTarget of tableRows) {
         rowTarget.dataset.completed = false;
 
         let taskName = rowTarget.querySelector('.activity_name a').innerHTML;
@@ -148,7 +193,7 @@ const resetTable = function(timeFrame) {
 
 /**
  * Check if last updated timestamp for a timeframe is less than
- * the last reset for that timeframeif so reset the category
+ * the last reset for that timeframe if so reset the category
  * @param {String} timeFrame
  * @returns
  */
@@ -234,6 +279,7 @@ window.onload = function () {
 
     for (const timeFrame of timeframes) {
         populateTable(timeFrame);
+        draggableTable(timeFrame);
         checkReset(timeFrame);
         countDown(timeFrame);
     }
