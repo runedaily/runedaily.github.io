@@ -128,7 +128,7 @@ const populateTable = function(timeFrame) {
 
     let resetButton = document.querySelector('#' + timeFrame + '_reset_button');
     resetButton.addEventListener('click', function () {
-        resetTable(timeFrame);
+        resetTable(timeFrame, true);
     });
 };
 
@@ -197,7 +197,7 @@ const draggableTable = function(timeFrame) {
  * Takes a timeframe name and clear the associated localstorage and toggle the html data off
  * @param {String} timeFrame
  */
-const resetTable = function(timeFrame) {
+const resetTable = function(timeFrame, prompt) {
     let data = window[timeFrame];
 
     const tableRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
@@ -211,10 +211,12 @@ const resetTable = function(timeFrame) {
 
     storage.removeItem(timeFrame + '-updated');
 
-    var answer = window.confirm('Do you want to reset your custom sort order?');
-    if (answer) {
-        storage.removeItem(timeFrame + '-order');
-        window.location.reload();
+    if (prompt) {
+        var answer = window.confirm('Do you want to reset your custom sort order?');
+        if (answer) {
+            storage.removeItem(timeFrame + '-order');
+            window.location.reload();
+        }
     }
 };
 
@@ -248,7 +250,7 @@ const checkReset = function(timeFrame) {
     }
 
     if (updateTime.getTime() < nextdate.getTime()) {
-        resetTable(timeFrame);
+        resetTable(timeFrame, false);
     }
 };
 
