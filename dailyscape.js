@@ -78,6 +78,16 @@ const populateTable = function(timeFrame) {
         return;
     }
 
+    //User defined sorting
+    let customOrder = storage.getItem(timeFrame + '-order') ?? 'false';
+    if (customOrder !== 'false') {
+        let sortArray = customOrder.split(',');
+
+        data.sort(function(a, b){
+            return sortArray.indexOf(a.task) - sortArray.indexOf(b.task);
+        });
+    }
+
     for (let row in data) {
         let rowClone = sampleRow.content.cloneNode(true);
         let newRow = rowClone.querySelector('tr');
@@ -107,7 +117,7 @@ const populateTable = function(timeFrame) {
             newRow.dataset.completed = newState;
 
             if (newState === 'true') {
-                storage.setItem(taskName, newState)
+                storage.setItem(taskName, newState);
             } else {
                 storage.removeItem(taskName);
             }
@@ -142,7 +152,7 @@ const draggableTable = function(timeFrame) {
         row.addEventListener('dragover', function(e) {
             e.preventDefault();
 
-            //requery this in case rows already reordered since load
+            //requery this in case rows reordered since load
             let rowArray = Array.from(document.querySelectorAll('#' + timeFrame + '_table tbody tr'));
             let dragOverRow = e.target.closest('tr');
 
@@ -167,6 +177,17 @@ const draggableTable = function(timeFrame) {
 
         row.addEventListener('drop', function(e) {
             e.stopPropagation();
+
+            //save the order
+            let csv = [];
+            let rows = document.querySelectorAll('#' + timeFrame + '_table tbody tr td.activity_name a');
+
+            for (let row of rows) {
+                csv.push(row.innerHTML);
+            }
+
+            storage.setItem(timeFrame + '-order', csv.join(','));
+
             return false;
         });
     }
@@ -181,7 +202,7 @@ const resetTable = function(timeFrame) {
 
     const tableRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
 
-    for (const rowTarget of tableRows) {
+    for (let rowTarget of tableRows) {
         rowTarget.dataset.completed = false;
 
         let taskName = rowTarget.querySelector('.activity_name a').innerHTML;
@@ -189,6 +210,12 @@ const resetTable = function(timeFrame) {
     }
 
     storage.removeItem(timeFrame + '-updated');
+
+    var answer = window.confirm('Do you want to reset your custom sort order?');
+    if (answer) {
+        storage.removeItem(timeFrame + '-order');
+        window.location.reload();
+    }
 };
 
 /**
@@ -265,6 +292,7 @@ const dropdownMenuHelper = function() {
     const navLinks = document.querySelectorAll('.nav-item:not(.dropdown), .dropdown-item');
     const menuToggle = document.getElementById('navbarSupportedContent');
     const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+
     navLinks.forEach( function(l) {
         l.addEventListener('click', function() {
             if (menuToggle.classList.contains('show')) {
