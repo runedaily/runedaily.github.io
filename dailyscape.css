@@ -116,8 +116,21 @@ footer {
     text-align:center;
 }
 
-.muted a {
+footer a,
+footer a:active,
+footer a:link,
+footer a:visited {
     color:#777;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer a img {
+    height: 16px;
+    width: 16px;
 }
 
 @media (max-width: 767px) {
