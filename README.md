@@ -14,3 +14,5 @@
 ## Todo
 * Allow hiding of tasks and save preference in localStorage
 * Drag and drop reordering on mobile
+* After hiding is added, add more "complete" list of dailies 
+* Make profit calculations realtime by pulling from runescape or wiki api
