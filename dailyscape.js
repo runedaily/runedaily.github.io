@@ -125,11 +125,6 @@ const populateTable = function(timeFrame) {
             storage.setItem(timeFrame + '-updated', new Date().getTime());
         });
     }
-
-    let resetButton = document.querySelector('#' + timeFrame + '_reset_button');
-    resetButton.addEventListener('click', function () {
-        resetTable(timeFrame, true);
-    });
 };
 
 /**
@@ -170,8 +165,9 @@ const draggableTable = function(timeFrame) {
         row.addEventListener('dragend', function(e) {
             this.classList.remove('dragover');
 
-            for (let clearrow of targetRows) {
-                clearrow.classList.remove('dragover');
+            let clearRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
+            for (let clearRow of clearRows) {
+                clearRow.classList.remove('dragover');
             }
         });
 
@@ -219,6 +215,17 @@ const resetTable = function(timeFrame, prompt) {
         }
     }
 };
+
+/**
+ * Attach event listener to button for resetting table
+ * @param {String} timeFrame
+ */
+ const resetTableButton = function(timeFrame) {
+    let resetButton = document.querySelector('#' + timeFrame + '_reset_button');
+    resetButton.addEventListener('click', function () {
+        resetTable(timeFrame, true);
+    });
+}
 
 /**
  * Check if last updated timestamp for a timeframe is less than
@@ -287,7 +294,7 @@ const countDown = function(timeFrame) {
 };
 
 /**
- * Make bootstrap 5 dropdown menus collaps after link is clicked
+ * Make bootstrap 5 dropdown menus collapse after link is clicked
  * old method of adding `data-toggle="collapse" data-target=".navbar-collapse.show"` to the <li>s was preventing navigation by the same element
  */
 const dropdownMenuHelper = function() {
@@ -311,6 +318,7 @@ window.onload = function () {
         populateTable(timeFrame);
         draggableTable(timeFrame);
         checkReset(timeFrame);
+        resetTableButton(timeFrame);
         countDown(timeFrame);
     }
 
