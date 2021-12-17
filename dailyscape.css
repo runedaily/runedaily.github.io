@@ -102,6 +102,11 @@ body {
     box-shadow: inset 0 0 0 9999px #3b0404;
 }
 
+.item_icon {
+    height:16px;
+    width:16px;
+}
+
 .countdown {
     font-size: 1rem;
     white-space: nowrap;
