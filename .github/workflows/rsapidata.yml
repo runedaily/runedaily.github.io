@@ -1,0 +1,19 @@
+name: rsapidata
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
+
+jobs:
+  availableLanguages:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - shell: bash
+      env:
+        API_DATA_FILE: ./data/rsapidata.js
+        ACTIONS_USER: ${{ secrets.ACTIONS_USER }}
+        ACTIONS_EMAIL: ${{ secrets.ACTIONS_EMAIL }}
+      run: |
+        bash ./.github/scripts/rsapidata.sh
