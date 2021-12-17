@@ -66,7 +66,7 @@ done
 if (( $curl_status == 0 )); then
     new_data+="};"
 
-    echo -en ${new_data} > ${API_DATA_FILE}
+    echo -e ${new_data} > ${API_DATA_FILE}
 
     if [[ ! -z $ACTIONS_USER ]] && [[ ! -z $ACTIONS_EMAIL ]]; then
         git config --global user.name "{$ACTIONS_USER}"
