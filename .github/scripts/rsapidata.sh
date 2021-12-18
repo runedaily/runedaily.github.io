@@ -67,14 +67,6 @@ if (( $curl_status == 0 )); then
     new_data+="};"
 
     echo -e ${new_data} > ${API_DATA_FILE}
-
-    if [[ ! -z $ACTIONS_USER ]] && [[ ! -z $ACTIONS_EMAIL ]]; then
-        git config --global user.name "{$ACTIONS_USER}"
-        git config --global user.email "{$ACTIONS_EMAIL}"
-        git add ${GITHUB_WORKSPACE}/data/rsapidata.json
-        git commit -m "API Data fetch"
-        git push
-    fi
 else
     exit ${curl_status}
 fi

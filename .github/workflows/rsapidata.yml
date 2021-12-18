@@ -17,3 +17,7 @@ jobs:
         ACTIONS_EMAIL: ${{ secrets.ACTIONS_EMAIL }}
       run: |
         bash ./.github/scripts/rsapidata.sh
+        git config --global user.name '${{ secrets.ACTIONS_USER }}'
+        git config --global user.email '${{ secrets.ACTIONS_EMAIL }}'
+        git commit -am "API Data fetch"
+        git push
