@@ -36,14 +36,20 @@ itemlist=(
 '221' #eye of newt
 '48961' #bomb vial
 '40303' #feather of ma'at
+'1517' #maple logs
+'6332' #mahogany logs
+'24116' #bakriminel bolts
+'23191' #potion flask
+'32843' #crystal flask
 )
 
-new_data="var rsapidata = {\n"
+new_data="{\n"
 
 length=${#itemlist[@]}
 current=0
 
 curl_status=0
+empty_response=0
 
 for items in "${itemlist[@]}"; do
     item=($items)
@@ -51,6 +57,7 @@ for items in "${itemlist[@]}"; do
 
     curl_response=$(curl -Ssf https://secure.runescape.com/m=itemdb_rs/api/catalogue/detail.json?item=${item[0]})
     curl_status=$?
+
     if test "$curl_status" != "0"; then
         break
     fi
@@ -64,10 +71,19 @@ for items in "${itemlist[@]}"; do
     fi
 done
 
-if (( $curl_status == 0 )); then
-    new_data+="};"
+new_data+="}"
 
-    echo -e ${new_data} > ${API_DATA_FILE}
-else
+test_data=$(echo -e $new_data)
+jq -e . >/dev/null 2>&1 <<< $test_data
+testjson=$?
+
+if (( $curl_status > 0 )); then
+    echo "curl error"
     exit ${curl_status}
+elif (( $testjson > 0 )); then
+    echo "json invalid"
+    exit 1
+else
+    echo -e "var rsapidata = ${new_data};" > ${API_DATA_FILE}
+    echo "data saved"
 fi
