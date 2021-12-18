@@ -33,9 +33,40 @@ body {
     padding: 0.75rem;
 }
 
-div.table_container[data-hide="hide"] {
+div.table_container[data-hide="hide"] table tbody {
     display: none;
 }
+
+.section_button span {
+    max-width: 0;
+    -webkit-transition: max-width 0.5s;
+    transition: max-width 0.5s;
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.section_button:hover span {
+    max-width: 7rem;
+}
+
+div.table_container .unhide_button {
+    display:inline-block;
+}
+
+div.table_container .unhide_button {
+    display:none;
+}
+
+div.table_container[data-hide="hide"] .hide_button {
+    display:none;
+}
+
+div.table_container[data-hide="hide"] .unhide_button {
+    display:inline-block;
+}
+
 
 .activity_table th {
     font-size: 1.5em;

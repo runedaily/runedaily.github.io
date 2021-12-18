@@ -429,47 +429,33 @@ const draggableTable = function(timeFrame) {
 /**
  * Takes a timeframe name and clear the associated localstorage and toggle the html data off
  * @param {String} timeFrame
+ * @param {Boolean} html change the data on the element or not
  */
-const resetTable = function(timeFrame, prompt) {
+const resetTable = function(timeFrame, html) {
     const tableRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
 
     for (let rowTarget of tableRows) {
-        rowTarget.dataset.completed = false;
+        if (html) {
+            rowTarget.dataset.completed = false;
+        }
 
         let taskName = rowTarget.querySelector('.activity_name a').innerHTML;
         storage.removeItem(taskName);
     }
 
     storage.removeItem(timeFrame + '-updated');
-
-    if (prompt) {
-        var answer = window.confirm('Do you want to reset your custom sort order?');
-        if (answer) {
-            storage.removeItem(timeFrame + '-order');
-            window.location.reload();
-        }
-    }
 };
 
 /**
  * Attach event listener to button for resetting table
  * @param {String} timeFrame
  */
-const resetTableButton = function(timeFrame) {
+const resettableSection = function(timeFrame) {
+    let data = window[timeFrame];
     let resetButton = document.querySelector('#' + timeFrame + '_reset_button');
     resetButton.addEventListener('click', function () {
-        resetTable(timeFrame, true);
-    });
-};
+        resetTable(timeFrame, false);
 
-/**
- * Attach event listener to button for resetting table
- * @param {String} timeFrame
- */
- const unHideButton = function(timeFrame) {
-    let data = window[timeFrame];
-    let resetButton = document.querySelector('#' + timeFrame + '_unhide_button');
-    resetButton.addEventListener('click', function () {
         for (item of data) {
             let itemState = storage.getItem(item.task) ?? 'false';
 
@@ -477,6 +463,8 @@ const resetTableButton = function(timeFrame) {
                 storage.removeItem(item.task);
             }
         }
+
+        storage.removeItem(timeFrame + '-order');
         window.location.reload();
     });
 };
@@ -485,7 +473,7 @@ const resetTableButton = function(timeFrame) {
  * Attach event listener for hiding/unhiding table
  * @param {String} timeFrame
  */
-const hideSectionButton = function(timeFrame) {
+const hidableSection = function(timeFrame) {
 
     let hideButton = document.querySelector('#' + timeFrame + '_hide_button');
     hideButton.addEventListener('click', function () {
@@ -497,6 +485,13 @@ const hideSectionButton = function(timeFrame) {
 
     let navLink = document.querySelector('#' + timeFrame + '_nav');
     navLink.addEventListener('click', function() {
+        let hideTable = document.querySelector('div.' + timeFrame + '_table');
+        hideTable.dataset.hide = '';
+        storage.removeItem(timeFrame + '-hide');
+    });
+
+    let unhideButton = document.querySelector('#' + timeFrame + '_unhide_button');
+    unhideButton.addEventListener('click', function() {
         let hideTable = document.querySelector('div.' + timeFrame + '_table');
         hideTable.dataset.hide = '';
         storage.removeItem(timeFrame + '-hide');
@@ -533,7 +528,7 @@ const checkReset = function(timeFrame) {
     }
 
     if (updateTime.getTime() < nextdate.getTime()) {
-        resetTable(timeFrame, false);
+        resetTable(timeFrame, true);
     }
 };
 
@@ -594,9 +589,8 @@ window.onload = function () {
         populateTable(timeFrame);
         draggableTable(timeFrame);
         checkReset(timeFrame);
-        resetTableButton(timeFrame);
-        unHideButton(timeFrame);
-        hideSectionButton(timeFrame);
+        resettableSection(timeFrame);
+        hidableSection(timeFrame);
         countDown(timeFrame);
     }
 
