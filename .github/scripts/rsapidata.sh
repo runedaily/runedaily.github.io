@@ -39,7 +39,6 @@ itemlist=(
 )
 
 new_data="var rsapidata = {\n"
-new_data+="0:\"$(date '+%Y-%m-%d %H:%M:%S')\",\n"
 
 length=${#itemlist[@]}
 current=0
