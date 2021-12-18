@@ -39,6 +39,7 @@ div.table_container[data-hide="hide"] {
 
 .activity_table th {
     font-size: 1.5em;
+    vertical-align: top;
 }
 
 .activity_table thead td {

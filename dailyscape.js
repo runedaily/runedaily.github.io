@@ -307,7 +307,7 @@ const populateTable = function(timeFrame) {
     }
 
     if (timeFrame == 'rs3dailyshops') {
-        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: ' + totalDailyProfit.toLocaleString();
+        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong>';
     }
 };
 
@@ -482,7 +482,7 @@ const resetTableButton = function(timeFrame) {
 };
 
 /**
- * Attach event listner for hiding table
+ * Attach event listener for hiding/unhiding table
  * @param {String} timeFrame
  */
 const hideSectionButton = function(timeFrame) {
