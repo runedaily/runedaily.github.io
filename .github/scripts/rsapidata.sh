@@ -39,6 +39,7 @@ itemlist=(
 )
 
 new_data="var rsapidata = {\n"
+new_data+="0:\"$(date '+%Y-%m-%d %H:%M:%S')\",\n"
 
 length=${#itemlist[@]}
 current=0
@@ -68,14 +69,6 @@ if (( $curl_status == 0 )); then
     new_data+="};"
 
     echo -e ${new_data} > ${API_DATA_FILE}
-
-    if [[ " $GITHUB_ACTIONS " == " true " ]] && [[ `git status --porcelain` ]]; then
-        git config --global user.name "RS3 Data Bot"
-        git config --global user.email "20735294+607ch00@users.noreply.github.com"
-        git add ${GITHUB_WORKSPACE}/data/rsapidata.json
-        git commit -am "API Data fetch"
-        git push
-    fi
 else
     exit ${curl_status}
 fi

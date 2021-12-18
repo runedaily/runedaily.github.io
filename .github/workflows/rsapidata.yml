@@ -15,3 +15,9 @@ jobs:
         API_DATA_FILE: ./data/rsapidata.js
       run: |
         bash ./.github/scripts/rsapidata.sh
+        if [[ `git status --porcelain` ]]; then
+        git config --global user.name 'RS3 Data Bot'
+        git config --global user.email '20735294+607ch00@users.noreply.github.com'
+        git commit -am "API Data fetch"
+        git push
+        fi
