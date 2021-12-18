@@ -48,7 +48,7 @@ var rs3dailyshops = [
     },
     {task: "Vis Wax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "Profit from shop price and avg of combinations",
         outputs: [
-            {id: 32092, quantity: 100, store_price: 6}, //vis wax
+            {id: 32092, quantity: 100, store_price: 0}, //vis wax
         ],
         inputs: [
             {id: 554, quantity: 150, store_price: 17}, //fire rune
@@ -133,6 +133,9 @@ var rs3dailyshops = [
         outputs: [
             {id: 1517, quantity: 892, store_price: 0}, //maple logs
             {id: 6332, quantity: 223, store_price: 0}, //mahogany logs
+        ],
+        inputs: [
+            {id: -1, quantity: 1, store_price: 37500}, //kingdom upkeep
         ]
     },
     {task: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask",
