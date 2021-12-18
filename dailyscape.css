@@ -37,6 +37,10 @@ body {
     font-size: 1.5em;
 }
 
+.activity_table thead td {
+    text-align:right;
+}
+
 .activity_table td.activity_name {
     padding:0;
     height: 100%;
@@ -70,6 +74,17 @@ body {
     cursor: pointer;
 }
 
+.activity_table td.activity_name button.hide-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: none;
+}
+
+.activity_table tbody tr:hover td.activity_name button.hide-button {
+    display: inline-block;
+}
+
 .activity_table td.activity_color a,
 .activity_table td.activity_color a:active,
 .activity_table td.activity_color a:link,
@@ -80,6 +95,11 @@ body {
 
 .activity_table td.activity_color a:hover {
     color: #4083ca;
+}
+
+.activity_table tr[data-completed="hide"] {
+    display: none;
+    visibility: hidden;
 }
 
 .activity_table tr[data-completed="true"] .activity_color {

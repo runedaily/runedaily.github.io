@@ -133,7 +133,7 @@ var rs3dailyshops = [
             {id: 3226, quantity: 100, store_price: 67}, //raw rabbit packs
         ]
     },
-    {task: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true,  desc: 'Normalized for 24 hours',
+    {task: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true,  desc: 'Normalized for 24 hours. +6 from Sigmund the Merchant',
         outputs: [
             {id: 227, quantity: 5300, store_price: 10, multiplier: 0.15, label_override: 'Vial of Water (Packs@160hrs)'}, //vial of water packs respawn over 160 hours 24/160=0.4
             {id: 221, quantity: 2000, store_price: 3}, //eye of newt packs
@@ -205,6 +205,7 @@ const populateTable = function(timeFrame) {
         let newRow = rowClone.querySelector('tr');
         let newRowAnchor = rowClone.querySelector('td.activity_name a');
         let newRowColor = rowClone.querySelector('td.activity_color');
+        let newRowHide = rowClone.querySelector('td.activity_name button.hide-button');
 
         if (!!row.url) {
             newRowAnchor.href = row.url;
@@ -291,6 +292,11 @@ const populateTable = function(timeFrame) {
             }
 
             storage.setItem(timeFrame + '-updated', new Date().getTime());
+        });
+
+        newRowHide.addEventListener('click', function() {
+            newRow.dataset.completed = 'hide';
+            storage.setItem(taskName, 'hide');
         });
     }
 
@@ -451,6 +457,25 @@ const resetTableButton = function(timeFrame) {
 };
 
 /**
+ * Attach event listener to button for resetting table
+ * @param {String} timeFrame
+ */
+ const unHideButton = function(timeFrame) {
+    let data = window[timeFrame];
+    let resetButton = document.querySelector('#' + timeFrame + '_unhide_button');
+    resetButton.addEventListener('click', function () {
+        for (item of data) {
+            let itemState = storage.getItem(item.task) ?? 'false';
+
+            if (itemState == 'hide') {
+                storage.removeItem(item.task);
+            }
+        }
+        window.location.reload();
+    });
+};
+
+/**
  * Check if last updated timestamp for a timeframe is less than
  * the last reset for that timeframe if so reset the category
  * @param {String} timeFrame
@@ -542,6 +567,7 @@ window.onload = function () {
         draggableTable(timeFrame);
         checkReset(timeFrame);
         resetTableButton(timeFrame);
+        unHideButton(timeFrame);
         countDown(timeFrame);
     }
 
