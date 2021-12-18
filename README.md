@@ -10,9 +10,9 @@
 * Saves what you checked off in the right column across visits in your browser's localStorage
 * Drag and drop reordering (on desktop) that's saved so you can move the stuff you find more important to the top
 * Links in nav to "more resources" that might be useful for gameplay information
+* Makes profit calculations in "realtime" with data from runescape GE API
+* Allows hiding of tasks and sections and saves preference in localStorage
 
 ## Todo
-* Allow hiding of tasks and save preference in localStorage
 * Drag and drop reordering on mobile
 * After hiding is added, add more "complete" list of dailies 
-* Make profit calculations realtime by pulling from runescape or wiki api
