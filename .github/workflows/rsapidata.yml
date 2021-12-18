@@ -13,11 +13,5 @@ jobs:
     - shell: bash
       env:
         API_DATA_FILE: ./data/rsapidata.js
-        ACTIONS_USER: ${{ secrets.ACTIONS_USER }}
-        ACTIONS_EMAIL: ${{ secrets.ACTIONS_EMAIL }}
       run: |
         bash ./.github/scripts/rsapidata.sh
-        git config --global user.name 'RS3 Data Bot'
-        git config --global user.email '607ch00@users.noreply.github.com'
-        git commit -am "API Data fetch"
-        git push

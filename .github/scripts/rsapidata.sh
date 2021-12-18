@@ -1,6 +1,7 @@
 #!/bin/bash
 
 API_DATA_FILE=${API_DATA_FILE:="./data/rsapidata.js"}
+GITHUB_ACTIONS=${GITHUB_ACTIONS:=false}
 
 itemlist=(
 '556' #air rune
@@ -67,6 +68,14 @@ if (( $curl_status == 0 )); then
     new_data+="};"
 
     echo -e ${new_data} > ${API_DATA_FILE}
+
+    if [[ " $GITHUB_ACTIONS " == " true " ]] && [[ `git status --porcelain` ]]; then
+        git config --global user.name "RS3 Data Bot"
+        git config --global user.email "20735294+607ch00@users.noreply.github.com"
+        git add ${GITHUB_WORKSPACE}/data/rsapidata.json
+        git commit -am "API Data fetch"
+        git push
+    fi
 else
     exit ${curl_status}
 fi
