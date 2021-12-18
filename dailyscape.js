@@ -190,6 +190,12 @@ const populateTable = function(timeFrame) {
         return;
     }
 
+    //Hidden table
+    let hideTable = storage.getItem(timeFrame + '-hide') ?? 'false';
+    if (hideTable == 'hide') {
+        document.querySelector('div.' + timeFrame + '_table').dataset.hide = 'hide';
+    }
+
     //User defined sorting
     let customOrder = storage.getItem(timeFrame + '-order') ?? 'false';
     if (customOrder !== 'false') {
@@ -476,6 +482,28 @@ const resetTableButton = function(timeFrame) {
 };
 
 /**
+ * Attach event listner for hiding table
+ * @param {String} timeFrame
+ */
+const hideSectionButton = function(timeFrame) {
+
+    let hideButton = document.querySelector('#' + timeFrame + '_hide_button');
+    hideButton.addEventListener('click', function () {
+        console.log(timeFrame);
+        let hideTable = document.querySelector('div.' + timeFrame + '_table');
+        hideTable.dataset.hide = 'hide';
+        storage.setItem(timeFrame + '-hide', 'hide');
+    });
+
+    let navLink = document.querySelector('#' + timeFrame + '_nav');
+    navLink.addEventListener('click', function() {
+        let hideTable = document.querySelector('div.' + timeFrame + '_table');
+        hideTable.dataset.hide = '';
+        storage.removeItem(timeFrame + '-hide');
+    });
+};
+
+/**
  * Check if last updated timestamp for a timeframe is less than
  * the last reset for that timeframe if so reset the category
  * @param {String} timeFrame
@@ -568,6 +596,7 @@ window.onload = function () {
         checkReset(timeFrame);
         resetTableButton(timeFrame);
         unHideButton(timeFrame);
+        hideSectionButton(timeFrame);
         countDown(timeFrame);
     }
 
