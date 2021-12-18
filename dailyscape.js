@@ -81,6 +81,9 @@ var rs3dailyshops = [
     {task: "Bloodwood Tree", url: "https://runescape.wiki/w/Money_making_guide/Fletching_bakriminel_bolts", desc: "Fletch bakriminel bolts. Every 6H",
         outputs: [
             {id: 24116, quantity: 1500, store_price: 0}, //bakriminel bolts
+        ],
+        inputs: [
+            {id: 24127, quantity: 1500, store_price: 200}, //bakriminel bolt tips
         ]
     },
     {task: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "Teleport for Vis. Profits based on 99 RC and fully upgraded hood, see <a href=\"https://runescape.wiki/w/Wicked_hood#Runecrafting\" target=\"_blank\" rel=\"noreferrer noopener\">crafting profitability table</a>",
