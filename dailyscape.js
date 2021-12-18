@@ -5,22 +5,17 @@ var totalDailyProfit = 0; //global for total daily profit, maybe move this
 
 var rs3daily = [
     {task: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter", short: true, desc: "Use 2 free daily keys"},
-    {task: "Traveling Merchant", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop", short: true, desc: "Buy rare items from traveling merchant in deep sea fishing hub ('WhirlPoolDnD' FC)"},
+    {task: "Traveling Merchant", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop", short: true, desc: "Buy rare items in deep sea fishing hub ('WhirlPoolDnD' FC)"},
     {task: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", short: true, desc: "Get xp, treasure hunter key x3"},
     {task: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines", short: true, desc: "Get xp in a range of skills to get an xp book"},
     {task: "Soul Reaper", url: "https://runescape.wiki/w/Soul_Reaper", desc: "Kill assigned bosses"},
     {task: "Player Owned Ports", url: "https://runescape.wiki/w/Player-owned_port", short: true, desc: "Manage your player owned port"},
     {task: "Player Owned Farm", url: "https://runescape.wiki/w/Player-owned_farm", short: true, desc: "Manage your player owned farm"},
-    {task: "Crystal Tree Blossom", url: "https://runescape.wiki/w/Crystal_tree_blossom", short: true, desc: "Collect crystal tree blossom"},
+    {task: "Crystal Tree Blossom", url: "https://runescape.wiki/w/Crystal_tree_blossom", short: true, desc: "Collect crystal tree blossom for perfect plus potions"},
     {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
-    {task: "Bloodwood Tree", url: "https://runescape.wiki/w/Money_making_guide/Fletching_bakriminel_bolts", desc: "Fletch bakriminel bolts. Every 6H"},
     {task: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw", short: true, desc: "Receive treasure from motherlode maw"},
     {task: "Gorajo Card", url: "https://runescape.wiki/w/Gorajo_card", short: true, desc: "Consistent yak card gives a guaranteed Meilyr combination potion recipe"},
-
-    {task: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer. Maple + Mahogany logs ~300k profit"},
     {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Divine Herb 1 is most profitable"},
-    {task: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask"},
-    {task: "Crystal Sand Stone", url: "https://runescape.wiki/w/Crystal-flecked_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask or profit"},
 
     {task: "Nemi Forest", url: "https://www.reddit.com/r/NemiForest/new/", desc: "'NemiForest' FC"},
     {task: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache", desc: "Divination D&D"},
@@ -33,11 +28,6 @@ var rs3daily = [
 ];
 
 var rs3dailyshops = [
-    {task: "Feathers of Ma'at", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers_of_Ma%27at", short: true,
-        outputs: [
-            {id: 40303, quantity: 1000, store_price: 1500}, //feather of ma'at
-        ]
-    },
     {task: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes", short: true,
         outputs: [
             {id: 554, quantity: 7500, store_price: 17}, //fire rune
@@ -54,6 +44,43 @@ var rs3dailyshops = [
             {id: 565, quantity: 400, store_price: 550}, //blood rune
             {id: 566, quantity: 300, store_price: 410}, //soul rune
             {id: 9075, quantity: 100, store_price: 220}, //astral rune
+        ]
+    },
+    {task: "Vis Wax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "Profit from shop price and avg of combinations",
+        outputs: [
+            {id: 32092, quantity: 100, store_price: 6}, //vis wax
+        ],
+        inputs: [
+            {id: 554, quantity: 150, store_price: 17}, //fire rune
+            {id: 555, quantity: 150, store_price: 17}, //water rune
+            {id: 556, quantity: 150, store_price: 17}, //air rune
+            {id: 557, quantity: 150, store_price: 17}, //earth rune
+            {id: 558, quantity: 300, store_price: 17}, //mind rune
+            {id: 559, quantity: 300, store_price: 16}, //body rune
+            {id: 560, quantity: 60, store_price: 310}, //death rune
+            {id: 561, quantity: 52.5, store_price: 372}, //nature rune
+            {id: 562, quantity: 75, store_price: 140}, //chaos rune
+            {id: 563, quantity: 45, store_price: 378}, //law rune
+            {id: 564, quantity: 60, store_price: 232}, //cosmic rune
+            {id: 565, quantity: 52.5, store_price: 550}, //blood rune
+            {id: 566, quantity: 45, store_price: 410}, //soul rune
+            {id: 4694, quantity: 75}, //steam rune
+            {id: 4695, quantity: 75}, //mist rune
+            {id: 4696, quantity: 75}, //dust rune
+            {id: 4697, quantity: 75}, //smoke rune
+            {id: 4698, quantity: 45}, //mud rune
+            {id: 4699, quantity: 75}, //lava rune
+            {id: 9075, quantity: 45, store_price: 220}, //astral rune
+        ]
+    },
+    {task: "Feathers of Ma'at", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers_of_Ma%27at", short: true,
+        outputs: [
+            {id: 40303, quantity: 1000, store_price: 1500}, //feather of ma'at
+        ]
+    },
+    {task: "Bloodwood Tree", url: "https://runescape.wiki/w/Money_making_guide/Fletching_bakriminel_bolts", desc: "Fletch bakriminel bolts. Every 6H",
+        outputs: [
+            {id: 24116, quantity: 1500, store_price: 0}, //bakriminel bolts
         ]
     },
     {task: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "Teleport for Vis. Profits based on 99 RC and fully upgraded hood, see <a href=\"https://runescape.wiki/w/Wicked_hood#Runecrafting\" target=\"_blank\" rel=\"noreferrer noopener\">crafting profitability table</a>",
@@ -92,40 +119,29 @@ var rs3dailyshops = [
             ],
         ]
     },
-    {task: "VisWax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "Profit from shop price and avg of combinations",
-        outputs: [
-            {id: 32092, quantity: 100, store_price: 6}, //vis wax
-        ],
-        inputs: [
-            {id: 554, quantity: 150, store_price: 17}, //fire rune
-            {id: 555, quantity: 150, store_price: 17}, //water rune
-            {id: 556, quantity: 150, store_price: 17}, //air rune
-            {id: 557, quantity: 150, store_price: 17}, //earth rune
-            {id: 558, quantity: 300, store_price: 17}, //mind rune
-            {id: 559, quantity: 300, store_price: 16}, //body rune
-            {id: 560, quantity: 60, store_price: 310}, //death rune
-            {id: 561, quantity: 52.5, store_price: 372}, //nature rune
-            {id: 562, quantity: 75, store_price: 140}, //chaos rune
-            {id: 563, quantity: 45, store_price: 378}, //law rune
-            {id: 564, quantity: 60, store_price: 232}, //cosmic rune
-            {id: 565, quantity: 52.5, store_price: 550}, //blood rune
-            {id: 566, quantity: 45, store_price: 410}, //soul rune
-            {id: 4694, quantity: 75}, //steam rune
-            {id: 4695, quantity: 75}, //mist rune
-            {id: 4696, quantity: 75}, //dust rune
-            {id: 4697, quantity: 75}, //smoke rune
-            {id: 4698, quantity: 45}, //mud rune
-            {id: 4699, quantity: 75}, //lava rune
-            {id: 9075, quantity: 45, store_price: 220}, //astral rune
-        ]
-    },
     {task: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", short: true, desc: 'Normalized for 24 hours',
         outputs: [
             {id: 314, quantity: 11000, store_price: 6}, //feathers
             {id: 314, quantity: 110000, store_price: 7.5, multiplier: 0.4, label_override: 'Feather (Packs@60hrs)'}, //feather packs respawn over 60 hours 24/60=0.4
             {id: 313, quantity: 10000, store_price: 3}, //fishing bait
         ]
-    }, // 11k headless arrows = 517k - 11k feathers cost 81000, 315 yew logs = 94,500 profit 341500
+    },
+    {task: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer",
+        outputs: [
+            {id: 1517, quantity: 892, store_price: 0}, //maple logs
+            {id: 6332, quantity: 223, store_price: 0}, //mahogany logs
+        ]
+    },
+    {task: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask",
+        outputs: [
+            {id: 23191, quantity: 50, store_price: 0}, //potion flask
+        ]
+    },
+    {task: "Crystal Sand Stone", url: "https://runescape.wiki/w/Crystal-flecked_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask",
+        outputs: [
+            {id: 32843, quantity: 50, store_price: 0}, //crystal flask
+        ]
+    },
     {task: "Meat Packs from Oo'glog", url: "https://runescape.wiki/w/Money_making_guide/Buying_Meat_from_Oo%27glog", short: true, desc: "Only buy packs",
         outputs: [
             {id: 2132, quantity: 300, store_price: 59}, //raw beef packs
@@ -213,6 +229,9 @@ const populateTable = function(timeFrame) {
         let newRowColor = rowClone.querySelector('td.activity_color');
         let newRowHide = rowClone.querySelector('td.activity_name button.hide-button');
 
+        let taskName = row.task;
+        let taskState = storage.getItem(taskName) ?? 'false';
+
         if (!!row.url) {
             newRowAnchor.href = row.url;
             newRowAnchor.innerHTML = row.task;
@@ -243,17 +262,25 @@ const populateTable = function(timeFrame) {
                 }
 
                 if (!!row.outputs_max) {
+                    let rowMaxProfit = 0;
                     for (outputMax of row.outputs_max) {
                         let rowMax = calcOutputs(outputMax, totalInputPrice, 'max');
                         totalItemProfit += rowMax.totalItemProfit;
-                        totalDailyProfit += rowMax.totalDailyProfit;
+                        if (taskState != 'hide') {
+                            totalDailyProfit += rowMax.totalDailyProfit;
+                        }
+                        rowMaxProfit += rowMax.totalDailyProfit
                         buyItems.push(...rowMax.buyItems);
                         skipItems.push(...rowMax.skipItems);
                     }
+                    newRow.dataset.profit = rowMaxProfit;
                 } else {
                     let rowSum = calcOutputs(row.outputs, totalInputPrice);
                     totalItemProfit += rowSum.totalItemProfit;
-                    totalDailyProfit += rowSum.totalDailyProfit;
+                    if (taskState != 'hide') {
+                        totalDailyProfit += rowSum.totalDailyProfit;
+                    }
+                    newRow.dataset.profit = rowSum.totalDailyProfit;
                     buyItems.push(...rowSum.buyItems);
                     skipItems.push(...rowSum.skipItems);
                 }
@@ -277,14 +304,10 @@ const populateTable = function(timeFrame) {
             }
 
         } else {
-            newRowAnchor.innerHTML = row;
+            newRowAnchor.innerHTML = row.task;
         }
 
-        let taskName = newRowAnchor.innerHTML;
-        let taskState = storage.getItem(taskName) ?? 'false';
-
         targetTable.appendChild(newRow);
-
         newRow.dataset.completed = taskState;
 
         newRowColor.addEventListener('click', function () {
@@ -303,6 +326,13 @@ const populateTable = function(timeFrame) {
         newRowHide.addEventListener('click', function() {
             newRow.dataset.completed = 'hide';
             storage.setItem(taskName, 'hide');
+
+            if (newRow.hasAttribute('data-profit')) {
+                let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
+                let totalProfitNumber = parseInt(String(totalProfitElement.innerHTML).replace(/\D/g, ''), 10);
+                let newProfit = totalProfitNumber - parseInt(newRow.dataset.profit);
+                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + newProfit.toLocaleString() + '</strong>';
+            }
         });
     }
 

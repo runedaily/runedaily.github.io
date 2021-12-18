@@ -52,11 +52,11 @@ div.table_container[data-hide="hide"] table tbody {
 }
 
 div.table_container .unhide_button {
-    display:inline-block;
+    display: inline-block;
 }
 
 div.table_container .unhide_button {
-    display:none;
+    display: none;
 }
 
 div.table_container[data-hide="hide"] .hide_button {
