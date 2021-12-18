@@ -62,10 +62,11 @@ for items in "${itemlist[@]}"; do
         break
     fi
 
-    new_data+="${item[0]}:${curl_response}"
+    new_data+="\"${item[0]}\":${curl_response}"
 
     if (( $current < $length )); then
         new_data+=",\n"
+        sleep 1
     else
         new_data+="\n"
     fi
