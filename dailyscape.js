@@ -75,20 +75,20 @@ var rs3dailyshops = [
                 {id: 9075, quantity: 10, store_price: 0}, //astral rune
             ],
             [   // Craft from pure essence
-                {id: 554, quantity: 600, store_price: 0}, //fire rune
-                {id: 555, quantity: 1200, store_price: 0}, //water rune
-                {id: 556, quantity: 2000, store_price: 0}, //air rune
-                {id: 557, quantity: 800, store_price: 0}, //earth rune
-                {id: 558, quantity: 1600, store_price: 0}, //mind rune
-                {id: 559, quantity: 600, store_price: 0}, //body rune
-                {id: 560, quantity: 200, store_price: 0}, //death rune
-                {id: 561, quantity: 400, store_price: 0}, //nature rune
-                {id: 562, quantity: 400, store_price: 0}, //chaos rune
-                {id: 563, quantity: 200, store_price: 0}, //law rune
-                {id: 564, quantity: 400, store_price: 0}, //cosmic rune
-                {id: 565, quantity: 200, store_price: 0}, //blood rune
-                {id: 566, quantity: 40, store_price: 0}, //soul rune
-                {id: 9075, quantity: 400, store_price: 0}, //astral rune
+                {id: 554, quantity: 300, store_price: 0}, //fire rune
+                {id: 555, quantity: 600, store_price: 0}, //water rune
+                {id: 556, quantity: 1000, store_price: 0}, //air rune
+                {id: 557, quantity: 400, store_price: 0}, //earth rune
+                {id: 558, quantity: 800, store_price: 0}, //mind rune
+                {id: 559, quantity: 300, store_price: 0}, //body rune
+                {id: 560, quantity: 100, store_price: 0}, //death rune
+                {id: 561, quantity: 200, store_price: 0}, //nature rune
+                {id: 562, quantity: 200, store_price: 0}, //chaos rune
+                {id: 563, quantity: 100, store_price: 0}, //law rune
+                {id: 564, quantity: 200, store_price: 0}, //cosmic rune
+                {id: 565, quantity: 100, store_price: 0}, //blood rune
+                {id: 566, quantity: 20, store_price: 0}, //soul rune
+                {id: 9075, quantity: 200, store_price: 0}, //astral rune
             ],
         ]
     },
