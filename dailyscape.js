@@ -124,9 +124,9 @@ var rs3dailyshops = [
     },
     {task: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", short: true, desc: 'Normalized for 24 hours',
         outputs: [
-            {id: 314, quantity: 11000, store_price: 6}, //feathers
+            {id: 314, quantity: 12000, store_price: 6}, //feathers
             {id: 314, quantity: 110000, store_price: 7.5, multiplier: 0.4, label_override: 'Feather (Packs@60hrs)'}, //feather packs respawn over 60 hours 24/60=0.4
-            {id: 313, quantity: 10000, store_price: 3}, //fishing bait
+            {id: 313, quantity: 9000, store_price: 3}, //fishing bait
         ]
     },
     {task: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer",
