@@ -340,6 +340,13 @@ const populateTable = function(timeFrame) {
                 document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + newProfit.toLocaleString() + '</strong>';
             }
         });
+
+        let descriptionAnchors = newRowColor.querySelectorAll('a');
+        for (let anchor of descriptionAnchors) {
+            anchor.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
     }
 
     if (timeFrame == 'rs3dailyshops') {
