@@ -1,4 +1,4 @@
-![RuneDaily](./runedaily.png)
+![RuneDaily](./img/runedaily.png)
 # RuneDaily - RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape
 
 ## Features
@@ -16,4 +16,4 @@
 
 ## Todo
 * Drag and drop reordering on mobile
-* After hiding is added, add more "complete" list of dailies 
+* After hiding is added, add more "complete" list of dailies
