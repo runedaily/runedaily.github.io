@@ -1,4 +1,5 @@
-# RS3 Dailies, Weeklies, Monthlies Task Manager
+![RuneDaily](./runedaily.png)
+# RuneDaily - RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape
 
 ## Features
 * List of dailies, weeklies and monthlies for Runescape 3
