@@ -483,7 +483,10 @@ const resetTable = function(timeFrame, html) {
         }
 
         let taskName = rowTarget.querySelector('.activity_name a').innerHTML;
-        storage.removeItem(taskName);
+        let itemState = storage.getItem(taskName) ?? 'false';
+        if (itemState != 'hide') {
+            storage.removeItem(taskName);
+        }
     }
 
     storage.removeItem(timeFrame + '-updated');
