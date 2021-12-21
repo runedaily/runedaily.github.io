@@ -1,7 +1,6 @@
 #!/bin/bash
-
+API_UPDATED_FILE=${API_UPDATED_FILE:="./data/rsapiupdated.json"}
 API_DATA_FILE=${API_DATA_FILE:="./data/rsapidata.js"}
-GITHUB_ACTIONS=${GITHUB_ACTIONS:=false}
 
 itemlist=(
 '556' #air rune
@@ -43,6 +42,31 @@ itemlist=(
 '32843' #crystal flask
 )
 
+#check if there might be new data
+apiupdated_cached=$(jq .lastConfigUpdateRuneday ${API_UPDATED_FILE})
+
+curl_response=$(curl -Ssf https://secure.runescape.com/m=itemdb_rs/api/info.json)
+curl_status=$?
+
+if (( $curl_status > 0 )); then
+    echo "curl error - getting apiupdated"
+    exit ${curl_status}
+fi
+
+apiupdated=$(jq -e .lastConfigUpdateRuneday <<< ${curl_response})
+testjson=$?
+
+if (( $testjson > 0 )); then
+    echo "json invalid"
+    exit 0
+elif (( $apiupdated <= $apiupdated_cached )); then
+    echo "no new data"
+    exit 0
+else
+    echo ${curl_response} > ${API_UPDATED_FILE}
+fi
+
+#retrieve the new data
 new_data="{\n"
 
 length=${#itemlist[@]}
@@ -74,10 +98,12 @@ done
 
 new_data+="}"
 
+#test for valid json
 test_data=$(echo -e $new_data)
 jq -e . >/dev/null 2>&1 <<< $test_data
 testjson=$?
 
+#error or save
 if (( $curl_status > 0 )); then
     echo "curl error"
     exit ${curl_status}
