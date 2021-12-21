@@ -30,146 +30,146 @@ var rs3daily = [
 var rs3dailyshops = [
     {task: "Rune Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_runes", short: true,
         outputs: [
-            {id: 554, quantity: 7500, store_price: 17}, //fire rune
-            {id: 555, quantity: 7500, store_price: 17}, //water rune
-            {id: 556, quantity: 7500, store_price: 17}, //air rune
-            {id: 557, quantity: 7500, store_price: 17}, //earth rune
-            {id: 558, quantity: 5700, store_price: 17}, //mind rune
-            {id: 559, quantity: 4700, store_price: 16}, //body rune
-            {id: 560, quantity: 1900, store_price: 310}, //death rune
-            {id: 561, quantity: 1200, store_price: 372}, //nature rune
-            {id: 562, quantity: 1800, store_price: 140}, //chaos rune
-            {id: 563, quantity: 700, store_price: 378}, //law rune
-            {id: 564, quantity: 400, store_price: 232}, //cosmic rune
-            {id: 565, quantity: 400, store_price: 550}, //blood rune
-            {id: 566, quantity: 300, store_price: 410}, //soul rune
-            {id: 9075, quantity: 100, store_price: 220}, //astral rune
+            {id: 554, quantity: 7500, shop_price: 17}, //fire rune
+            {id: 555, quantity: 7500, shop_price: 17}, //water rune
+            {id: 556, quantity: 7500, shop_price: 17}, //air rune
+            {id: 557, quantity: 7500, shop_price: 17}, //earth rune
+            {id: 558, quantity: 5700, shop_price: 17}, //mind rune
+            {id: 559, quantity: 4700, shop_price: 16}, //body rune
+            {id: 560, quantity: 1900, shop_price: 310}, //death rune
+            {id: 561, quantity: 1200, shop_price: 372}, //nature rune
+            {id: 562, quantity: 1800, shop_price: 140}, //chaos rune
+            {id: 563, quantity: 700, shop_price: 378}, //law rune
+            {id: 564, quantity: 400, shop_price: 232}, //cosmic rune
+            {id: 565, quantity: 400, shop_price: 550}, //blood rune
+            {id: 566, quantity: 300, shop_price: 410}, //soul rune
+            {id: 9075, quantity: 100, shop_price: 220}, //astral rune
         ]
     },
     {task: "Vis Wax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "Profit from shop price and avg of combinations",
         outputs: [
-            {id: 32092, quantity: 100, store_price: 0}, //vis wax
+            {id: 32092, quantity: 100, shop_price: 0}, //vis wax
         ],
         inputs: [
-            {id: 554, quantity: 150, store_price: 17}, //fire rune
-            {id: 555, quantity: 150, store_price: 17}, //water rune
-            {id: 556, quantity: 150, store_price: 17}, //air rune
-            {id: 557, quantity: 150, store_price: 17}, //earth rune
-            {id: 558, quantity: 300, store_price: 17}, //mind rune
-            {id: 559, quantity: 300, store_price: 16}, //body rune
-            {id: 560, quantity: 60, store_price: 310}, //death rune
-            {id: 561, quantity: 52.5, store_price: 372}, //nature rune
-            {id: 562, quantity: 75, store_price: 140}, //chaos rune
-            {id: 563, quantity: 45, store_price: 378}, //law rune
-            {id: 564, quantity: 60, store_price: 232}, //cosmic rune
-            {id: 565, quantity: 52.5, store_price: 550}, //blood rune
-            {id: 566, quantity: 45, store_price: 410}, //soul rune
+            {id: 554, quantity: 150, shop_price: 17}, //fire rune
+            {id: 555, quantity: 150, shop_price: 17}, //water rune
+            {id: 556, quantity: 150, shop_price: 17}, //air rune
+            {id: 557, quantity: 150, shop_price: 17}, //earth rune
+            {id: 558, quantity: 300, shop_price: 17}, //mind rune
+            {id: 559, quantity: 300, shop_price: 16}, //body rune
+            {id: 560, quantity: 60, shop_price: 310}, //death rune
+            {id: 561, quantity: 52.5, shop_price: 372}, //nature rune
+            {id: 562, quantity: 75, shop_price: 140}, //chaos rune
+            {id: 563, quantity: 45, shop_price: 378}, //law rune
+            {id: 564, quantity: 60, shop_price: 232}, //cosmic rune
+            {id: 565, quantity: 52.5, shop_price: 550}, //blood rune
+            {id: 566, quantity: 45, shop_price: 410}, //soul rune
             {id: 4694, quantity: 75}, //steam rune
             {id: 4695, quantity: 75}, //mist rune
             {id: 4696, quantity: 75}, //dust rune
             {id: 4697, quantity: 75}, //smoke rune
             {id: 4698, quantity: 45}, //mud rune
             {id: 4699, quantity: 75}, //lava rune
-            {id: 9075, quantity: 45, store_price: 220}, //astral rune
+            {id: 9075, quantity: 45, shop_price: 220}, //astral rune
         ]
     },
     {task: "Feathers of Ma'at", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers_of_Ma%27at", short: true,
         outputs: [
-            {id: 40303, quantity: 1000, store_price: 1500}, //feather of ma'at
+            {id: 40303, quantity: 1000, shop_price: 1500}, //feather of ma'at
         ]
     },
     {task: "Bloodwood Tree", url: "https://runescape.wiki/w/Money_making_guide/Fletching_bakriminel_bolts", desc: "Fletch bakriminel bolts. Every 6H",
         outputs: [
-            {id: 24116, quantity: 1500, store_price: 0}, //bakriminel bolts
+            {id: 24116, quantity: 1500, shop_price: 0}, //bakriminel bolts
         ],
         inputs: [
-            {id: 24127, quantity: 1500, store_price: 200}, //bakriminel bolt tips
+            {id: 24127, quantity: 1500, shop_price: 200}, //bakriminel bolt tips
         ]
     },
     {task: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "Teleport for Vis. Profits based on 99 RC and fully upgraded hood, see <a href=\"https://runescape.wiki/w/Wicked_hood#Runecrafting\" target=\"_blank\" rel=\"noreferrer noopener\">crafting profitability table</a>",
         outputs_max: [
             [   // Withdraw from hood
-                {id: 554, quantity: 200, store_price: 0}, //fire rune
-                {id: 555, quantity: 200, store_price: 0}, //water rune
-                {id: 556, quantity: 200, store_price: 0}, //air rune
-                {id: 557, quantity: 200, store_price: 0}, //earth rune
-                {id: 558, quantity: 200, store_price: 0}, //mind rune
-                {id: 559, quantity: 200, store_price: 0}, //body rune
-                {id: 560, quantity: 10, store_price: 0}, //death rune
-                {id: 561, quantity: 10, store_price: 0}, //nature rune
-                {id: 562, quantity: 10, store_price: 0}, //chaos rune
-                {id: 563, quantity: 10, store_price: 0}, //law rune
-                {id: 564, quantity: 10, store_price: 0}, //cosmic rune
-                {id: 565, quantity: 10, store_price: 0}, //blood rune
-                {id: 566, quantity: 10, store_price: 0}, //soul rune
-                {id: 9075, quantity: 10, store_price: 0}, //astral rune
+                {id: 554, quantity: 200, shop_price: 0}, //fire rune
+                {id: 555, quantity: 200, shop_price: 0}, //water rune
+                {id: 556, quantity: 200, shop_price: 0}, //air rune
+                {id: 557, quantity: 200, shop_price: 0}, //earth rune
+                {id: 558, quantity: 200, shop_price: 0}, //mind rune
+                {id: 559, quantity: 200, shop_price: 0}, //body rune
+                {id: 560, quantity: 10, shop_price: 0}, //death rune
+                {id: 561, quantity: 10, shop_price: 0}, //nature rune
+                {id: 562, quantity: 10, shop_price: 0}, //chaos rune
+                {id: 563, quantity: 10, shop_price: 0}, //law rune
+                {id: 564, quantity: 10, shop_price: 0}, //cosmic rune
+                {id: 565, quantity: 10, shop_price: 0}, //blood rune
+                {id: 566, quantity: 10, shop_price: 0}, //soul rune
+                {id: 9075, quantity: 10, shop_price: 0}, //astral rune
             ],
             [   // Craft from pure essence
-                {id: 554, quantity: 300, store_price: 0}, //fire rune
-                {id: 555, quantity: 600, store_price: 0}, //water rune
-                {id: 556, quantity: 1000, store_price: 0}, //air rune
-                {id: 557, quantity: 400, store_price: 0}, //earth rune
-                {id: 558, quantity: 800, store_price: 0}, //mind rune
-                {id: 559, quantity: 300, store_price: 0}, //body rune
-                {id: 560, quantity: 100, store_price: 0}, //death rune
-                {id: 561, quantity: 200, store_price: 0}, //nature rune
-                {id: 562, quantity: 200, store_price: 0}, //chaos rune
-                {id: 563, quantity: 100, store_price: 0}, //law rune
-                {id: 564, quantity: 200, store_price: 0}, //cosmic rune
-                {id: 565, quantity: 100, store_price: 0}, //blood rune
-                {id: 566, quantity: 20, store_price: 0}, //soul rune
-                {id: 9075, quantity: 200, store_price: 0}, //astral rune
+                {id: 554, quantity: 300, shop_price: 0}, //fire rune
+                {id: 555, quantity: 600, shop_price: 0}, //water rune
+                {id: 556, quantity: 1000, shop_price: 0}, //air rune
+                {id: 557, quantity: 400, shop_price: 0}, //earth rune
+                {id: 558, quantity: 800, shop_price: 0}, //mind rune
+                {id: 559, quantity: 300, shop_price: 0}, //body rune
+                {id: 560, quantity: 100, shop_price: 0}, //death rune
+                {id: 561, quantity: 200, shop_price: 0}, //nature rune
+                {id: 562, quantity: 200, shop_price: 0}, //chaos rune
+                {id: 563, quantity: 100, shop_price: 0}, //law rune
+                {id: 564, quantity: 200, shop_price: 0}, //cosmic rune
+                {id: 565, quantity: 100, shop_price: 0}, //blood rune
+                {id: 566, quantity: 20, shop_price: 0}, //soul rune
+                {id: 9075, quantity: 200, shop_price: 0}, //astral rune
             ],
         ]
     },
     {task: "Feather Shop Run", url: "https://runescape.wiki/w/Money_making_guide/Buying_feathers", short: true, desc: 'Normalized for 24 hours',
         outputs: [
-            {id: 314, quantity: 12000, store_price: 6}, //feathers
-            {id: 314, quantity: 110000, store_price: 7.5, multiplier: 0.4, label_override: 'Feather (Packs@60hrs)'}, //feather packs respawn over 60 hours 24/60=0.4
-            {id: 313, quantity: 9000, store_price: 3}, //fishing bait
+            {id: 314, quantity: 12000, shop_price: 6}, //feathers
+            {id: 314, quantity: 110000, shop_price: 7.5, multiplier: 0.4, label_override: 'Feather (Packs@60hrs)'}, //feather packs respawn over 60 hours 24/60=0.4
+            {id: 313, quantity: 9000, shop_price: 3}, //fishing bait
         ]
     },
     {task: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer",
         outputs: [
-            {id: 1517, quantity: 892, store_price: 0}, //maple logs
-            {id: 6332, quantity: 223, store_price: 0}, //mahogany logs
+            {id: 1517, quantity: 892, shop_price: 0}, //maple logs
+            {id: 6332, quantity: 223, shop_price: 0}, //mahogany logs
         ],
         inputs: [
-            {id: -1, quantity: 1, store_price: 37500}, //kingdom upkeep
+            {id: -1, quantity: 1, shop_price: 37500}, //kingdom upkeep
         ]
     },
     {task: "Sand Stone", url: "https://runescape.wiki/w/Red_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask",
         outputs: [
-            {id: 23191, quantity: 50, store_price: 0}, //potion flask
+            {id: 23191, quantity: 50, shop_price: 0}, //potion flask
         ]
     },
     {task: "Crystal Sand Stone", url: "https://runescape.wiki/w/Crystal-flecked_sandstone", short: true, desc: "Accumulate sandstone for Blessed Flask",
         outputs: [
-            {id: 32843, quantity: 50, store_price: 0}, //crystal flask
+            {id: 32843, quantity: 50, shop_price: 0}, //crystal flask
         ]
     },
     {task: "Meat Packs from Oo'glog", url: "https://runescape.wiki/w/Money_making_guide/Buying_Meat_from_Oo%27glog", short: true, desc: "Only buy packs",
         outputs: [
-            {id: 2132, quantity: 300, store_price: 59}, //raw beef packs
-            {id: 9978, quantity: 300, store_price: 63}, //raw bird meat packs
-            {id: 3226, quantity: 100, store_price: 67}, //raw rabbit packs
+            {id: 2132, quantity: 300, shop_price: 59}, //raw beef packs
+            {id: 9978, quantity: 300, shop_price: 63}, //raw bird meat packs
+            {id: 3226, quantity: 100, shop_price: 67}, //raw rabbit packs
         ]
     },
     {task: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true,  desc: 'Normalized for 24 hours. +6 from Sigmund the Merchant',
         outputs: [
-            {id: 227, quantity: 5300, store_price: 10, multiplier: 0.367924528, label_override: 'Vial of Water (Packs@160hrs)'}, //vial of water packs respawn over 160 hours 24/160=0.4
-            {id: 221, quantity: 2000, store_price: 3}, //eye of newt packs
-            {id: 48961, quantity: 200, store_price: 5}, //bomb vial
+            {id: 227, quantity: 5300, shop_price: 10, multiplier: 0.367924528, label_override: 'Vial of Water (Packs@160hrs)'}, //vial of water packs respawn over 160 hours 24/160=0.4
+            {id: 221, quantity: 2000, shop_price: 3}, //eye of newt packs
+            {id: 48961, quantity: 200, shop_price: 5}, //bomb vial
         ]
     },
     {task: "Yak Hide", url: "https://runescape.wiki/w/Money_making_guide/Buying_yak-hide", short: true,
         outputs: [
-            {id: 10818, quantity: 1000, store_price: 50}, //yak-hide packs
+            {id: 10818, quantity: 1000, shop_price: 50}, //yak-hide packs
         ]
     },
     {task: "Broad Arrowheads", url: "https://runescape.wiki/w/Money_making_guide/Buying_broad_arrowheads", short: true, desc: "Taverly + Any other Slayer Master (e.g. Lumby)",
         outputs: [
-            {id: 13278, quantity: 6000, store_price: 50}, //broad arrowheads
+            {id: 13278, quantity: 6000, shop_price: 50}, //broad arrowheads
         ]
     },
 ];
@@ -263,7 +263,7 @@ const populateTable = function(timeFrame) {
 
                 if (!!row.inputs) {
                     for (let input of row.inputs) {
-                        totalInputPrice += input.quantity * (input.store_price ?? parseInt(String(rsapidata[input.id].item.current.price).replace(/\D/g, ''), 10));
+                        totalInputPrice += input.quantity * (input.shop_price ?? parseInt(String(rsapidata[input.id].item.current.price).replace(/\D/g, ''), 10));
                     }
                 }
 
@@ -291,20 +291,24 @@ const populateTable = function(timeFrame) {
                     skipItems.push(...rowSum.skipItems);
                 }
 
-                newRowColor.innerHTML += 'Total Profit: <strong>' + totalItemProfit.toLocaleString() + '</strong><br>';
+                newRowColor.innerHTML += 'Total Profit: <strong>' + totalItemProfit.toLocaleString() + '</strong><span class="coin">●</span><br>';
 
                 for (let item of buyItems) {
                     let itemApiData = rsapidata[item.id].item;
-                    newRowColor.innerHTML += '<img class="item_icon" src="' + itemApiData.icon + '" data-item_id="' + item.id + '">';
-                    newRowColor.innerHTML += (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')<br>';
+                    newRowColor.innerHTML += '<div class="item_output" data-item_id="' + item.id + '" data-shop_price="' + item.shop_price + '">'
+                                            + '<img class="item_icon" src="' + itemApiData.icon + '">'
+                                            + (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')'
+                                            + '</div>';
                 }
 
                 if (skipItems.length > 0) {
                     newRowColor.innerHTML += '<br>Skip:<br>'
                     for (let item of skipItems) {
                         let itemApiData = rsapidata[item.id].item;
-                        newRowColor.innerHTML += '<img class="item_icon" src="' + itemApiData.icon + '" data-item_id="' + item.id + '">';
-                        newRowColor.innerHTML += (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')<br>';
+                        newRowColor.innerHTML += '<div class="item_output" data-item_id="' + item.id + '" data-shop_price="' + item.shop_price + '">'
+                                                + '<img class="item_icon" src="' + itemApiData.icon + '">'
+                                                + (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')'
+                                                + '</div>';
                     }
                 }
             }
@@ -337,7 +341,7 @@ const populateTable = function(timeFrame) {
                 let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
                 let totalProfitNumber = parseInt(String(totalProfitElement.innerHTML).replace(/\D/g, ''), 10);
                 let newProfit = totalProfitNumber - parseInt(newRow.dataset.profit);
-                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + newProfit.toLocaleString() + '</strong>';
+                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
             }
         });
 
@@ -350,7 +354,7 @@ const populateTable = function(timeFrame) {
     }
 
     if (timeFrame == 'rs3dailyshops') {
-        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong>';
+        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong><span class="coin">●</span>';
     }
 };
 
@@ -379,7 +383,7 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
             item.quantity *= item.multiplier;
         }
 
-        let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.store_price ?? parseInt(String(rsapidata[item.id].item.current.price).replace(/\D/g, ''), 10));
+        let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.shop_price ?? parseInt(String(rsapidata[item.id].item.current.price).replace(/\D/g, ''), 10));
         item.profit = (item.quantity * itemPrice) - itemCost;
 
         if (method == 'max') {
@@ -611,7 +615,7 @@ const countDown = function(timeFrame) {
 };
 
 const itemStatsTooltip = function() {
-    let items = document.querySelectorAll('img.item_icon');
+    let items = document.querySelectorAll('div.item_output');
     let tooltip = document.getElementById('tooltip');
 
     for (let item of items) {
@@ -621,11 +625,12 @@ const itemStatsTooltip = function() {
 
             item.after(tooltip);
 
-            tooltip.innerHTML = '<img src="' + itemdata.icon + '" class="item_icon"> ' + itemdata.name + ' - ' + itemdata.current.price + ' each<br>';
-            tooltip.innerHTML += '&nbsp;&nbsp;&nbsp;&nbsp;Today: ' + (itemdata.today.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.today.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span> ') + (itemdata.today.price != '0' ? itemdata.today.price : '') + '<br>';
-            tooltip.innerHTML += '&nbsp;&nbsp;30 Day: ' + (itemdata.day30.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day30.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day30.change + '<br>';
-            tooltip.innerHTML += '&nbsp;&nbsp;90 Day: ' + (itemdata.day90.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day90.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day90.change + '<br>';
-            tooltip.innerHTML += '180 Day: ' + (itemdata.day180.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day180.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day180.change;
+            tooltip.innerHTML = '<img src="' + itemdata.icon + '" class="item_icon"> ' + itemdata.name + '<br>'
+                                + 'GE: ' + itemdata.current.price + '<span class="coin">●</span>' + (parseInt(this.dataset.shop_price) > 0 ? ' Shop: ' + this.dataset.shop_price + '<span class="coin">●</span>' : '') + '<br>'
+                                + '&nbsp;&nbsp;&nbsp;&nbsp;Today: ' + (itemdata.today.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.today.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span> ') + (itemdata.today.price != '0' ? itemdata.today.price : '') + '<br>'
+                                + '&nbsp;&nbsp;30 Day: ' + (itemdata.day30.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day30.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day30.change + '<br>'
+                                + '&nbsp;&nbsp;90 Day: ' + (itemdata.day90.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day90.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day90.change + '<br>'
+                                + '180 Day: ' + (itemdata.day180.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day180.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day180.change;
 
             tooltip.style.display = 'block';
             tooltip.style.visibility = 'visible';

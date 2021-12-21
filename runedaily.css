@@ -164,6 +164,7 @@ div.table_container[data-hide="hide"] .unhide_button {
     background: #333;
     padding: 5px;
     margin-top: 10px;
+    z-index: 100;
 }
 
 .item_icon {
@@ -174,6 +175,13 @@ div.table_container[data-hide="hide"] .unhide_button {
 .item_icon_tooltip {
     height:32px;
     width:32px;
+}
+
+.coin {
+    color: #c1991c;
+    filter: drop-shadow(1px 1px 1px #000);
+    font-size: 1.4rem;
+    vertical-align: baseline;
 }
 
 .trend_negative {
