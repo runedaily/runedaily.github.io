@@ -67,7 +67,6 @@ div.table_container[data-hide="hide"] .unhide_button {
     display:inline-block;
 }
 
-
 .activity_table th {
     font-size: 1.5em;
     vertical-align: top;
@@ -158,9 +157,31 @@ div.table_container[data-hide="hide"] .unhide_button {
     box-shadow: inset 0 0 0 9999px #3b0404;
 }
 
+#tooltip {
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    background: #333;
+    padding: 5px;
+    margin-top: 10px;
+}
+
 .item_icon {
     height:16px;
     width:16px;
+}
+
+.item_icon_tooltip {
+    height:32px;
+    width:32px;
+}
+
+.trend_negative {
+    color: red;
+}
+
+.trend_positive {
+    color: green;
 }
 
 .countdown {
@@ -174,7 +195,7 @@ div.table_container[data-hide="hide"] .unhide_button {
 }
 
 footer {
-    text-align:center;
+    text-align: center;
 }
 
 footer a,

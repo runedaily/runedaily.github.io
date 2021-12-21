@@ -295,7 +295,7 @@ const populateTable = function(timeFrame) {
 
                 for (let item of buyItems) {
                     let itemApiData = rsapidata[item.id].item;
-                    newRowColor.innerHTML += '<img class="item_icon" src="' + itemApiData.icon + '">';
+                    newRowColor.innerHTML += '<img class="item_icon" src="' + itemApiData.icon + '" data-item_id="' + item.id + '">';
                     newRowColor.innerHTML += (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')<br>';
                 }
 
@@ -303,7 +303,7 @@ const populateTable = function(timeFrame) {
                     newRowColor.innerHTML += '<br>Skip:<br>'
                     for (let item of skipItems) {
                         let itemApiData = rsapidata[item.id].item;
-                        newRowColor.innerHTML += '<img class="item_icon" src="' + itemApiData.icon + '">';
+                        newRowColor.innerHTML += '<img class="item_icon" src="' + itemApiData.icon + '" data-item_id="' + item.id + '">';
                         newRowColor.innerHTML += (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')<br>';
                     }
                 }
@@ -610,6 +610,34 @@ const countDown = function(timeFrame) {
     document.getElementById('countdown-' + timeFrame).innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
 };
 
+const itemStatsTooltip = function() {
+    let items = document.querySelectorAll('img.item_icon');
+    let tooltip = document.getElementById('tooltip');
+
+    for (let item of items) {
+        item.addEventListener('mouseover', function(e) {
+            e.preventDefault();
+            let itemdata = rsapidata[this.dataset.item_id].item;
+
+            item.after(tooltip);
+
+            tooltip.innerHTML = '<img src="' + itemdata.icon + '" class="item_icon"> ' + itemdata.name + ' - ' + itemdata.current.price + ' each<br>';
+            tooltip.innerHTML += '&nbsp;&nbsp;&nbsp;&nbsp;Today: ' + (itemdata.today.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.today.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span> ') + (itemdata.today.price != '0' ? itemdata.today.price : '') + '<br>';
+            tooltip.innerHTML += '&nbsp;&nbsp;30 Day: ' + (itemdata.day30.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day30.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day30.change + '<br>';
+            tooltip.innerHTML += '&nbsp;&nbsp;90 Day: ' + (itemdata.day90.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day90.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day90.change + '<br>';
+            tooltip.innerHTML += '180 Day: ' + (itemdata.day180.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day180.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day180.change;
+
+            tooltip.style.display = 'block';
+            tooltip.style.visibility = 'visible';
+        });
+
+        item.addEventListener('mouseout', function(e) {
+            tooltip.style.display = 'none';
+            tooltip.style.visibility = 'hidden';
+        });
+    }
+}
+
 /**
  * Make bootstrap 5 dropdown menus collapse after link is clicked
  * old method of adding `data-toggle="collapse" data-target=".navbar-collapse.show"` to the <li>s was preventing navigation by the same element
@@ -641,6 +669,7 @@ window.onload = function () {
     }
 
     dropdownMenuHelper();
+    itemStatsTooltip();
 
     setInterval(function() {
         for (const timeFrame of timeframes) {
