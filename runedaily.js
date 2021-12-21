@@ -157,7 +157,7 @@ var rs3dailyshops = [
     },
     {task: "Vial of Water Packs", url: "https://runescape.wiki/w/Money_making_guide/Buying_vials_of_water", short: true,  desc: 'Normalized for 24 hours. +6 from Sigmund the Merchant',
         outputs: [
-            {id: 227, quantity: 5300, store_price: 10, multiplier: 0.15, label_override: 'Vial of Water (Packs@160hrs)'}, //vial of water packs respawn over 160 hours 24/160=0.4
+            {id: 227, quantity: 5300, store_price: 10, multiplier: 0.367924528, label_override: 'Vial of Water (Packs@160hrs)'}, //vial of water packs respawn over 160 hours 24/160=0.4
             {id: 221, quantity: 2000, store_price: 3}, //eye of newt packs
             {id: 48961, quantity: 200, store_price: 5}, //bomb vial
         ]
@@ -375,12 +375,12 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
             ? parseFloat(String(itemApiData.current.price).slice(0, -1).replace(/,/g, '')) * 1000
             : parseInt(String(itemApiData.current.price).replace(/\D/g, ''), 10);
 
+        if (!!item.multiplier) {
+            item.quantity *= item.multiplier;
+        }
+
         let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.store_price ?? parseInt(String(rsapidata[item.id].item.current.price).replace(/\D/g, ''), 10));
         item.profit = (item.quantity * itemPrice) - itemCost;
-
-        if (!!item.multiplier) {
-            item.profit *= item.multiplier;
-        }
 
         if (method == 'max') {
             if (returnObj.buyItems.length > 0 && item.profit > returnObj.buyItems[0].profit) {
