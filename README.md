@@ -1,5 +1,5 @@
-![RuneDaily](./img/runedaily.png)
-# RuneDaily - RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape
+![DailyScape](./img/dailyscape.png)
+# DailyScape - RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape
 
 ## Features
 * List of dailies, weeklies and monthlies for Runescape 3
