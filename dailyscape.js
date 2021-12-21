@@ -296,7 +296,7 @@ const populateTable = function(timeFrame) {
                 for (let item of buyItems) {
                     let itemApiData = rsapidata[item.id].item;
                     newRowColor.innerHTML += '<div class="item_output" data-item_id="' + item.id + '" data-shop_price="' + item.shop_price + '">'
-                                            + '<img class="item_icon" src="' + itemApiData.icon + '">'
+                                            + '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + item.id + '">'
                                             + (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')'
                                             + '</div>';
                 }
@@ -306,7 +306,7 @@ const populateTable = function(timeFrame) {
                     for (let item of skipItems) {
                         let itemApiData = rsapidata[item.id].item;
                         newRowColor.innerHTML += '<div class="item_output" data-item_id="' + item.id + '" data-shop_price="' + item.shop_price + '">'
-                                                + '<img class="item_icon" src="' + itemApiData.icon + '">'
+                                                + '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + item.id + '">'
                                                 + (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')'
                                                 + '</div>';
                     }
@@ -625,7 +625,7 @@ const itemStatsTooltip = function() {
 
             item.after(tooltip);
 
-            tooltip.innerHTML = '<img src="' + itemdata.icon + '" class="item_icon"> ' + itemdata.name + '<br>'
+            tooltip.innerHTML = '<img src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + this.dataset.item_id + '" class="item_icon"> ' + itemdata.name + '<br>'
                                 + 'GE: ' + itemdata.current.price + '<span class="coin">●</span>' + (parseInt(this.dataset.shop_price) > 0 ? ' Shop: ' + this.dataset.shop_price + '<span class="coin">●</span>' : '') + '<br>'
                                 + '&nbsp;&nbsp;&nbsp;&nbsp;Today: ' + (itemdata.today.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.today.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span> ') + (itemdata.today.price != '0' ? itemdata.today.price : '') + '<br>'
                                 + '&nbsp;&nbsp;30 Day: ' + (itemdata.day30.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day30.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day30.change + '<br>'
