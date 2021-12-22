@@ -57,10 +57,11 @@ apiupdated=$(jq -e .lastConfigUpdateRuneday <<< ${curl_response})
 testjson=$?
 
 if (( $testjson > 0 )); then
-    echo "json invalid"
+    echo "json invalid:"
+    echo $apiupdated
     exit 0
 elif (( $apiupdated <= $apiupdated_cached )); then
-    echo "no new data"
+    echo "no new data - old: ${apiupdated_cached} new: ${apiupdated}"
     exit 0
 else
     echo ${curl_response} > ${API_UPDATED_FILE}
