@@ -12,7 +12,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="data/rsapidata.js"></script>
-    <script src="dailyscape.js?v=7"></script>
+    <script src="dailyscape.js?v=8"></script>
 
     <meta name="title" content="DailyScape">
     <meta name="description" content="RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape">
@@ -83,7 +83,7 @@
 
 <div class="container-xl">
     <div id="dailies" class="table_container rs3daily_table">
-        <table id="rs3daily_table" class="activity_table table table-dark table-striped table-hover">
+        <table id="rs3daily_table" class="activity_table table table-dark table-striped table-hover" data-timeframe="rs3daily">
             <thead>
                 <tr>
                     <th>Dailies <span id="countdown-rs3daily" class="countdown"></span></th>
@@ -99,7 +99,7 @@
     </div>
 
     <div id="gathering" class="table_container rs3dailyshops_table">
-        <table id="rs3dailyshops_table" class="activity_table table table-dark table-striped table-hover">
+        <table id="rs3dailyshops_table" class="activity_table table table-dark table-striped table-hover" data-timeframe="rs3dailyshops">
             <thead>
                 <tr>
                     <th>Daily Gathering <span id="countdown-rs3dailyshops" class="countdown"></span></th>
@@ -116,7 +116,7 @@
     </div>
 
     <div id="weeklies" class="table_container rs3weekly_table">
-        <table id="rs3weekly_table" class="activity_table table table-dark table-striped table-hover">
+        <table id="rs3weekly_table" class="activity_table table table-dark table-striped table-hover" data-timeframe="rs3weekly">
             <thead>
                 <tr>
                     <th>Weeklies <span id="countdown-rs3weekly" class="countdown"></span></th>
@@ -132,7 +132,7 @@
     </div>
 
     <div id="monthlies" class="table_container rs3monthly_table">
-        <table id="rs3monthly_table" class="activity_table table table-dark table-striped table-hover">
+        <table id="rs3monthly_table" class="activity_table table table-dark table-striped table-hover" data-timeframe="rs3monthly">
             <thead>
                 <tr>
                     <th>Monthlies <span id="countdown-rs3monthly" class="countdown"></span></th>

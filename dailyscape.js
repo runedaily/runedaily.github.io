@@ -15,7 +15,7 @@ var rs3daily = [
     {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
     {task: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw", short: true, desc: "Receive treasure from motherlode maw"},
     {task: "Gorajo Card", url: "https://runescape.wiki/w/Gorajo_card", short: true, desc: "Consistent yak card gives a guaranteed Meilyr combination potion recipe"},
-    {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Divine Herb 1 is most profitable"},
+    {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Divine Herb 1 most coins/resource, Divine Yew most xp/resource"},
 
     {task: "Nemi Forest", url: "https://www.reddit.com/r/NemiForest/new/", desc: "'NemiForest' FC"},
     {task: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache", desc: "Divination D&D"},
@@ -196,6 +196,10 @@ var rs3monthly = [
     {task: "Troll Invasion", url: "https://runescape.wiki/w/Troll_Invasion", desc: "Defend all waves for up to 77k xp book"},
 ];
 
+const toSlug = function(toSlug) {
+    return toSlug.replace(/\W/g, '-').toLowerCase();
+};
+
 /**
  * Populate the HTML with data for a timeFrame and attach listeners
  * @param {String} timeFrame
@@ -206,11 +210,6 @@ const populateTable = function(timeFrame) {
 
     const sampleRow = document.querySelector('#sample_row');
     const targetTable = document.querySelector('#' + timeFrame + '_table tbody');
-
-    if (!targetTable) {
-        console.warn('Table does not exist: ' + timeFrame);
-        return;
-    }
 
     //Hidden table
     let hideTable = storage.getItem(timeFrame + '-hide') ?? 'false';
@@ -224,19 +223,20 @@ const populateTable = function(timeFrame) {
         let sortArray = customOrder.split(',');
 
         data.sort(function(a, b){
-            return sortArray.indexOf(a.task) - sortArray.indexOf(b.task);
+            return sortArray.indexOf(toSlug(a.task)) - sortArray.indexOf(toSlug(b.task));
         });
     }
 
     for (let row of data) {
+        let taskSlug = toSlug(row.task);
         let rowClone = sampleRow.content.cloneNode(true);
         let newRow = rowClone.querySelector('tr');
         let newRowAnchor = rowClone.querySelector('td.activity_name a');
         let newRowColor = rowClone.querySelector('td.activity_color');
-        let newRowHide = rowClone.querySelector('td.activity_name button.hide-button');
 
-        let taskName = row.task;
-        let taskState = storage.getItem(taskName) ?? 'false';
+        let taskState = storage.getItem(taskSlug) ?? 'false';
+
+        newRow.dataset.task=taskSlug;
 
         if (!!row.url) {
             newRowAnchor.href = row.url;
@@ -247,6 +247,7 @@ const populateTable = function(timeFrame) {
             }
 
             /**
+             * Handle if task has associated items
              * @todo refactor
              */
             if (!!row.outputs || !!row.outputs_max) {
@@ -319,33 +320,35 @@ const populateTable = function(timeFrame) {
 
         targetTable.appendChild(newRow);
         newRow.dataset.completed = taskState;
+    }
 
-        newRowColor.addEventListener('click', function () {
-            let newState = (newRow.dataset.completed === 'true') ? 'false' : 'true'
-            newRow.dataset.completed = newState;
+    if (timeFrame == 'rs3dailyshops') {
+        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong><span class="coin">●</span>';
+    }
+};
+
+const tableEventListeners = function() {
+    let rowsColor = document.querySelectorAll('td.activity_color');
+    let rowsHide = document.querySelectorAll('td.activity_name button.hide-button');
+
+    for (let colorCell of rowsColor) {
+        colorCell.addEventListener('click', function () {
+            let thisTimeframe = this.closest('table').dataset.timeframe;
+            let thisRow = this.closest('tr');
+            let taskSlug = thisRow.dataset.task;
+            let newState = (thisRow.dataset.completed === 'true') ? 'false' : 'true'
+            thisRow.dataset.completed = newState;
 
             if (newState === 'true') {
-                storage.setItem(taskName, newState);
+                storage.setItem(taskSlug, newState);
             } else {
-                storage.removeItem(taskName);
+                storage.removeItem(taskSlug);
             }
 
-            storage.setItem(timeFrame + '-updated', new Date().getTime());
+            storage.setItem(thisTimeframe + '-updated', new Date().getTime());
         });
 
-        newRowHide.addEventListener('click', function() {
-            newRow.dataset.completed = 'hide';
-            storage.setItem(taskName, 'hide');
-
-            if (newRow.hasAttribute('data-profit')) {
-                let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
-                let totalProfitNumber = parseInt(String(totalProfitElement.innerHTML).replace(/\D/g, ''), 10);
-                let newProfit = totalProfitNumber - parseInt(newRow.dataset.profit);
-                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
-            }
-        });
-
-        let descriptionAnchors = newRowColor.querySelectorAll('a');
+        let descriptionAnchors = colorCell.querySelectorAll('a');
         for (let anchor of descriptionAnchors) {
             anchor.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -353,8 +356,20 @@ const populateTable = function(timeFrame) {
         }
     }
 
-    if (timeFrame == 'rs3dailyshops') {
-        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong><span class="coin">●</span>';
+    for (let rowHide of rowsHide) {
+        rowHide.addEventListener('click', function() {
+            let thisRow = this.closest('tr');
+            let taskSlug = thisRow.dataset.task;
+            thisRow.dataset.completed = 'hide';
+            storage.setItem(taskSlug, 'hide');
+
+            if (thisRow.hasAttribute('data-profit')) {
+                let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
+                let totalProfitNumber = parseInt(String(totalProfitElement.innerHTML).replace(/\D/g, ''), 10);
+                let newProfit = totalProfitNumber - parseInt(thisRow.dataset.profit);
+                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
+            }
+        });
     }
 };
 
@@ -460,10 +475,10 @@ const draggableTable = function(timeFrame) {
 
             //save the order
             let csv = [];
-            let rows = document.querySelectorAll('#' + timeFrame + '_table tbody tr td.activity_name a');
+            let rows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
 
             for (let row of rows) {
-                csv.push(row.innerHTML);
+                csv.push(row.dataset.task);
             }
 
             storage.setItem(timeFrame + '-order', csv.join(','));
@@ -482,14 +497,14 @@ const resetTable = function(timeFrame, html) {
     const tableRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
 
     for (let rowTarget of tableRows) {
-        let taskName = rowTarget.querySelector('.activity_name a').innerHTML;
-        let itemState = storage.getItem(taskName) ?? 'false';
+        let taskSlug = rowTarget.dataset.task;
+        let itemState = storage.getItem(taskSlug) ?? 'false';
         if (itemState != 'hide') {
             if (html) {
                 rowTarget.dataset.completed = false;
             }
 
-            storage.removeItem(taskName);
+            storage.removeItem(taskSlug);
         }
     }
 
@@ -507,10 +522,11 @@ const resettableSection = function(timeFrame) {
         resetTable(timeFrame, false);
 
         for (item of data) {
-            let itemState = storage.getItem(item.task) ?? 'false';
+            let taskSlug = toSlug(item.task);
+            let itemState = storage.getItem(taskSlug) ?? 'false';
 
             if (itemState == 'hide') {
-                storage.removeItem(item.task);
+                storage.removeItem(taskSlug);
             }
         }
 
@@ -524,7 +540,6 @@ const resettableSection = function(timeFrame) {
  * @param {String} timeFrame
  */
 const hidableSection = function(timeFrame) {
-
     let hideButton = document.querySelector('#' + timeFrame + '_hide_button');
     hideButton.addEventListener('click', function () {
         console.log(timeFrame);
@@ -674,6 +689,7 @@ window.onload = function () {
     }
 
     dropdownMenuHelper();
+    tableEventListeners();
     itemStatsTooltip();
 
     setInterval(function() {
