@@ -42,30 +42,32 @@ itemlist=(
 '32843' #crystal flask
 )
 
-#check if there might be new data
-apiupdated_cached=$(jq .lastConfigUpdateRuneday ${API_UPDATED_FILE})
-
-curl_response=$(curl -Ssf https://secure.runescape.com/m=itemdb_rs/api/info.json)
-curl_status=$?
-
-if (( $curl_status > 0 )); then
-    echo "curl error - getting apiupdated"
-    exit ${curl_status}
-fi
-
-apiupdated=$(jq -e .lastConfigUpdateRuneday <<< ${curl_response})
-testjson=$?
-
-if (( $testjson > 0 )); then
-    echo "json invalid:"
-    echo $apiupdated
-    exit 0
-elif (( $apiupdated <= $apiupdated_cached )); then
-    echo "no new data - old: ${apiupdated_cached} new: ${apiupdated}"
-    exit 0
-else
-    echo ${curl_response} > ${API_UPDATED_FILE}
-fi
+# Sadly this does not seem to reliably update when prices are updated
+# Saved in case this changes later
+#
+# apiupdated_cached=$(jq .lastConfigUpdateRuneday ${API_UPDATED_FILE})
+#
+# curl_response=$(curl -Ssf https://secure.runescape.com/m=itemdb_rs/api/info.json)
+# curl_status=$?
+#
+# if (( $curl_status > 0 )); then
+#     echo "curl error - getting apiupdated"
+#     exit ${curl_status}
+# fi
+#
+# apiupdated=$(jq -e .lastConfigUpdateRuneday <<< ${curl_response})
+# testjson=$?
+#
+# if (( $testjson > 0 )); then
+#     echo "json invalid:"
+#     echo $apiupdated
+#     exit 0
+# elif (( $apiupdated <= $apiupdated_cached )); then
+#     echo "no new data - old: ${apiupdated_cached} new: ${apiupdated}"
+#     exit 0
+# else
+#     echo ${curl_response} > ${API_UPDATED_FILE}
+# fi
 
 #retrieve the new data
 new_data="{\n"
