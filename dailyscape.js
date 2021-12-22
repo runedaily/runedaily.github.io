@@ -482,13 +482,13 @@ const resetTable = function(timeFrame, html) {
     const tableRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
 
     for (let rowTarget of tableRows) {
-        if (html) {
-            rowTarget.dataset.completed = false;
-        }
-
         let taskName = rowTarget.querySelector('.activity_name a').innerHTML;
         let itemState = storage.getItem(taskName) ?? 'false';
         if (itemState != 'hide') {
+            if (html) {
+                rowTarget.dataset.completed = false;
+            }
+
             storage.removeItem(taskName);
         }
     }
