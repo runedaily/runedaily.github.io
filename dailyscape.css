@@ -60,11 +60,11 @@ div.table_container .unhide_button {
 }
 
 div.table_container[data-hide="hide"] .hide_button {
-    display:none;
+    display: none;
 }
 
 div.table_container[data-hide="hide"] .unhide_button {
-    display:inline-block;
+    display: inline-block;
 }
 
 .activity_table th {
@@ -74,6 +74,7 @@ div.table_container[data-hide="hide"] .unhide_button {
 
 .activity_table thead td {
     text-align:right;
+    position: relative;
 }
 
 .activity_table td.activity_name {
@@ -81,7 +82,7 @@ div.table_container[data-hide="hide"] .unhide_button {
     height: 100%;
     width: 70%;
     min-height:69px;
-    position:relative;
+    position: relative;
 }
 
 .activity_table td.activity_name a,
@@ -195,6 +196,10 @@ div.table_container[data-hide="hide"] .unhide_button {
 .item_icon_tooltip {
     height:32px;
     width:32px;
+}
+
+#rs3dailyshops_totalprofit {
+    float: left;
 }
 
 .coin {
