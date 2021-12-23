@@ -232,7 +232,7 @@ const populateTable = function(timeFrame) {
         let rowClone = sampleRow.content.cloneNode(true);
         let newRow = rowClone.querySelector('tr');
         let newRowAnchor = rowClone.querySelector('td.activity_name a');
-        let newRowColor = rowClone.querySelector('td.activity_color');
+        let newRowColor = rowClone.querySelector('td.activity_color .activity_desc');
 
         let taskState = storage.getItem(taskSlug) ?? 'false';
 
