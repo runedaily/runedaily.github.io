@@ -17,3 +17,4 @@
 ## Todo
 * Drag and drop reordering on mobile
 * After hiding is added, add more "complete" list of dailies
+* Shareable URL with tasks already pre-hidden
