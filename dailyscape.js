@@ -242,21 +242,11 @@ const populateTable = function(timeFrame) {
             newRowAnchor.href = row.url;
             newRowAnchor.innerHTML = row.task;
 
-            if (!!row.desc) {
-                newRowColor.innerHTML = row.desc;
-            }
-
             /**
              * Handle if task has associated items
              * @todo refactor
              */
             if (!!row.outputs || !!row.outputs_max) {
-                if (!!row.desc) {
-                    newRowColor.innerHTML += '<br>';
-                } else {
-                    newRowColor.innerHTML = '';
-                }
-
                 let totalInputPrice = 0;
                 let totalItemProfit = 0;
                 let buyItems = [];
@@ -292,7 +282,11 @@ const populateTable = function(timeFrame) {
                     skipItems.push(...rowSum.skipItems);
                 }
 
-                newRowColor.innerHTML += 'Total Profit: <strong>' + totalItemProfit.toLocaleString() + '</strong><span class="coin">●</span><br>';
+                newRowColor.innerHTML = 'Profit: <strong>' + totalItemProfit.toLocaleString() + '</strong><span class="coin">●</span><br>';
+
+                if (!!row.desc) {
+                    newRowColor.innerHTML += row.desc + '<br>';
+                }
 
                 for (let item of buyItems) {
                     let itemApiData = rsapidata[item.id].item;
@@ -312,8 +306,9 @@ const populateTable = function(timeFrame) {
                                                 + '</div>';
                     }
                 }
+            } else if (!!row.desc) {
+                newRowColor.innerHTML = row.desc;
             }
-
         } else {
             newRowAnchor.innerHTML = row.task;
         }
@@ -323,7 +318,7 @@ const populateTable = function(timeFrame) {
     }
 
     if (timeFrame == 'rs3dailyshops') {
-        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong><span class="coin">●</span>';
+        document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong><span class="coin">●</span>';
     }
 };
 
@@ -367,7 +362,7 @@ const tableEventListeners = function() {
                 let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
                 let totalProfitNumber = parseInt(String(totalProfitElement.innerHTML).replace(/\D/g, ''), 10);
                 let newProfit = totalProfitNumber - parseInt(thisRow.dataset.profit);
-                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Daily Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
+                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
             }
         });
     }
