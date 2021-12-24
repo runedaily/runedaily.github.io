@@ -70,6 +70,8 @@ div.table_container[data-hide="hide"] .unhide_button {
 .activity_table th {
     font-size: 1.5em;
     vertical-align: top;
+    width: 70%;
+    border: none;
 }
 
 .activity_table thead td {
@@ -249,6 +251,7 @@ footer a img {
 }
 
 @media (max-width: 767px) {
+    .activity_table th,
     .activity_table td.activity_name {
         width: 50%;
     }
@@ -259,12 +262,14 @@ footer a img {
 }
 
 @media (min-width:768px) {
+    .activity_table th,
     .activity_table td.activity_name {
         width: 60%;
     }
 }
 
 @media (min-width:992px) {
+    .activity_table th,
     .activity_table td.activity_name {
         width: 66%;
     }
