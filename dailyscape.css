@@ -37,7 +37,7 @@ div.table_container[data-hide="hide"] table tbody {
     display: none;
 }
 
-.section_button span {
+.expanding_button span {
     max-width: 0;
     -webkit-transition: max-width 0.5s;
     transition: max-width 0.5s;
@@ -47,7 +47,7 @@ div.table_container[data-hide="hide"] table tbody {
     overflow: hidden;
 }
 
-.section_button:hover span {
+.expanding_button:hover span {
     max-width: 7rem;
 }
 
