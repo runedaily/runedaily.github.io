@@ -18,3 +18,4 @@
 * Drag and drop reordering on mobile
 * After hiding is added, add more "complete" list of dailies
 * Shareable URL with tasks already pre-hidden
+* Allow users to add custom entries that are saved in localStorage
