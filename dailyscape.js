@@ -186,6 +186,8 @@ var rs3weekly = [
     {task: "Wisps of the Grove", url: "https://runescape.wiki/w/Wisps_of_the_Grove", desc: "Farming & Hunting XP, Vinny pet"},
     {task: "Shattered Worlds", url: "https://runescape.wiki/w/Shattered_Worlds", desc: "Complete weekly challenges for additional <a href=\"https://runescape.wiki/w/Shattered_Worlds/Rewards\" target=\"_blank\" rel=\"noreferrer noopener\">shattered anima</a>"},
     {task: "Familiarisation", url: "https://runescape.wiki/w/Familiarisation", desc: "Summoning outfit"},
+    {task: "Skeletal horror", url: "https://runescape.wiki/w/Skeletal_horror", desc: "Kill it for an elite or master clue scroll"},
+    {task: "Aquarium Treasure Chest", url: "https://runescape.wiki/w/Treasure_chest_decoration", desc: "Get an elite or master clue scroll"},
 ];
 
 var rs3monthly = [
