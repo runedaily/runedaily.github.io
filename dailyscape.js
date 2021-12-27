@@ -184,6 +184,7 @@ var rs3dailyshops = [
             {id: 227, quantity: 300, shop_price: 10, label_override: 'Vial of Water Packs'}, //vial of water packs
         ]
     },
+    {task: "Herb Run", url: "https://runescape.wiki/w/Money_making_guide/Farming_spirit_weed", short: true, desc: "Plant and gather your favorite herbs"},
 ];
 
 var rs3weekly = [
