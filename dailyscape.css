@@ -220,6 +220,7 @@ div.table_container[data-hide="hide"] .unhide_button {
     color: #c1991c;
     filter: drop-shadow(1px 1px 1px #000);
     font-size: 1.4rem;
+    line-height: 1rem;
     vertical-align: baseline;
 }
 

@@ -40,6 +40,11 @@ itemlist=(
 '24116' #bakriminel bolts
 '23191' #potion flask
 '32843' #crystal flask
+'37952' #bloodweed seeds
+# '29864' #algarum thread
+# '8784' #gold leaf
+# '28628' #stone of binding
+# '8786' #marble block
 )
 
 # Sadly this does not seem to reliably update when prices are updated

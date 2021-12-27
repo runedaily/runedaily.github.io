@@ -173,6 +173,17 @@ var rs3dailyshops = [
             {id: 13278, quantity: 6000, shop_price: 50}, //broad arrowheads
         ]
     },
+    {task: "Bandit Duty Free", url: "https://runescape.wiki/w/Money_making_guide/Buying_construction_materials_from_Bandit_Duty_Free", short: true, desc: "Shop in the Wilderness, get skulled by Mr X first, slow resale on some items.",
+        outputs: [
+            {id: 13278, quantity: 3000, shop_price: 50}, //broad arrowheads
+            {id: 37952, quantity: 5, shop_price: 50000}, //bloodweed seeds
+            // {id: 29864, quantity: 5, shop_price: 450000}, //algarum thread
+            // {id: 8784, quantity: 5, shop_price: 117000}, //gold leaf
+            // {id: 28628, quantity: 5, shop_price: 450000}, //stone of binding
+            // {id: 8786, quantity: 5, shop_price: 292500}, //marble block
+            {id: 227, quantity: 300, shop_price: 10, label_override: 'Vial of Water Packs'}, //vial of water packs
+        ]
+    },
 ];
 
 var rs3weekly = [
