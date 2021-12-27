@@ -12,10 +12,9 @@
 * Drag and drop reordering (on desktop) that's saved so you can move the stuff you find more important to the top
 * Links in nav to "more resources" that might be useful for gameplay information
 * Makes profit calculations in "realtime" with data from runescape GE API
+* Tooltips on items showing price and trend info
 * Allows hiding of tasks and sections and saves preference in localStorage
 
-## Todo
-* Drag and drop reordering on mobile
-* After hiding is added, add more "complete" list of dailies
-* Shareable URL with tasks already pre-hidden
-* Allow users to add custom entries that are saved in localStorage
+## Requests
+
+Please submit any missing tasks, bugs or new feature requests to the [issue tracker](https://github.com/dailyscape/dailyscape.github.io/issues).
