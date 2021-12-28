@@ -1,4 +1,4 @@
-![DailyScape](./img/dailyscape.png)
+[![DailyScape](./img/dailyscape.png)](https://dailyscape.github.io)
 # DailyScape - RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape
 
 ## Features
