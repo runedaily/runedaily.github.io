@@ -93,8 +93,8 @@ for items in "${itemlist[@]}"; do
     if test "$curl_status" != "0"; then
         break
     fi
-
-    new_data+="\"${item[0]}\":${curl_response}"
+    itemdata=$(jq -c -r '.item | del( .icon, .icon_large, .typeIcon )' <<< ${curl_response})
+    new_data+="\"${item[0]}\":${itemdata}"
 
     if (( $current < $length )); then
         new_data+=",\n"

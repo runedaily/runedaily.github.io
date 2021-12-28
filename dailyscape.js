@@ -269,7 +269,7 @@ const populateTable = function(timeFrame) {
 
                 if (!!row.inputs) {
                     for (let input of row.inputs) {
-                        totalInputPrice += input.quantity * (input.shop_price ?? parseInt(String(rsapidata[input.id].item.current.price).replace(/\D/g, ''), 10));
+                        totalInputPrice += input.quantity * (input.shop_price ?? parseInt(String(rsapidata[input.id].current.price).replace(/\D/g, ''), 10));
                     }
                 }
 
@@ -304,7 +304,7 @@ const populateTable = function(timeFrame) {
                 }
 
                 for (let item of buyItems) {
-                    let itemApiData = rsapidata[item.id].item;
+                    let itemApiData = rsapidata[item.id];
                     newRowColor.innerHTML += '<div class="item_output" data-item_id="' + item.id + '" data-shop_price="' + item.shop_price + '">'
                                             + '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + item.id + '">'
                                             + (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')'
@@ -314,7 +314,7 @@ const populateTable = function(timeFrame) {
                 if (skipItems.length > 0) {
                     newRowColor.innerHTML += '<br>Skip:<br>'
                     for (let item of skipItems) {
-                        let itemApiData = rsapidata[item.id].item;
+                        let itemApiData = rsapidata[item.id];
                         newRowColor.innerHTML += '<div class="item_output" data-item_id="' + item.id + '" data-shop_price="' + item.shop_price + '">'
                                                 + '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + item.id + '">'
                                                 + (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString() + ' (' + item.profit.toLocaleString() + ')'
@@ -399,7 +399,7 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
     };
 
     for (let item of outputArray) {
-        let itemApiData = rsapidata[item.id].item;
+        let itemApiData = rsapidata[item.id];
         let itemPrice = String(itemApiData.current.price).endsWith('k')
             ? parseFloat(String(itemApiData.current.price).slice(0, -1).replace(/,/g, '')) * 1000
             : parseInt(String(itemApiData.current.price).replace(/\D/g, ''), 10);
@@ -408,7 +408,7 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
             item.quantity *= item.multiplier;
         }
 
-        let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.shop_price ?? parseInt(String(rsapidata[item.id].item.current.price).replace(/\D/g, ''), 10));
+        let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.shop_price ?? parseInt(String(rsapidata[item.id].current.price).replace(/\D/g, ''), 10));
         item.profit = (item.quantity * itemPrice) - itemCost;
 
         if (method == 'max') {
@@ -646,7 +646,7 @@ const itemStatsTooltip = function() {
     for (let item of items) {
         item.addEventListener('mouseover', function(e) {
             e.preventDefault();
-            let itemdata = rsapidata[this.dataset.item_id].item;
+            let itemdata = rsapidata[this.dataset.item_id];
 
             item.after(tooltip);
 
