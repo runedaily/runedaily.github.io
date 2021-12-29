@@ -17,6 +17,7 @@ if test "$curl_status" != "0"; then
     break
 fi
 
+#merge local items file with incoming data
 new_data="{\n"
 for row in $(jq -cr '.[]' <<< ${curl_response}); do
     itemid=$(jq -r '.id' <<< ${row})

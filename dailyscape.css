@@ -207,9 +207,9 @@ div.table_container[data-hide="hide"] .unhide_button {
     width:16px;
 }
 
-.item_icon_tooltip {
-    height:32px;
-    width:32px;
+#tooltip .item_icon {
+    height:24px;
+    width:24px;
 }
 
 #rs3dailyshops_totalprofit {
