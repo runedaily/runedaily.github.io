@@ -11,8 +11,8 @@
 * Saves what you checked off in the right column across visits in your browser's localStorage
 * Drag and drop reordering (on desktop) that's saved so you can move the stuff you find more important to the top
 * Links in nav to "more resources" that might be useful for gameplay information
-* Makes profit calculations in "realtime" with data from runescape GE API
-* Tooltips on items showing price and trend info
+* Makes profit calculations in "realtime" with data from [runescape.wiki GE API](https://runescape.wiki/w/User:Gaz_Lloyd/using_gemw#Exchange_API)
+* Tooltips on items showing more info
 * Allows hiding of tasks and sections and saves preference in localStorage
 
 ## Requests

@@ -269,7 +269,7 @@ const populateTable = function(timeFrame) {
 
                 if (!!row.inputs) {
                     for (let input of row.inputs) {
-                        totalInputPrice += input.quantity * (input.shop_price ?? parseInt(String(rsapidata[input.id].current.price).replace(/\D/g, ''), 10));
+                        totalInputPrice += input.quantity * (input.shop_price ?? parseInt(String(rsapidata[input.id].price).replace(/\D/g, ''), 10));
                     }
                 }
 
@@ -400,15 +400,15 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
 
     for (let item of outputArray) {
         let itemApiData = rsapidata[item.id];
-        let itemPrice = String(itemApiData.current.price).endsWith('k')
-            ? parseFloat(String(itemApiData.current.price).slice(0, -1).replace(/,/g, '')) * 1000
-            : parseInt(String(itemApiData.current.price).replace(/\D/g, ''), 10);
+        let itemPrice = String(itemApiData.price).endsWith('k')
+            ? parseFloat(String(itemApiData.price).slice(0, -1).replace(/,/g, '')) * 1000
+            : parseInt(String(itemApiData.price).replace(/\D/g, ''), 10);
 
         if (!!item.multiplier) {
             item.quantity *= item.multiplier;
         }
 
-        let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.shop_price ?? parseInt(String(rsapidata[item.id].current.price).replace(/\D/g, ''), 10));
+        let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.shop_price ?? parseInt(String(rsapidata[item.id].price).replace(/\D/g, ''), 10));
         item.profit = (item.quantity * itemPrice) - itemCost;
 
         if (method == 'max') {
@@ -651,11 +651,11 @@ const itemStatsTooltip = function() {
             item.after(tooltip);
 
             tooltip.innerHTML = '<img src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + this.dataset.item_id + '" class="item_icon"> ' + itemdata.name + '<br>'
-                                + 'GE: ' + itemdata.current.price + '<span class="coin">●</span>' + (parseInt(this.dataset.shop_price) > 0 ? ' Shop: ' + this.dataset.shop_price + '<span class="coin">●</span>' : '') + '<br>'
-                                + '&nbsp;&nbsp;&nbsp;&nbsp;Today: ' + (itemdata.today.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.today.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span> ') + (itemdata.today.price != '0' ? itemdata.today.price : '') + '<br>'
-                                + '&nbsp;&nbsp;30 Day: ' + (itemdata.day30.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day30.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day30.change + '<br>'
-                                + '&nbsp;&nbsp;90 Day: ' + (itemdata.day90.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day90.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day90.change + '<br>'
-                                + '180 Day: ' + (itemdata.day180.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day180.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day180.change;
+                                + 'GE: ' + itemdata.price.toLocaleString() + '<span class="coin">●</span>' + (parseInt(this.dataset.shop_price) > 0 ? ' Shop: ' + parseInt(this.dataset.shop_price).toLocaleString() + '<span class="coin">●</span>' : '');
+                                // + '&nbsp;&nbsp;&nbsp;&nbsp;Today: ' + (itemdata.today.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.today.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span> ') + (itemdata.today.price != '0' ? itemdata.today.price : '') + '<br>'
+                                // + '&nbsp;&nbsp;30 Day: ' + (itemdata.day30.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day30.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day30.change + '<br>'
+                                // + '&nbsp;&nbsp;90 Day: ' + (itemdata.day90.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day90.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day90.change + '<br>'
+                                // + '180 Day: ' + (itemdata.day180.trend == 'positive' ? '<span class="trend_positive">▲</span>' : itemdata.day180.trend == 'negative' ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>') + itemdata.day180.change;
 
             tooltip.style.display = 'block';
             tooltip.style.visibility = 'visible';

@@ -2,7 +2,7 @@ name: rsapidata
 
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -13,9 +13,10 @@ jobs:
     - shell: bash
       env:
         API_UPDATED_FILE: ./data/rsapiupdated.json
-        API_DATA_FILE: ./data/rsapidata.js
+        API_DATA_FILE: ./data/rsapidatawiki.js
+        ITEMS_DATA_FILE: ./data/rsitems.json
       run: |
-        bash ./.github/scripts/rsapidata.sh
+        bash ./.github/scripts/rsapidatawiki.sh
         if [[ `git status --porcelain` ]]; then
         git config --global user.name 'RS3 Data Bot'
         git config --global user.email '20735294+607ch00@users.noreply.github.com'
