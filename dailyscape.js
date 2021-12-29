@@ -17,7 +17,7 @@ var rs3daily = {
     "gorajo-card": {task: "Gorajo Card", url: "https://runescape.wiki/w/Gorajo_card", short: true, desc: "Consistent yak card gives a guaranteed Meilyr combination potion recipe"},
     "divine-locations": {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Herb 1 best profit, Yews best xp"},
     "archaeology-research": {task: "Archaeology Research", url: "https://runescape.wiki/w/Research", short: true, desc: "Use Chronotes to send out research teams for Arch XP and resources"},
-    "wilderness-warbands": {task: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands", short: true, desc: "Every 7 hours. Defeat invaders in the wilderness for xp or gp"},
+    "wilderness-warbands": {task: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands", short: true, desc: "Next Warbands: <span id=\"warbands-countdown\"></span><br>Every 7 hours. Defeat invaders in the wilderness for xp or gp"},
     "nemi-forest": {task: "Nemi Forest", url: "https://www.reddit.com/r/NemiForest/new/", desc: "'NemiForest' FC"},
     "guthixian-cache": {task: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache", desc: "Divination D&D"},
     "sinkholes": {task: "Sinkholes", url: "https://runescape.wiki/w/Sinkholes", desc: "Dungeoneering XP lamps and tokens, 2x a day"},
@@ -734,6 +734,39 @@ const countDown = function(timeFrame) {
     document.getElementById('countdown-' + timeFrame).innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
 };
 
+/**
+ * Starts at Thursday 0 UTC +7 hours each interval
+ * @see https://runescape.wiki/w/Wilderness_Warbands#Timing
+ */
+const warbandsCounter = function() {
+    let nowtime = new Date();
+    var daysAfterLastThursday = (-7 + 4) - nowtime.getDay();
+
+    let lastThursday = new Date();
+    lastThursday.setUTCDate(nowtime.getUTCDate() + daysAfterLastThursday);
+    lastThursday.setUTCHours(0);
+    lastThursday.setUTCMinutes(0);
+    lastThursday.setUTCSeconds(0);
+
+    let elapsedTime = (nowtime.getTime() - lastThursday.getTime()) / 1000 / 60 / 60;
+    let elapsedIntervals = Math.floor(elapsedTime / 7);
+
+    //get time of number of intervals + 1
+    let nextWarbands = new Date();
+    nextWarbands.setTime(lastThursday.getTime() + (elapsedIntervals + 1) * 7 * 60 * 60 * 1000);
+    let remainingtime = (nextWarbands.getTime() - nowtime.getTime()) / 1000;
+
+    //countdown with the diff
+    let timeparts = [
+        Math.floor(remainingtime / 86400), //d
+        Math.floor(remainingtime % 86400 / 3600), //h
+        Math.floor(remainingtime % 3600 / 60), //m
+        Math.floor(remainingtime % 60) //s
+    ];
+
+    document.getElementById('warbands-countdown').innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
+}
+
 const itemStatsTooltip = function() {
     let items = document.querySelectorAll('div.item_output');
     let tooltip = document.getElementById('tooltip');
@@ -805,11 +838,14 @@ window.onload = function() {
     tableEventListeners();
     sortButton('rs3dailyshops');
     itemStatsTooltip();
+    warbandsCounter();
 
     setInterval(function() {
         for (const timeFrame of timeframes) {
             checkReset(timeFrame);
             countDown(timeFrame);
         }
+
+        warbandsCounter();
     }, 1000);
 };
