@@ -12,7 +12,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="data/rsapidatawiki.js"></script>
-    <script src="dailyscape.js?v=19"></script>
+    <script src="dailyscape.js?v=20"></script>
 
     <meta name="title" content="DailyScape">
     <meta name="description" content="RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape">
@@ -102,13 +102,14 @@
     </div>
 
     <div id="gathering" class="table_container rs3dailyshops_table">
-        <table id="rs3dailyshops_table" class="activity_table table table-dark table-striped table-hover" data-timeframe="rs3dailyshops">
+        <table id="rs3dailyshops_table" class="activity_table table table-dark table-striped table-hover" data-timeframe="rs3dailyshops" data-sort="default">
             <thead>
                 <tr>
                     <th>Daily Gathering <span id="countdown-rs3dailyshops" class="countdown"></span></th>
                     <td>
                         <span id="rs3dailyshops_totalprofit"></span>
                         <span class="text-nowrap">
+                            <button id="rs3dailyshops_sort_button" class="sort_button expanding_button btn btn-secondary btn-sm active" title="Sort by profit/alpha/default">⇅<span>Sort</span></button>
                             <button id="rs3dailyshops_hide_button" class="hide_button expanding_button btn btn-secondary btn-sm active" title="Hide section">▲<span>Hide</span></button>
                             <button id="rs3dailyshops_unhide_button" class="unhide_button expanding_button btn btn-secondary btn-sm active" title="Unhide Section">▼<span>Unhide</span></button>
                             <button id="rs3dailyshops_reset_button" class="reset_button expanding_button btn btn-secondary btn-sm active" title="Completely reset checked items, hiding and order to default">↺<span>Reset</span></button>

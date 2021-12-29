@@ -244,7 +244,8 @@ const populateTable = function(timeFrame) {
     let data = window[timeFrame];
 
     const sampleRow = document.querySelector('#sample_row');
-    const targetTable = document.querySelector('#' + timeFrame + '_table tbody');
+    const table = document.getElementById(timeFrame + '_table');
+    const tbody = table.querySelector('tbody');
 
     //Hidden table
     let hideTable = storage.getItem(timeFrame + '-hide') ?? 'false';
@@ -254,7 +255,7 @@ const populateTable = function(timeFrame) {
 
     //User defined sorting
     let customOrder = storage.getItem(timeFrame + '-order') ?? 'false';
-    if (customOrder !== 'false') {
+    if (customOrder !== 'false' && !['asc', 'desc', 'alpha', 'default'].includes(customOrder)) {
         let sortArray = customOrder.split(',');
 
         data = Object.keys(data).sort(function(a, b) {
@@ -355,58 +356,30 @@ const populateTable = function(timeFrame) {
             newRowAnchor.innerHTML = data[taskSlug].task;
         }
 
-        targetTable.appendChild(newRow);
+        tbody.appendChild(newRow);
         newRow.dataset.completed = taskState;
+    }
+
+    if (['asc', 'desc', 'alpha'].includes(customOrder)) {
+        table.dataset.sort = customOrder;
+        const tableRows = Array.from(tbody.querySelectorAll('tr'));
+        tableRows.sort((a, b) => {
+            if (customOrder == 'alpha') {
+                return a.dataset.task.localeCompare(b.dataset.task)
+            } else if (customOrder == 'asc') {
+                return a.dataset.profit - b.dataset.profit;
+            } else if (customOrder == 'desc') {
+                return b.dataset.profit - a.dataset.profit;
+            }
+        });
+
+        for (let sortedrow of tableRows) {
+            tbody.appendChild(sortedrow);
+        }
     }
 
     if (timeFrame == 'rs3dailyshops') {
         document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Profit: <strong>' + totalDailyProfit.toLocaleString() + '</strong><span class="coin">●</span>';
-    }
-};
-
-const tableEventListeners = function() {
-    let rowsColor = document.querySelectorAll('td.activity_color');
-    let rowsHide = document.querySelectorAll('td.activity_name button.hide-button');
-
-    for (let colorCell of rowsColor) {
-        colorCell.addEventListener('click', function () {
-            let thisTimeframe = this.closest('table').dataset.timeframe;
-            let thisRow = this.closest('tr');
-            let taskSlug = thisRow.dataset.task;
-            let newState = (thisRow.dataset.completed === 'true') ? 'false' : 'true'
-            thisRow.dataset.completed = newState;
-
-            if (newState === 'true') {
-                storage.setItem(taskSlug, newState);
-            } else {
-                storage.removeItem(taskSlug);
-            }
-
-            storage.setItem(thisTimeframe + '-updated', new Date().getTime());
-        });
-
-        let descriptionAnchors = colorCell.querySelectorAll('a');
-        for (let anchor of descriptionAnchors) {
-            anchor.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        }
-    }
-
-    for (let rowHide of rowsHide) {
-        rowHide.addEventListener('click', function() {
-            let thisRow = this.closest('tr');
-            let taskSlug = thisRow.dataset.task;
-            thisRow.dataset.completed = 'hide';
-            storage.setItem(taskSlug, 'hide');
-
-            if (thisRow.hasAttribute('data-profit')) {
-                let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
-                let totalProfitNumber = parseInt(String(totalProfitElement.innerHTML).replace(/\D/g, ''), 10);
-                let newProfit = totalProfitNumber - parseInt(thisRow.dataset.profit);
-                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
-            }
-        });
     }
 };
 
@@ -417,7 +390,7 @@ const tableEventListeners = function() {
  * @param {*} method default is sum, set to `max` as needed
  * @returns Object
  */
-const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
+ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
     let returnObj = {
         buyItems: [],
         skipItems: [],
@@ -469,6 +442,94 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
 
     return returnObj;
 };
+
+/**
+ * Attach event listeners to table cells
+ */
+const tableEventListeners = function() {
+    let rowsColor = document.querySelectorAll('td.activity_color');
+    let rowsHide = document.querySelectorAll('td.activity_name button.hide-button');
+
+    for (let colorCell of rowsColor) {
+        colorCell.addEventListener('click', function () {
+            let thisTimeframe = this.closest('table').dataset.timeframe;
+            let thisRow = this.closest('tr');
+            let taskSlug = thisRow.dataset.task;
+            let newState = (thisRow.dataset.completed === 'true') ? 'false' : 'true'
+            thisRow.dataset.completed = newState;
+
+            if (newState === 'true') {
+                storage.setItem(taskSlug, newState);
+            } else {
+                storage.removeItem(taskSlug);
+            }
+
+            storage.setItem(thisTimeframe + '-updated', new Date().getTime());
+        });
+
+        let descriptionAnchors = colorCell.querySelectorAll('a');
+        for (let anchor of descriptionAnchors) {
+            anchor.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    }
+
+    for (let rowHide of rowsHide) {
+        rowHide.addEventListener('click', function() {
+            let thisRow = this.closest('tr');
+            let taskSlug = thisRow.dataset.task;
+            thisRow.dataset.completed = 'hide';
+            storage.setItem(taskSlug, 'hide');
+
+            if (thisRow.hasAttribute('data-profit')) {
+                let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
+                let totalProfitNumber = parseInt(String(totalProfitElement.innerHTML).replace(/\D/g, ''), 10);
+                let newProfit = totalProfitNumber - parseInt(thisRow.dataset.profit);
+                document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
+            }
+        });
+    }
+};
+
+/**
+ * Handle clicking sort button for a table
+ * @param {String} timeFrame
+ */
+ const sortButton = function(timeFrame) {
+    const sortButton = document.getElementById(timeFrame + '_sort_button');
+    sortButton.addEventListener('click', function(e) {
+        const table = document.querySelector('#' + timeFrame + '_table');
+        const tbody = table.querySelector('tbody');
+        const tableRows = Array.from(tbody.querySelectorAll('tr'));
+        let sortstate = table.dataset.sort;
+
+        tableRows.sort((a, b) => {
+            if (sortstate == 'alpha') {
+                let data = Object.keys(window[timeFrame]);
+                table.dataset.sort = 'default';
+                storage.removeItem(timeFrame + '-order');
+                return data.indexOf(a.dataset.task) - data.indexOf(b.dataset.task);
+            } else if (sortstate == 'asc') {
+                table.dataset.sort = 'alpha';
+                storage.setItem(timeFrame + '-order', 'alpha');
+                return a.dataset.task.localeCompare(b.dataset.task)
+            } else if (sortstate == 'desc') {
+                table.dataset.sort = 'asc';
+                storage.setItem(timeFrame + '-order', 'asc');
+                return a.dataset.profit - b.dataset.profit;
+            } else {
+                table.dataset.sort = 'desc';
+                storage.setItem(timeFrame + '-order', 'desc');
+                return b.dataset.profit - a.dataset.profit;
+            }
+        });
+
+        for (let sortedrow of tableRows) {
+            tbody.appendChild(sortedrow);
+        }
+    });
+}
 
 /**
  * Attach drag and drop functionality after elements added to DOM
@@ -531,6 +592,7 @@ const draggableTable = function(timeFrame) {
         });
     }
 };
+
 
 /**
  * Takes a timeframe name and clear the associated localstorage and toggle the html data off
@@ -727,7 +789,7 @@ const dropdownMenuHelper = function() {
     });
 };
 
-window.onload = function () {
+window.onload = function() {
     const timeframes = ['rs3daily', 'rs3dailyshops', 'rs3weekly', 'rs3monthly'];
 
     for (const timeFrame of timeframes) {
@@ -741,6 +803,7 @@ window.onload = function () {
 
     dropdownMenuHelper();
     tableEventListeners();
+    sortButton('rs3dailyshops');
     itemStatsTooltip();
 
     setInterval(function() {
