@@ -5,7 +5,7 @@ var totalDailyProfit = 0; //global for total daily profit, maybe move this
 
 var rs3daily = {
     "treasure-hunter-keys": {task: "Treasure Hunter Keys", url: "https://runescape.wiki/w/Treasure_Hunter", short: true, desc: "Use 2 free daily keys"},
-    "traveling-merchant": {task: "Traveling Merchant", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop", short: true, desc: "Buy rare items in deep sea fishing hub ('WhirlPoolDnD' FC)"},
+    "traveling-merchant": {task: "Traveling Merchant", url: "https://runescape.wiki/w/Travelling_Merchant%27s_Shop", short: true, desc: "Buy rare items in deep sea fishing hub ('WhirlPoolDnD' FC)<span id=\"traveling-merchant-stock\"></span>"},
     "daily-challenge": {task: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", short: true, desc: "Get xp, treasure hunter key x3"},
     "jack-of-trades": {task: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines", short: true, desc: "Get xp in a range of skills to get an xp book"},
     "soul-reaper": {task: "Soul Reaper", url: "https://runescape.wiki/w/Soul_Reaper", desc: "Kill assigned bosses"},
@@ -767,6 +767,81 @@ const warbandsCounter = function() {
     document.getElementById('warbands-countdown').innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
 }
 
+/**
+ * Determine current merchant stock and output to specific element
+ * @todo seems kinda convoluted, revisit for refactor later
+ * @see https://runescape.wiki/w/Travelling_Merchant%27s_Shop/Details
+ */
+ const merchantStock = function() {
+    var merchantitems = {
+        42274: {name: "Uncharted island map", shop_price: 800000},
+
+        34918: {name: "Advanced pulse core", shop_price: 800000},
+        36918: {name: "Anima crystal", shop_price: 150000},
+        42283: {name: "Barrel of bait", shop_price: 50000},
+        42284: {name: "Broken fishing rod", shop_price: 50000},
+        27234: {name: "Distraction & Diversion reset token (daily)", shop_price: 250000},
+        41035: {name: "Gift for the Reaper", shop_price: 1250000},
+        35203: {name: "Goebie burial charm", shop_price: 100000},
+        42290: {name: "Livid plant", shop_price: 1000000},
+        40304: {name: "Menaphite gift offering (small)", shop_price: 100000},
+        40306: {name: "Menaphite gift offering (medium)", shop_price: 300000},
+        42289: {name: "Sacred clay", shop_price: 600000},
+        40150: {name: "Shattered anima", shop_price: 750000},
+        34823: {name: "Silverhawk down", shop_price: 1500000},
+        41036: {name: "Slayer VIP Coupon", shop_price: 200000},
+        35202: {name: "Small goebie burial charm", shop_price: 50000},
+        42285: {name: "Tangled fishbowl", shop_price: 50000},
+        32708: {name: "Unfocused damage enhancer", shop_price: 500000},
+        41034: {name: "Unstable air rune", shop_price: 250000},
+
+        28550: {name: "Crystal triskelion", shop_price: 2000000},
+        25202: {name: "Deathtouched dart", shop_price: 5000000},
+        27236: {name: "Distraction & Diversion reset token (monthly)", shop_price: 1000000},
+        27235: {name: "Distraction & Diversion reset token (weekly)", shop_price: 400000},
+        18782: {name: "Dragonkin lamp", shop_price: 250000},
+        35575: {name: "Dungeoneering Wildcard", shop_price: 400000},
+        32622: {name: "Harmonic dust", shop_price: 2000000},
+        35204: {name: "Large goebie burial charm", shop_price: 150000},
+        40308: {name: "Menaphite gift offering (large)", shop_price: 500000},
+        42282: {name: "Message in a bottle", shop_price: 200000},
+        18778: {name: "Starved ancient effigy", shop_price: 1000000},
+        37758: {name: "Taijitu", shop_price: 800000},
+        32716: {name: "Unfocused reward enhancer", shop_price: 10000000},
+    }
+
+    var merchantab_rotation = [[41036,41036],[32708,32708],[41035,41035],[42285,40304],[36918,41034],[40304,42284],[42283,36918],[40306,40150],[40304,40150],[35202,34823],[27234,42285],[41036,35202],[42289,41036],[34918,32708],[42285,42284],[41034,40304],[34918,40304],[41035,42290],[41034,41036],[42284,41035],[40304,42289],[35202,34918],[40306,32708],[42289,35202],[35202,35202],[27234,27234],[42289,42289],[40150,42285],[34918,40150],[41035,34823],[41034,34918],[42284,42283],[41035,42283],[42285,40306],[42284,40150],[35202,41034],[42283,35202],[40306,27234],[42289,34823],[40150,41035],[27234,41035],[41036,35203],[40150,40304],[34823,41036],[42285,42283],[41034,40306],[32708,27234],[42283,41034],[41034,41034],[42284,42284],[35202,35202],[42283,42289],[40306,41035],[42289,35203],[40304,40306],[42290,41036],[42289,41036],[40150,32708],[42290,41035],[41034,40304],[41034,42285],[42284,36918],[42283,35203],[41035,42289],[42284,42289],[35202,34918],[41035,42285],[35203,35202],[42289,41034],[40150,42284],[42290,36918],[41034,40150],[40150,40150],[34823,34823],[41034,41034],[41036,42283],[32708,42289],[42283,34918],[41035,42284],[35203,40304],[35202,40304],[42283,42290],[35203,41036],[40150,41035],[40304,40150],[42290,34823],[41036,34918],[42289,42283],[42290,42283],[41034,40306],[41036,42289],[32708,42285],[42283,40304],[41035,42290],[36918,34823],[40304,41035],[41035,41035],[35203,35203],[40304,40304],[35202,41036],[42290,35202],[41034,27234],[42289,42290],[34918,42285],[41034,42285],[41036,36918],[34918,35202],[41035,42289],[41035,42283],[35203,40306],[40304,27234],[35202,41034],[35203,41034],[40150,42284],[35202,42283],[27234,40150],[41036,42285],[42289,36918],[34918,40306],[41035,41036]];
+    var merchantc_initial = [ 1, 8, 3, 7, 4, 11, 10, 13, 12, 2, 9, 5, 6 ];
+    var merchantc_rotation = [ 1, 1, 2, 1, 3, 4, 9, 1, 8, 6, 6, 6, 5, 7, 8, 5, 7, 9, 7, 2, 4, 4, 1, 4, 6, 10, 4, 11, 7, 2, 5, 5, 9, 12, 2, 9, 3, 12, 4, 12 ];
+    var merchantc_rotation2 = [ 18782, 27235, 25202, 40308, 18778, 35204, 28550, 37758, 42282, 32716, 35575, 32622, 27236 ];
+
+    let nowtime = new Date();
+
+    const outputElement = document.getElementById('traveling-merchant-stock');
+
+    const merchantStartDate = new Date('March 11, 2018 00:00:00 GMT+00:00');
+
+    var difference = Math.floor((nowtime.getTime() - merchantStartDate.getTime()) / (1000 * 3600 * 24));
+    let currentRotation = difference % 120;
+
+    outputElement.innerHTML = '<br><strong>Current stock:</strong><br>';
+    outputElement.innerHTML += '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + merchantab_rotation[currentRotation][0] + '"> ' + merchantitems[merchantab_rotation[currentRotation][0]].name + '<br>';
+    outputElement.innerHTML += '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + merchantab_rotation[currentRotation][1] + '"> ' + merchantitems[merchantab_rotation[currentRotation][1]].name + '<br>';
+
+    //3rd slot calc
+    var difference2 = Math.floor((nowtime.getTime() - merchantStartDate.getTime()) / (1000 * 3600 * 24));
+    let rotation_daily = difference2 % 40;
+    var rotation_40 = Math.floor(difference2 / 40);
+
+    let current_item_id = merchantc_rotation[rotation_daily] - 1;
+    let mapped_id = merchantc_initial[current_item_id]
+
+    // move the mapped id according to current rotation
+    output_item_id = ( (mapped_id + rotation_40) % 13) - 1
+
+    outputElement.innerHTML += '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + merchantc_rotation2[output_item_id] + '"> ' + merchantitems[merchantc_rotation2[output_item_id]].name;
+}
+
 const itemStatsTooltip = function() {
     let items = document.querySelectorAll('div.item_output');
     let tooltip = document.getElementById('tooltip');
@@ -839,6 +914,7 @@ window.onload = function() {
     sortButton('rs3dailyshops');
     itemStatsTooltip();
     warbandsCounter();
+    merchantStock();
 
     setInterval(function() {
         for (const timeFrame of timeframes) {
