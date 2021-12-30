@@ -740,7 +740,7 @@ const countDown = function(timeFrame) {
  */
 const warbandsCounter = function() {
     let nowtime = new Date();
-    var daysAfterLastThursday = (-7 + 4) - nowtime.getDay();
+    var daysAfterLastThursday = (-7 + 4) - nowtime.getUTCDay();
 
     let lastThursday = new Date();
     lastThursday.setUTCDate(nowtime.getUTCDate() + daysAfterLastThursday);
