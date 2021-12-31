@@ -717,6 +717,7 @@ const countDown = function(timeFrame) {
         let weekmodifier = (7 + resetday - nextdate.getUTCDay() ) % 7;
         nextdate.setUTCDate(nextdate.getUTCDate() + weekmodifier);
     } else if (timeFrame == 'rs3monthly') {
+        nextdate.setUTCHours(0);
         nextdate.setUTCMinutes(0);
         nextdate.setUTCSeconds(0);
         nextdate.setUTCMonth(nextdate.getUTCMonth() + 1);
