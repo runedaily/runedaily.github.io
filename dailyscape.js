@@ -708,17 +708,23 @@ const checkReset = function(timeFrame) {
  */
 const countDown = function(timeFrame) {
     let nextdate = new Date();
-    nextdate.setUTCHours(24);
-    nextdate.setUTCMinutes(0);
-    nextdate.setUTCSeconds(0);
 
     if (timeFrame == 'rs3weekly') {
         let resetday = 3;
+        nextdate.setUTCHours(24);
+        nextdate.setUTCMinutes(0);
+        nextdate.setUTCSeconds(0);
         let weekmodifier = (7 + resetday - nextdate.getUTCDay() ) % 7;
         nextdate.setUTCDate(nextdate.getUTCDate() + weekmodifier);
     } else if (timeFrame == 'rs3monthly') {
+        nextdate.setUTCMinutes(0);
+        nextdate.setUTCSeconds(0);
         nextdate.setUTCMonth(nextdate.getUTCMonth() + 1);
         nextdate.setUTCDate(1);
+    } else {
+        nextdate.setUTCHours(24);
+        nextdate.setUTCMinutes(0);
+        nextdate.setUTCSeconds(0);
     }
 
     let nowtime = new Date();
