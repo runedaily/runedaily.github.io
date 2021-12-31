@@ -13,24 +13,22 @@ itemstring=$(jq -r '. | keys[] as $k | "\($k)|"' <<< ${itemjson} | tr -d '[:spac
 curl_response=$(curl -Ssf https://api.weirdgloop.org/exchange/history/rs/latest?id=${itemstring:0:-1})
 curl_status=$?
 
-if test "$curl_status" != "0"; then
-    break
+if test "$curl_status" == "0"; then
+    #merge local items file with incoming data
+    new_data="{\n"
+    for row in $(jq -cr '.[]' <<< ${curl_response}); do
+        itemid=$(jq -r '.id' <<< ${row})
+        itemdata=$(jq -cr --arg itemid "$itemid" .[\"$itemid\"] <<< ${itemjson})
+        itemmerged=$(jq -crs 'reduce .[] as $item ({}; . * $item)' <<< $(echo "${row} ${itemdata}"))
+        new_data+="\"${itemid}\":${itemmerged},\n"
+    done
+    new_data="${new_data:0:-3}\n}"
+
+    #test for valid json
+    test_data=$(echo -e $new_data)
+    jq -e . >/dev/null 2>&1 <<< $test_data
+    testjson=$?
 fi
-
-#merge local items file with incoming data
-new_data="{\n"
-for row in $(jq -cr '.[]' <<< ${curl_response}); do
-    itemid=$(jq -r '.id' <<< ${row})
-    itemdata=$(jq -cr --arg itemid "$itemid" .[\"$itemid\"] <<< ${itemjson})
-    itemmerged=$(jq -crs 'reduce .[] as $item ({}; . * $item)' <<< $(echo "${row} ${itemdata}"))
-    new_data+="\"${itemid}\":${itemmerged},\n"
-done
-new_data="${new_data:0:-3}\n}"
-
-#test for valid json
-test_data=$(echo -e $new_data)
-jq -e . >/dev/null 2>&1 <<< $test_data
-testjson=$?
 
 endtime=$(date +%s)
 runtime=$(( endtime - starttime ))
