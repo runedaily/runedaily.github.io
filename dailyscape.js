@@ -90,36 +90,36 @@ var rs3dailyshops = {
     "wicked-hood-runes": {task: "Wicked Hood Runes", url: "https://runescape.wiki/w/Wicked_hood", short: true, desc: "Teleport for Vis. Profits based on 99 RC and fully upgraded hood, see <a href=\"https://runescape.wiki/w/Wicked_hood#Runecrafting\" target=\"_blank\" rel=\"noreferrer noopener\">crafting profitability table</a>",
         outputs_max: [
             [   // Withdraw from hood
-                {id: 554, quantity: 200, shop_price: 0}, //fire rune
-                {id: 555, quantity: 200, shop_price: 0}, //water rune
-                {id: 556, quantity: 200, shop_price: 0}, //air rune
-                {id: 557, quantity: 200, shop_price: 0}, //earth rune
-                {id: 558, quantity: 200, shop_price: 0}, //mind rune
-                {id: 559, quantity: 200, shop_price: 0}, //body rune
-                {id: 560, quantity: 10, shop_price: 0}, //death rune
-                {id: 561, quantity: 10, shop_price: 0}, //nature rune
-                {id: 562, quantity: 10, shop_price: 0}, //chaos rune
-                {id: 563, quantity: 10, shop_price: 0}, //law rune
-                {id: 564, quantity: 10, shop_price: 0}, //cosmic rune
-                {id: 565, quantity: 10, shop_price: 0}, //blood rune
-                {id: 566, quantity: 10, shop_price: 0}, //soul rune
-                {id: 9075, quantity: 10, shop_price: 0}, //astral rune
+                {id: 554, quantity: 500, shop_price: 0}, //fire rune
+                {id: 555, quantity: 500, shop_price: 0}, //water rune
+                {id: 556, quantity: 500, shop_price: 0}, //air rune
+                {id: 557, quantity: 500, shop_price: 0}, //earth rune
+                {id: 558, quantity: 500, shop_price: 0}, //mind rune
+                {id: 559, quantity: 500, shop_price: 0}, //body rune
+                {id: 560, quantity: 25, shop_price: 0}, //death rune
+                {id: 561, quantity: 25, shop_price: 0}, //nature rune
+                {id: 562, quantity: 25, shop_price: 0}, //chaos rune
+                {id: 563, quantity: 25, shop_price: 0}, //law rune
+                {id: 564, quantity: 25, shop_price: 0}, //cosmic rune
+                {id: 565, quantity: 25, shop_price: 0}, //blood rune
+                {id: 566, quantity: 25, shop_price: 0}, //soul rune
+                {id: 9075, quantity: 25, shop_price: 0}, //astral rune
             ],
             [   // Craft from pure essence
-                {id: 554, quantity: 300, shop_price: 0}, //fire rune
-                {id: 555, quantity: 600, shop_price: 0}, //water rune
-                {id: 556, quantity: 1000, shop_price: 0}, //air rune
-                {id: 557, quantity: 400, shop_price: 0}, //earth rune
-                {id: 558, quantity: 800, shop_price: 0}, //mind rune
-                {id: 559, quantity: 300, shop_price: 0}, //body rune
-                {id: 560, quantity: 100, shop_price: 0}, //death rune
-                {id: 561, quantity: 200, shop_price: 0}, //nature rune
-                {id: 562, quantity: 200, shop_price: 0}, //chaos rune
-                {id: 563, quantity: 100, shop_price: 0}, //law rune
-                {id: 564, quantity: 200, shop_price: 0}, //cosmic rune
-                {id: 565, quantity: 100, shop_price: 0}, //blood rune
-                {id: 566, quantity: 20, shop_price: 0}, //soul rune
-                {id: 9075, quantity: 200, shop_price: 0}, //astral rune
+                {id: 554, quantity: 750, shop_price: 0}, //fire rune
+                {id: 555, quantity: 1400, shop_price: 0}, //water rune
+                {id: 556, quantity: 1800, shop_price: 0}, //air rune
+                {id: 557, quantity: 900, shop_price: 0}, //earth rune
+                {id: 558, quantity: 1200, shop_price: 0}, //mind rune
+                {id: 559, quantity: 450, shop_price: 0}, //body rune
+                {id: 560, quantity: 150, shop_price: 0}, //death rune
+                {id: 561, quantity: 300, shop_price: 0}, //nature rune
+                {id: 562, quantity: 300, shop_price: 0}, //chaos rune
+                {id: 563, quantity: 150, shop_price: 0}, //law rune
+                {id: 564, quantity: 300, shop_price: 0}, //cosmic rune
+                {id: 565, quantity: 150, shop_price: 0}, //blood rune
+                {id: 566, quantity: 30, shop_price: 0}, //soul rune
+                {id: 9075, quantity: 350, shop_price: 0}, //astral rune
             ],
         ]
     },
