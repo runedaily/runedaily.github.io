@@ -79,7 +79,7 @@ var rs3dailyshops = {
             {id: 40303, quantity: 1000, shop_price: 1500}, //feather of ma'at
         ]
     },
-    "bloodwood-tree": {task: "Bloodwood Tree", url: "https://runescape.wiki/w/Money_making_guide/Fletching_bakriminel_bolts", desc: "Fletch bakriminel bolts. Every 6H",
+    "bloodwood-tree": {task: "Bak Bolts", url: "https://runescape.wiki/w/Money_making_guide/Fletching_bakriminel_bolts", desc: "Fletch bakriminel bolts. Every 6H",
         outputs: [
             {id: 24116, quantity: 1500, shop_price: 0}, //bakriminel bolts
         ],
