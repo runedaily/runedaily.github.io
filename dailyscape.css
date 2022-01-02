@@ -13,6 +13,7 @@ body {
 
 .navbar-nav > li > .dropdown-menu {
     background-color: #343a40;
+    margin-bottom: 10px;
 }
 
 .navbar-nav > li > .dropdown-menu > a {
@@ -21,6 +22,48 @@ body {
 
 .navbar-nav > li > .dropdown-menu > a:hover {
     color: #000;
+}
+
+#profile-button {
+    display: inline-block;
+    background-color: #1f2f38;
+    color: #FFF;
+    font-weight: 900;
+    font-size: 1.25rem;
+    line-height: 1rem;
+}
+
+#profile-name {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-right: 5px;
+
+}
+
+#profile-control {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    min-width: 265px;
+    background: #333;
+    padding: 5px;
+    z-index: 100;
+}
+
+#profile-list {
+    margin: 0 0 7px 0;
+    padding: 0;
+    list-style-position: inside;
+}
+
+.profile-delete {
+    margin-left: 5px;
+    padding: 0 5px;
+}
+
+.form-control.is-invalid {
+    padding: .375rem .75rem;
 }
 
 /* remove silly tbody top border from bs5 :/ */
@@ -277,6 +320,17 @@ footer a img {
 
     .activity_table a {
         text-decoration: underline;
+    }
+}
+
+@media (max-width: 992px) {
+    #profile-control {
+        right: auto;
+        left: 0;
+    }
+
+    #profile-button {
+        padding: 10px;
     }
 }
 

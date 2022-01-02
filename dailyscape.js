@@ -1,5 +1,8 @@
 const storage = window.localStorage;
 
+const timeframes = ['rs3daily', 'rs3dailyshops', 'rs3weekly', 'rs3monthly'];
+var currentProfile = 'default';
+var profilePrefix = '';
 var dragRow; //global for currently dragged row
 var totalDailyProfit = 0; //global for total daily profit, maybe move this
 
@@ -248,13 +251,13 @@ const populateTable = function(timeFrame) {
     const tbody = table.querySelector('tbody');
 
     //Hidden table
-    let hideTable = storage.getItem(timeFrame + '-hide') ?? 'false';
+    let hideTable = storage.getItem(profilePrefix + timeFrame + '-hide') ?? 'false';
     if (hideTable == 'hide') {
         document.querySelector('div.' + timeFrame + '_table').dataset.hide = 'hide';
     }
 
     //User defined sorting
-    let customOrder = storage.getItem(timeFrame + '-order') ?? 'false';
+    let customOrder = storage.getItem(profilePrefix + timeFrame + '-order') ?? 'false';
     if (customOrder !== 'false' && !['asc', 'desc', 'alpha', 'default'].includes(customOrder)) {
         let sortArray = customOrder.split(',');
 
@@ -275,7 +278,7 @@ const populateTable = function(timeFrame) {
         let newRowAnchor = rowClone.querySelector('td.activity_name a');
         let newRowColor = rowClone.querySelector('td.activity_color .activity_desc');
 
-        let taskState = storage.getItem(taskSlug) ?? 'false';
+        let taskState = storage.getItem(profilePrefix + taskSlug) ?? 'false';
 
         newRow.dataset.task=taskSlug;
 
@@ -459,12 +462,12 @@ const tableEventListeners = function() {
             thisRow.dataset.completed = newState;
 
             if (newState === 'true') {
-                storage.setItem(taskSlug, newState);
+                storage.setItem(profilePrefix + taskSlug, newState);
             } else {
-                storage.removeItem(taskSlug);
+                storage.removeItem(profilePrefix + taskSlug);
             }
 
-            storage.setItem(thisTimeframe + '-updated', new Date().getTime());
+            storage.setItem(profilePrefix + thisTimeframe + '-updated', new Date().getTime());
         });
 
         let descriptionAnchors = colorCell.querySelectorAll('a');
@@ -480,7 +483,7 @@ const tableEventListeners = function() {
             let thisRow = this.closest('tr');
             let taskSlug = thisRow.dataset.task;
             thisRow.dataset.completed = 'hide';
-            storage.setItem(taskSlug, 'hide');
+            storage.setItem(profilePrefix + taskSlug, 'hide');
 
             if (thisRow.hasAttribute('data-profit')) {
                 let totalProfitElement = document.getElementById('rs3dailyshops_totalprofit');
@@ -508,19 +511,19 @@ const tableEventListeners = function() {
             if (sortstate == 'alpha') {
                 let data = Object.keys(window[timeFrame]);
                 table.dataset.sort = 'default';
-                storage.removeItem(timeFrame + '-order');
+                storage.removeItem(profilePrefix + timeFrame + '-order');
                 return data.indexOf(a.dataset.task) - data.indexOf(b.dataset.task);
             } else if (sortstate == 'asc') {
                 table.dataset.sort = 'alpha';
-                storage.setItem(timeFrame + '-order', 'alpha');
+                storage.setItem(profilePrefix + timeFrame + '-order', 'alpha');
                 return a.dataset.task.localeCompare(b.dataset.task)
             } else if (sortstate == 'desc') {
                 table.dataset.sort = 'asc';
-                storage.setItem(timeFrame + '-order', 'asc');
+                storage.setItem(profilePrefix + timeFrame + '-order', 'asc');
                 return a.dataset.profit - b.dataset.profit;
             } else {
                 table.dataset.sort = 'desc';
-                storage.setItem(timeFrame + '-order', 'desc');
+                storage.setItem(profilePrefix + timeFrame + '-order', 'desc');
                 return b.dataset.profit - a.dataset.profit;
             }
         });
@@ -586,7 +589,7 @@ const draggableTable = function(timeFrame) {
                 csv.push(row.dataset.task);
             }
 
-            storage.setItem(timeFrame + '-order', csv.join(','));
+            storage.setItem(profilePrefix + timeFrame + '-order', csv.join(','));
 
             return false;
         });
@@ -603,18 +606,17 @@ const resetTable = function(timeFrame, html) {
     const tableRows = document.querySelectorAll('#' + timeFrame + '_table tbody tr');
 
     for (let rowTarget of tableRows) {
-        let taskSlug = rowTarget.dataset.task;
-        let itemState = storage.getItem(taskSlug) ?? 'false';
+        let itemState = storage.getItem(profilePrefix + rowTarget.dataset.task) ?? 'false';
         if (itemState != 'hide') {
             if (html) {
                 rowTarget.dataset.completed = false;
             }
 
-            storage.removeItem(taskSlug);
+            storage.removeItem(profilePrefix + rowTarget.dataset.task);
         }
     }
 
-    storage.removeItem(timeFrame + '-updated');
+    storage.removeItem(profilePrefix + timeFrame + '-updated');
 };
 
 /**
@@ -628,14 +630,14 @@ const resettableSection = function(timeFrame) {
         resetTable(timeFrame, false);
 
         for (let taskSlug in data) {
-            let itemState = storage.getItem(taskSlug) ?? 'false';
+            let itemState = storage.getItem(profilePrefix + taskSlug) ?? 'false';
 
             if (itemState == 'hide') {
-                storage.removeItem(taskSlug);
+                storage.removeItem(profilePrefix + taskSlug);
             }
         }
 
-        storage.removeItem(timeFrame + '-order');
+        storage.removeItem(profilePrefix + timeFrame + '-order');
         window.location.reload();
     });
 };
@@ -650,21 +652,21 @@ const hidableSection = function(timeFrame) {
         console.log(timeFrame);
         let hideTable = document.querySelector('div.' + timeFrame + '_table');
         hideTable.dataset.hide = 'hide';
-        storage.setItem(timeFrame + '-hide', 'hide');
+        storage.setItem(profilePrefix + timeFrame + '-hide', 'hide');
     });
 
     let navLink = document.querySelector('#' + timeFrame + '_nav');
     navLink.addEventListener('click', function() {
         let hideTable = document.querySelector('div.' + timeFrame + '_table');
         hideTable.dataset.hide = '';
-        storage.removeItem(timeFrame + '-hide');
+        storage.removeItem(profilePrefix + timeFrame + '-hide');
     });
 
     let unhideButton = document.querySelector('#' + timeFrame + '_unhide_button');
     unhideButton.addEventListener('click', function() {
         let hideTable = document.querySelector('div.' + timeFrame + '_table');
         hideTable.dataset.hide = '';
-        storage.removeItem(timeFrame + '-hide');
+        storage.removeItem(profilePrefix + timeFrame + '-hide');
     });
 };
 
@@ -675,7 +677,7 @@ const hidableSection = function(timeFrame) {
  * @returns
  */
 const checkReset = function(timeFrame) {
-    let tableUpdateTime = storage.getItem(timeFrame + '-updated') ?? 'false';
+    let tableUpdateTime = storage.getItem(profilePrefix + timeFrame + '-updated') ?? 'false';
 
     if (tableUpdateTime === 'false') {
         return false;
@@ -852,6 +854,120 @@ const warbandsCounter = function() {
     outputElement.innerHTML += '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + merchantc_rotation2[output_item_id] + '"> ' + merchantitems[merchantc_rotation2[output_item_id]].name;
 }
 
+const profiles = function() {
+    let profilesStored= storage.getItem('profiles') ?? 'default';
+    let profilesArray = profilesStored.split(',');
+
+    currentProfile = storage.getItem('current-profile') ?? 'default';
+    profilePrefix = currentProfile == 'default' ? '' : currentProfile + '-';
+
+    if (profilesArray.length > 1) {
+        let profileName = document.getElementById('profile-name');
+        profileName.innerHTML = currentProfile;
+        profileName.style.display = 'inline-block';
+        profileName.style.visibility = 'visible';
+    }
+
+    let profilebutton = document.getElementById('profile-button');
+    let profileControl = document.getElementById('profile-control');
+    let profileForm = profileControl.querySelector('form');
+    let profileName = document.getElementById('profileName');
+    let profileList = document.getElementById('profile-list');
+
+    //populate list of existing profiles
+    for (let profile of profilesArray) {
+        let deleteButton = profile !== 'default' ? '<span class="profile-delete btn btn-danger btn-sm active" data-profile="' + profile + '" title="Delete ' + profile + '">⊘</span>' : '';
+        if (profile !== currentProfile) {
+            profileList.innerHTML += '<li><a href="#" data-profile="' + profile + '">' + profile + '</a>' + deleteButton + '</li>';
+        } else {
+            profileList.innerHTML += '<li>' + profile + deleteButton + '</li>'
+        }
+    }
+
+    //Event listener for profile links
+    let profileLinks = profileList.querySelectorAll('li a');
+    for (let profileLink of profileLinks) {
+        profileLink.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            let switchProfile = this.dataset.profile;
+            storage.setItem('current-profile', switchProfile);
+            window.location.reload();
+        });
+    }
+
+    //Event listener for delete profile button
+    let deleteButtons = profileList.querySelectorAll('.profile-delete');
+    for (let deleteButton of deleteButtons) {
+        deleteButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            profilesArray = profilesArray.filter(e => e != this.dataset.profile);
+            storage.setItem('profiles', profilesArray.join(','));
+
+            if (this.dataset.profile == currentProfile) {
+                storage.setItem('current-profile', 'default');
+            }
+
+            let prefix = this.dataset.profile == 'default' ? '' : (this.dataset.profile + '-');
+            for (const timeFrame of timeframes) {
+                let data = window[timeFrame];
+                for (let task in data) {
+                    storage.removeItem(prefix + task);
+                }
+                storage.removeItem(prefix + timeFrame + '-order');
+                storage.removeItem(prefix + timeFrame + '-updated');
+            }
+
+            window.location.reload();
+        });
+    }
+
+    //alpha-numeric profile names only
+    profileName.addEventListener('keypress', function(e) {
+        if (!/^[A-Za-z0-9]+$/.test(e.key)) {
+            e.preventDefault();
+            return false;
+        }
+    });
+
+    //Event listener for the main button hiding/showing control
+    profilebutton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        let display=profileControl.dataset.display;
+        if (display == 'none') {
+            profileControl.style.display = 'block';
+            profileControl.style.visibility = 'visible';
+            profileControl.dataset.display = 'block';
+        } else {
+            profileControl.style.display = 'none';
+            profileControl.style.visibility = 'hidden';
+            profileControl.dataset.display = 'none';
+        }
+    });
+
+    // Save data on submit
+    profileForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let profileNameField = this.querySelector('input#profileName');
+        let profileErrorMsg = profileNameField.parentNode.querySelector('.invalid-feedback');
+
+        if (!/^[A-Za-z0-9]+$/.test(profileNameField.value)) {
+            profileName.classList.add('is-invalid');
+            profileErrorMsg.innerHTML = 'Alpha numeric and no spaces only';
+        } else if (profilesArray.includes(profileNameField.value)) {
+            profileName.classList.add('is-invalid');
+            profileErrorMsg.innerHTML = 'Profile already exists';
+        } else {
+            profilesArray.push(profileNameField.value);
+            storage.setItem('profiles', profilesArray.join(','));
+            storage.setItem('current-profile', profileNameField.value);
+            window.location.reload();
+        }
+    });
+}
+
 const itemStatsTooltip = function() {
     let items = document.querySelectorAll('div.item_output');
     let tooltip = document.getElementById('tooltip');
@@ -908,7 +1024,7 @@ const dropdownMenuHelper = function() {
 };
 
 window.onload = function() {
-    const timeframes = ['rs3daily', 'rs3dailyshops', 'rs3weekly', 'rs3monthly'];
+    profiles();
 
     for (const timeFrame of timeframes) {
         populateTable(timeFrame);
