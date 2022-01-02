@@ -938,6 +938,7 @@ const profiles = function() {
 
     //Event listener for the main button hiding/showing control
     profilebutton.addEventListener('click', function(e) {
+        e.stopPropagation();
         e.preventDefault();
 
         let display=profileControl.dataset.display;
@@ -971,6 +972,22 @@ const profiles = function() {
             storage.setItem('current-profile', profileNameField.value);
             window.location.reload();
         }
+    });
+
+    profileControl.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    document.addEventListener('click', function(e) {
+        profileControl.style.display = 'none';
+        profileControl.style.visibility = 'hidden';
+        profileControl.dataset.display = 'none';
+    });
+
+    document.addEventListener('scroll', function(e) {
+        profileControl.style.display = 'none';
+        profileControl.style.visibility = 'hidden';
+        profileControl.dataset.display = 'none';
     });
 };
 
