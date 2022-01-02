@@ -997,7 +997,7 @@ const layouts = function() {
     let currentLayout = storage.getItem('current-layout') ?? 'default';
     if (currentLayout !== 'default') {
         document.body.classList.add('compact');
-        layoutButton.innerHTML = '⊞<span>&nbsp;Full Mode</span>';
+        layoutButton.innerHTML = '⊞<span class="expanding_text">&nbsp;Full Mode</span>';
     }
 
     layoutButton.addEventListener('click', function(e) {
@@ -1008,11 +1008,11 @@ const layouts = function() {
         if (setLayout == 'default') {
             storage.setItem('current-layout', 'compact');
             document.body.classList.add('compact');
-            layoutButton.innerHTML = '⊞<span>&nbsp;Full Mode</span>';
+            layoutButton.innerHTML = '⊞<span class="expanding_text">&nbsp;Full Mode</span>';
         } else {
             storage.removeItem('current-layout');
             document.body.classList.remove('compact');
-            layoutButton.innerHTML = '⊟<span>&nbsp;Compact Mode</span>';
+            layoutButton.innerHTML = '⊟<span class="expanding_text">&nbsp;Compact Mode</span>';
         }
     });
 };
