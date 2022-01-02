@@ -854,6 +854,10 @@ const warbandsCounter = function() {
     outputElement.innerHTML += '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + merchantc_rotation2[output_item_id] + '"> ' + merchantitems[merchantc_rotation2[output_item_id]].name;
 }
 
+/**
+ * Good enough for now profile system
+ * @todo make it better
+ */
 const profiles = function() {
     let profilesStored= storage.getItem('profiles') ?? 'default';
     let profilesArray = profilesStored.split(',');
@@ -968,6 +972,9 @@ const profiles = function() {
     });
 }
 
+/**
+ * Add event listeners for item tooltips
+ */
 const itemStatsTooltip = function() {
     let items = document.querySelectorAll('div.item_output');
     let tooltip = document.getElementById('tooltip');
