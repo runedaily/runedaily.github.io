@@ -2,6 +2,7 @@ const storage = window.localStorage;
 
 const timeframes = ['rs3daily', 'rs3dailyshops', 'rs3weekly', 'rs3monthly'];
 var currentProfile = 'default';
+var currentLayout = 'default';
 var profilePrefix = '';
 var dragRow; //global for currently dragged row
 var totalDailyProfit = 0; //global for total daily profit, maybe move this
@@ -326,10 +327,12 @@ const populateTable = function(timeFrame) {
                     skipItems.push(...rowSum.skipItems);
                 }
 
-                newRowColor.innerHTML = 'Profit: <strong>' + totalItemProfit.toLocaleString() + '</strong><span class="coin">●</span><br>';
 
+                let profitSpan = newRowColor.parentNode.insertBefore(document.createElement('span'), newRowColor);
+                profitSpan.classList.add('item_profit');
+                profitSpan.innerHTML = '<span class="item_profit_label">Profit: </span><strong>' + totalItemProfit.toLocaleString() + '</strong><span class="coin">●</span>';
                 if (!!data[taskSlug].desc) {
-                    newRowColor.innerHTML += data[taskSlug].desc + '<br>';
+                    newRowColor.innerHTML += '<br>' + data[taskSlug].desc;
                 }
 
                 for (let item of buyItems) {
@@ -393,7 +396,7 @@ const populateTable = function(timeFrame) {
  * @param {*} method default is sum, set to `max` as needed
  * @returns Object
  */
- const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
+const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
     let returnObj = {
         buyItems: [],
         skipItems: [],
@@ -499,7 +502,7 @@ const tableEventListeners = function() {
  * Handle clicking sort button for a table
  * @param {String} timeFrame
  */
- const sortButton = function(timeFrame) {
+const sortButton = function(timeFrame) {
     const sortButton = document.getElementById(timeFrame + '_sort_button');
     sortButton.addEventListener('click', function(e) {
         const table = document.querySelector('#' + timeFrame + '_table');
@@ -532,7 +535,7 @@ const tableEventListeners = function() {
             tbody.appendChild(sortedrow);
         }
     });
-}
+};
 
 /**
  * Attach drag and drop functionality after elements added to DOM
@@ -595,7 +598,6 @@ const draggableTable = function(timeFrame) {
         });
     }
 };
-
 
 /**
  * Takes a timeframe name and clear the associated localstorage and toggle the html data off
@@ -774,7 +776,7 @@ const warbandsCounter = function() {
     ];
 
     document.getElementById('warbands-countdown').innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
-}
+};
 
 /**
  * Determine current merchant stock and output to specific element
@@ -852,7 +854,7 @@ const warbandsCounter = function() {
     }
 
     outputElement.innerHTML += '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + merchantc_rotation2[output_item_id] + '"> ' + merchantitems[merchantc_rotation2[output_item_id]].name;
-}
+};
 
 /**
  * Good enough for now profile system
@@ -970,7 +972,33 @@ const profiles = function() {
             window.location.reload();
         }
     });
-}
+};
+
+const layouts = function() {
+    const layoutButton = document.getElementById('layout-button');
+    const layoutGlyph = layoutButton.querySelector('.glyph');
+    let currentLayout = storage.getItem('current-layout') ?? 'default';
+    if (currentLayout !== 'default') {
+        document.body.classList.add('compact');
+        layoutButton.innerHTML = '⊞<span>&nbsp;Full Mode</span>';
+    }
+
+    layoutButton.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        let setLayout = document.body.classList.contains('compact') ? 'compact' : 'default';
+
+        if (setLayout == 'default') {
+            storage.setItem('current-layout', 'compact');
+            document.body.classList.add('compact');
+            layoutButton.innerHTML = '⊞<span>&nbsp;Full Mode</span>';
+        } else {
+            storage.removeItem('current-layout');
+            document.body.classList.remove('compact');
+            layoutButton.innerHTML = '⊟<span>&nbsp;Compact Mode</span>';
+        }
+    });
+};
 
 /**
  * Add event listeners for item tooltips
@@ -1010,7 +1038,7 @@ const itemStatsTooltip = function() {
             tooltip.style.visibility = 'hidden';
         });
     }
-}
+};
 
 /**
  * Make bootstrap 5 dropdown menus collapse after link is clicked
@@ -1032,6 +1060,7 @@ const dropdownMenuHelper = function() {
 
 window.onload = function() {
     profiles();
+    layouts();
 
     for (const timeFrame of timeframes) {
         populateTable(timeFrame);
