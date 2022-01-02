@@ -844,7 +844,10 @@ const warbandsCounter = function() {
     let mapped_id = merchantc_initial[current_item_id]
 
     // move the mapped id according to current rotation
-    output_item_id = ( (mapped_id + rotation_40) % 13) - 1
+    output_item_id = ( (mapped_id + rotation_40) % 13) - 1;
+    if (output_item_id < 0) {
+        output_item_id = 13 + output_item_id;
+    }
 
     outputElement.innerHTML += '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + merchantc_rotation2[output_item_id] + '"> ' + merchantitems[merchantc_rotation2[output_item_id]].name;
 }
