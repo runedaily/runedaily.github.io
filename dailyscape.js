@@ -21,7 +21,7 @@ var rs3daily = {
     "gorajo-card": {task: "Gorajo Card", url: "https://runescape.wiki/w/Gorajo_card", short: true, desc: "Consistent yak card gives a guaranteed Meilyr combination potion recipe"},
     "divine-locations": {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Herb 1 best profit, Yews best xp"},
     "archaeology-research": {task: "Archaeology Research", url: "https://runescape.wiki/w/Research", short: true, desc: "Use Chronotes to send out research teams for Arch XP and resources"},
-    "wilderness-warbands": {task: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands", short: true, desc: "Next Warbands: <span id=\"warbands-countdown\"></span><br>Every 7 hours. Defeat invaders in the wilderness for xp or gp"},
+    "wilderness-warbands": {task: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands", short: true, desc: "Every 7 hours. Defeat invaders in the wilderness for xp or gp"},
     "nemi-forest": {task: "Nemi Forest", url: "https://www.reddit.com/r/NemiForest/new/", desc: "'NemiForest' FC"},
     "guthixian-cache": {task: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache", desc: "Divination D&D"},
     "sinkholes": {task: "Sinkholes", url: "https://runescape.wiki/w/Sinkholes", desc: "Dungeoneering XP lamps and tokens, 2x a day"},
@@ -356,7 +356,15 @@ const populateTable = function(timeFrame) {
                     }
                 }
             } else if (!!data[taskSlug].desc) {
-                newRowColor.innerHTML = data[taskSlug].desc;
+                //@todo lazy hack for getting warbands timer to display for compact mode
+                if (taskSlug == 'wilderness-warbands') {
+                    let profitSpan = newRowColor.parentNode.insertBefore(document.createElement('span'), newRowColor);
+                    profitSpan.classList.add('item_profit');
+                    profitSpan.innerHTML = '<span class="item_profit_label">Next Warbands: </span><span id=\"warbands-countdown\"></span>';
+                    newRowColor.innerHTML = '<br>' + data[taskSlug].desc;
+                } else {
+                    newRowColor.innerHTML = data[taskSlug].desc;
+                }
             }
         } else {
             newRowAnchor.innerHTML = data[taskSlug].task;
