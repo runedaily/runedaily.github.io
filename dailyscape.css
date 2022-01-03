@@ -28,7 +28,10 @@ body {
     flex-direction: row;
 }
 
-.nav-right .nav-link {
+.navbar-dark .nav-right .nav-link,
+.nav-right .nav-link,
+.navbar-dark .nav-right .nav-link:focus,
+.navbar-dark .nav-right .nav-link:hover {
     display: inline-block;
     background-color: #1f2f38;
     color: #FFF;
