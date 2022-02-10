@@ -30,7 +30,7 @@ var rs3daily = {
     "big-chinchompa": {task: "Big Chinchompa", url: "https://runescape.wiki/w/Big_Chinchompa", desc: "Private hunting instances and hunter xp"},
     "phoenix": {task: "Phoenix", url: "https://runescape.wiki/w/Phoenix_Lair", desc: "Baby phoenix pet"},
     "liberation-of-mazcab": {task: "Liberation of Mazcab", url: "https://runescape.wiki/w/Liberation_of_Mazcab", desc: "Every 2 Days 'Raid FC' FC"},
-    "modified-skilling-helms": {task: "Modified Skilling Helms", url: "http://runescape.wiki/w/Category:Modified_skill_helms", desc: "Collect resources from upgraded skilling outfit helms"},
+
     "fish-flingers": {task: "Fish Flingers", url: "http://runescape.wiki/w/Fish_Flingers", desc: "2 entry tickets a day from fisherman"},
     "evil-tree": {task: "Evil Tree", url: "http://runescape.wiki/w/Evil_Tree", desc: "Woodcutting, firemaking and farming xp and woodcutting buff. 2x a day"},
     "shooting-star": {task: "Shooting Star", url: "http://runescape.wiki/w/Shooting_Star", desc: "Mining XP and double ore mining buff"},
@@ -262,7 +262,19 @@ var rs3dailyshops = {
             {id: 1513, quantity: 9.142857143, shop_price: 0}, //magic logs
             {id: 1515, quantity: 8.857142857, shop_price: 0}, //yew logs
         ]
-    }
+    },
+    "modified-skilling-helms": {task: "Modified Skilling Helms", url: "http://runescape.wiki/w/Category:Modified_skill_helms", desc: "Collect resources from upgraded skilling outfit helms", short: true,
+        outputs: [
+            {id: 1761, quantity: 35, shop_price: 0, label_override: "Soft clay from Artisan's bandana"}, //soft clay
+            {id: 453, quantity: 50, shop_price: 0, label_override: "Coal from Blacksmith's helmet"}, //coal
+            {id: 227, quantity: 200, shop_price: 0, label_override: "Vials of Water from Botanist's mask"}, //vial of water
+            {id: 29293, quantity: 3, shop_price: 0, label_override: "Chronical fragments from Diviner's headwear"}, //chronicle fragment
+            {id: 7413, quantity: 2, shop_price: 0, label_override: "Bird's nests from Master farmer's hat"}, //bird's nest
+            {id: 453, quantity: 3, shop_price: 0, label_override: "Dragon bones from First age tiara"}, //dragon bones
+            {id: 12183, quantity: 500, shop_price: 0, label_override: "Spirit shards from Shaman's headdress"}, //spirit shard
+            {id: 2315, quantity: 10, shop_price: 0, label_override: "Pie shells from Sous chef's toque"}, //pie shells
+        ]
+    },
 };
 
 var rs3weekly = {
@@ -466,7 +478,8 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
     };
 
     for (let item of outputArray) {
-        let itemApiData = rsapidata[item.id];
+        let itemApiData = rsapidata[item.id] ?? {price: 0}
+
         let itemPrice = String(itemApiData.price).endsWith('k')
             ? parseFloat(String(itemApiData.price).slice(0, -1).replace(/,/g, '')) * 1000
             : parseInt(String(itemApiData.price).replace(/\D/g, ''), 10);
@@ -1088,7 +1101,7 @@ const itemStatsTooltip = function() {
     for (let item of items) {
         item.addEventListener('mouseover', function(e) {
             e.preventDefault();
-            let itemdata = rsapidata[this.dataset.item_id];
+            let itemdata = rsapidata[this.dataset.item_id] ?? {name: "", price: 0};
 
             item.after(tooltip);
 
