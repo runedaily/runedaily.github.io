@@ -476,13 +476,13 @@ const calcOutputs = function(outputArray, totalInputPrice, method='sum') {
         }
 
         let itemCost = totalInputPrice > 0 ? totalInputPrice : item.quantity * (item.shop_price ?? parseInt(String(rsapidata[item.id].price).replace(/\D/g, ''), 10));
-        item.profit = (item.quantity * itemPrice) - itemCost;
+        item.profit = Math.round((item.quantity * itemPrice) - itemCost);
 
         if (method == 'max') {
             if ((!!item.inputs)) {
                 for (let inputkey in item.inputs) {
                     let inputItemData = rsapidata[inputkey];
-                    item.profit = item.profit - Math.round(item.inputs[inputkey] * inputItemData.price);
+                    item.profit = Math.round(item.profit - Math.round(item.inputs[inputkey] * inputItemData.price));
                 }
             }
 
