@@ -219,44 +219,44 @@ var rs3dailyshops = {
             ]
         ]
     },
-    "seaweed-and-pineapples": {task: "Seaweed and Pineapples", url: "https://runescape.wiki/w/Money_making_guide/Buying_seaweed_and_pineapples_from_Arhein", short: true,  desc: 'Normalized for 24 hours. +6 from Sigmund the Merchant',
+    "seaweed-and-pineapples": {task: "Seaweed and Pineapples", url: "https://runescape.wiki/w/Money_making_guide/Buying_seaweed_and_pineapples_from_Arhein", short: true,
         outputs: [
             {id: 401, quantity: 80, shop_price: 2}, //seaweed
             {id: 2114, quantity: 40, shop_price: 2}, //pineapples
         ]
     },
-    "bert-sand": {task: "Sand from Bert", url: "https://runescape.wiki/w/Bert",
+    "bert-sand": {task: "Sand from Bert", url: "https://runescape.wiki/w/Bert", short: true,
         outputs: [
             {id: 1783, quantity: 120, shop_price: 0}, //bucket of sand
         ]
     },
-    "oldman-potato-cactus": {task: "Potato Cactus from Weird Old Man", url: "https://runescape.wiki/w/Weird_Old_Man",
+    "oldman-potato-cactus": {task: "Potato Cactus from Weird Old Man", url: "https://runescape.wiki/w/Weird_Old_Man", short: true,
         outputs: [
             {id: 3138, quantity: 40, shop_price: 0}, //potato cactus
         ]
     },
-    "razmire-planks": {task: "Planks from Razmire", url: "https://runescape.wiki/w/Razmire_Keelgan", desc: "30 noted planks, other items at this shop might not sell quickly",
+    "razmire-planks": {task: "Planks from Razmire", url: "https://runescape.wiki/w/Razmire_Keelgan", desc: "30 noted planks, other items at this shop might not sell quickly", short: true,
         outputs: [
             {id: 960, quantity: 30, shop_price: 0}, //plank
         ]
     },
-    "geoffrey-flax": {task: "Flax from Geoffrey", url: "https://runescape.wiki/w/Geoffrey",
+    "geoffrey-flax": {task: "Flax from Geoffrey", url: "https://runescape.wiki/w/Geoffrey", short: true,
         outputs: [
             {id: 1779, quantity: 200, shop_price: 0}, //flax
         ]
     },
-    "dellmonti-pineapples": {task: "Pineapples and Apples from Dell Monti", url: "https://runescape.wiki/w/Dell_Monti",
+    "dellmonti-pineapples": {task: "Pineapples and Apples from Dell Monti", url: "https://runescape.wiki/w/Dell_Monti", short: true,
         outputs: [
             {id: 2114, quantity: 40, shop_price: 0}, //pineapples
             {id: 1955, quantity: 40, shop_price: 0}, //cooking apples
         ]
     },
-    "cromperty-pure-essence": {task: "Pure Essence from Wizard Cromperty", url: "https://runescape.wiki/w/Wizard_Cromperty",
+    "cromperty-pure-essence": {task: "Pure Essence from Wizard Cromperty", url: "https://runescape.wiki/w/Wizard_Cromperty", short: true,
         outputs: [
             {id: 7936, quantity: 150, shop_price: 0}, //pure essence
         ]
     },
-    "coeden-logs": {task: "Logs from Croeden", url: "https://runescape.wiki/w/Coeden", desc: "Average of combinations you could receive",
+    "coeden-logs": {task: "Logs from Croeden", url: "https://runescape.wiki/w/Coeden", desc: "Average of combinations you could receive", short: true,
         outputs: [
             {id: 29556, quantity: 10, shop_price: 0}, //elder logs
             {id: 1513, quantity: 9.142857143, shop_price: 0}, //magic logs
