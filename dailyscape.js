@@ -22,7 +22,7 @@ var rs3daily = {
     "divine-locations": {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Herb 1 best profit, Yews best xp"},
     "archaeology-research": {task: "Archaeology Research", url: "https://runescape.wiki/w/Research", short: true, desc: "Use Chronotes to send out research teams for Arch XP and resources"},
     "wilderness-warbands": {task: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands", short: true, desc: "Every 7 hours. Defeat invaders in the wilderness for xp or gp"},
-    "nemi-forest": {task: "Nemi Forest", url: "https://www.reddit.com/r/NemiForest/new/", desc: "'NemiForest' FC"},
+    "nemi-forest": {task: "Nemi Forest", url: "https://runescape.wiki/w/Nemi_Forest", desc: "'NemiForest' FC. See also <a href=\"https://www.reddit.com/r/NemiForest/new/\" target=\"_blank\" rel=\"noreferrer noopener\">Daily Maps</a>"},
     "guthixian-cache": {task: "Guthixian Cache", url: "https://runescape.wiki/w/Guthixian_Cache", desc: "Divination D&D"},
     "sinkholes": {task: "Sinkholes", url: "https://runescape.wiki/w/Sinkholes", desc: "Dungeoneering XP lamps and tokens, 2x a day"},
     "goebie-bands": {task: "Goebie Bands", url: "https://runescape.wiki/w/Supply_run", desc: "Supply Run"},
@@ -30,6 +30,12 @@ var rs3daily = {
     "big-chinchompa": {task: "Big Chinchompa", url: "https://runescape.wiki/w/Big_Chinchompa", desc: "Private hunting instances and hunter xp"},
     "phoenix": {task: "Phoenix", url: "https://runescape.wiki/w/Phoenix_Lair", desc: "Baby phoenix pet"},
     "liberation-of-mazcab": {task: "Liberation of Mazcab", url: "https://runescape.wiki/w/Liberation_of_Mazcab", desc: "Every 2 Days 'Raid FC' FC"},
+    "modified-skilling-helms": {task: "Modified Skilling Helms", url: "http://runescape.wiki/w/Category:Modified_skill_helms", desc: "Collect resources from upgraded skilling outfit helms"},
+    "fish-flingers": {task: "Fish Flingers", url: "http://runescape.wiki/w/Fish_Flingers", desc: "2 entry tickets a day from fisherman"},
+    "evil-tree": {task: "Evil Tree", url: "http://runescape.wiki/w/Evil_Tree", desc: "Woodcutting, firemaking and farming xp and woodcutting buff. 2x a day"},
+    "shooting-star": {task: "Shooting Star", url: "http://runescape.wiki/w/Shooting_Star", desc: "Mining XP and double ore mining buff"},
+    "bork": {task: "Bork", url: "http://runescape.wiki/w/Bork", desc: "Slayer XP and summoning charms"},
+    "serenity-post": {task: "Serenity Posts", url: "https://runescape.wiki/w/Serenity_posts", desc: "20K agility XP, match poses to complete in 10ish minutes"},
 };
 
 var rs3dailyshops = {
@@ -213,6 +219,50 @@ var rs3dailyshops = {
             ]
         ]
     },
+    "seaweed-and-pineapples": {task: "Seaweed and Pineapples", url: "https://runescape.wiki/w/Money_making_guide/Buying_seaweed_and_pineapples_from_Arhein", short: true,  desc: 'Normalized for 24 hours. +6 from Sigmund the Merchant',
+        outputs: [
+            {id: 401, quantity: 80, shop_price: 2}, //seaweed
+            {id: 2114, quantity: 40, shop_price: 2}, //pineapples
+        ]
+    },
+    "bert-sand": {task: "Sand from Bert", url: "https://runescape.wiki/w/Bert",
+        outputs: [
+            {id: 1783, quantity: 120, shop_price: 0}, //bucket of sand
+        ]
+    },
+    "oldman-potato-cactus": {task: "Potato Cactus from Weird Old Man", url: "https://runescape.wiki/w/Weird_Old_Man",
+        outputs: [
+            {id: 3138, quantity: 40, shop_price: 0}, //potato cactus
+        ]
+    },
+    "razmire-planks": {task: "Planks from Razmire", url: "https://runescape.wiki/w/Razmire_Keelgan", desc: "30 noted planks, other items at this shop might not sell quickly",
+        outputs: [
+            {id: 960, quantity: 30, shop_price: 0}, //plank
+        ]
+    },
+    "geoffrey-flax": {task: "Flax from Geoffrey", url: "https://runescape.wiki/w/Geoffrey",
+        outputs: [
+            {id: 1779, quantity: 200, shop_price: 0}, //flax
+        ]
+    },
+    "dellmonti-pineapples": {task: "Pineapples and Apples from Dell Monti", url: "https://runescape.wiki/w/Dell_Monti",
+        outputs: [
+            {id: 2114, quantity: 40, shop_price: 0}, //pineapples
+            {id: 1955, quantity: 40, shop_price: 0}, //cooking apples
+        ]
+    },
+    "cromperty-pure-essence": {task: "Pure Essence from Wizard Cromperty", url: "https://runescape.wiki/w/Wizard_Cromperty",
+        outputs: [
+            {id: 7936, quantity: 150, shop_price: 0}, //pure essence
+        ]
+    },
+    "coeden-logs": {task: "Logs from Croeden", url: "https://runescape.wiki/w/Coeden", desc: "Average of combinations you could receive",
+        outputs: [
+            {id: 29556, quantity: 10, shop_price: 0}, //elder logs
+            {id: 1513, quantity: 9.142857143, shop_price: 0}, //magic logs
+            {id: 1515, quantity: 8.857142857, shop_price: 0}, //yew logs
+        ]
+    }
 };
 
 var rs3weekly = {
@@ -228,6 +278,9 @@ var rs3weekly = {
     "familiarisation": {task: "Familiarisation", url: "https://runescape.wiki/w/Familiarisation", desc: "Summoning outfit"},
     "skeletal-horror": {task: "Skeletal horror", url: "https://runescape.wiki/w/Skeletal_horror", desc: "Kill it for an elite or master clue scroll"},
     "aquarium-treasure-chest": {task: "Aquarium Treasure Chest", url: "https://runescape.wiki/w/Treasure_chest_decoration", desc: "Get an elite or master clue scroll"},
+    "agoroth": {task: "Agoroth", url: "http://runescape.wiki/w/Agoroth", desc: "2x a week. Black pearl is equivalent to a medium prismatic fallen star's bxp"},
+    "broken-home": {task: "Replay Broken Home", url: "http://runescape.wiki/w/Broken_Home/Quick_guide", desc: "No death speed run < 37 minutes, max 1 food for a huge xp lamp"},
+    "rush-of-blood": {task: "Rush Of Blood", url: "http://runescape.wiki/w/Rush_of_Blood", desc: "Slayer XP and titles"},
 };
 
 var rs3monthly = {
