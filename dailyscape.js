@@ -593,7 +593,7 @@ const sortButton = function(timeFrame) {
             } else if (sortstate == 'asc') {
                 table.dataset.sort = 'alpha';
                 storage.setItem(profilePrefix + timeFrame + '-order', 'alpha');
-                return a.dataset.task.localeCompare(b.dataset.task)
+                return a.querySelector('td a').innerHTML.localeCompare(b.querySelector('td a').innerHTML);
             } else if (sortstate == 'desc') {
                 table.dataset.sort = 'asc';
                 storage.setItem(profilePrefix + timeFrame + '-order', 'asc');
