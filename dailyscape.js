@@ -293,6 +293,7 @@ var rs3weekly = {
     "agoroth": {task: "Agoroth", url: "http://runescape.wiki/w/Agoroth", desc: "2x a week. Black pearl is equivalent to a medium prismatic fallen star's bxp"},
     "broken-home": {task: "Replay Broken Home", url: "http://runescape.wiki/w/Broken_Home/Quick_guide", desc: "No death speed run < 37 minutes, max 1 food for a huge xp lamp"},
     "rush-of-blood": {task: "Rush Of Blood", url: "http://runescape.wiki/w/Rush_of_Blood", desc: "Slayer XP and titles"},
+    "water-filtration": {task: "Water Filtration", url:"https://runescape.wiki/w/Water_filtration_system", desc: "Clean out water filtration system at Het's oasis for troves, golden roses etc"},
 };
 
 var rs3monthly = {
