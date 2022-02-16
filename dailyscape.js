@@ -440,9 +440,10 @@ const populateTable = function(timeFrame) {
         newRow.dataset.completed = taskState;
     }
 
+    //@todo kludgy double dom manipulation because depends on profit calcs in the html
     if (['asc', 'desc', 'alpha'].includes(customOrder)) {
         table.dataset.sort = customOrder;
-        const tableRows = Array.from(tbody.querySelectorAll('tr'));
+        let tableRows = Array.from(tbody.querySelectorAll('tr'));
         tableRows.sort((a, b) => {
             if (customOrder == 'alpha') {
                 return a.dataset.task.localeCompare(b.dataset.task)
@@ -455,6 +456,13 @@ const populateTable = function(timeFrame) {
 
         for (let sortedrow of tableRows) {
             tbody.appendChild(sortedrow);
+        }
+    }
+
+    let tableRows = Array.from(tbody.querySelectorAll('tr'));
+    for (let row of tableRows) {
+        if (row.dataset.completed == 'hide') {
+            tbody.appendChild(row);
         }
     }
 
@@ -558,6 +566,7 @@ const tableEventListeners = function() {
 
     for (let rowHide of rowsHide) {
         rowHide.addEventListener('click', function() {
+            let thisTbody = this.closest('tbody');
             let thisRow = this.closest('tr');
             let taskSlug = thisRow.dataset.task;
             thisRow.dataset.completed = 'hide';
@@ -569,6 +578,8 @@ const tableEventListeners = function() {
                 let newProfit = totalProfitNumber - parseInt(thisRow.dataset.profit);
                 document.getElementById('rs3dailyshops_totalprofit').innerHTML = 'Total Profit: <strong>' + newProfit.toLocaleString() + '</strong><span class="coin">●</span>';
             }
+
+            thisTbody.appendChild(thisRow);
         });
     }
 };
@@ -704,7 +715,7 @@ const resettableSection = function(timeFrame) {
     let data = window[timeFrame];
     let resetButton = document.querySelector('#' + timeFrame + '_reset_button');
     resetButton.addEventListener('click', function () {
-        resetTable(timeFrame, false);
+        // resetTable(timeFrame, false);
 
         for (let taskSlug in data) {
             let itemState = storage.getItem(profilePrefix + taskSlug) ?? 'false';
@@ -732,19 +743,17 @@ const hidableSection = function(timeFrame) {
         storage.setItem(profilePrefix + timeFrame + '-hide', 'hide');
     });
 
-    let navLink = document.querySelector('#' + timeFrame + '_nav');
-    navLink.addEventListener('click', function() {
+    let unhideTable = function () {
         let hideTable = document.querySelector('div.' + timeFrame + '_table');
         hideTable.dataset.hide = '';
         storage.removeItem(profilePrefix + timeFrame + '-hide');
-    });
+    };
+
+    let navLink = document.querySelector('#' + timeFrame + '_nav');
+    navLink.addEventListener('click', unhideTable);
 
     let unhideButton = document.querySelector('#' + timeFrame + '_unhide_button');
-    unhideButton.addEventListener('click', function() {
-        let hideTable = document.querySelector('div.' + timeFrame + '_table');
-        hideTable.dataset.hide = '';
-        storage.removeItem(profilePrefix + timeFrame + '-hide');
-    });
+    unhideButton.addEventListener('click', unhideTable);
 };
 
 /**
@@ -1066,6 +1075,9 @@ const profiles = function() {
     });
 };
 
+/**
+ * Toggle between full and compact mode
+ */
 const layouts = function() {
     const layoutButton = document.getElementById('layout-button');
     const layoutGlyph = layoutButton.querySelector('.glyph');
