@@ -834,32 +834,37 @@ const countDown = function(timeFrame) {
  * @see https://runescape.wiki/w/Wilderness_Warbands#Timing
  */
 const warbandsCounter = function() {
-    let nowtime = new Date();
-    var daysAfterLastThursday = (-7 + 4) - nowtime.getUTCDay();
+    let warbandsData = storage.getItem(profilePrefix + 'wilderness-warbands') ?? 'false';
 
-    let lastThursday = new Date();
-    lastThursday.setUTCDate(nowtime.getUTCDate() + daysAfterLastThursday);
-    lastThursday.setUTCHours(0);
-    lastThursday.setUTCMinutes(0);
-    lastThursday.setUTCSeconds(0);
+    if (warbandsData !== 'hide') {
 
-    let elapsedTime = (nowtime.getTime() - lastThursday.getTime()) / 1000 / 60 / 60;
-    let elapsedIntervals = Math.floor(elapsedTime / 7);
+        let nowtime = new Date();
+        var daysAfterLastThursday = (-7 + 4) - nowtime.getUTCDay();
 
-    //get time of number of intervals + 1
-    let nextWarbands = new Date();
-    nextWarbands.setTime(lastThursday.getTime() + (elapsedIntervals + 1) * 7 * 60 * 60 * 1000);
-    let remainingtime = (nextWarbands.getTime() - nowtime.getTime()) / 1000;
+        let lastThursday = new Date();
+        lastThursday.setUTCDate(nowtime.getUTCDate() + daysAfterLastThursday);
+        lastThursday.setUTCHours(0);
+        lastThursday.setUTCMinutes(0);
+        lastThursday.setUTCSeconds(0);
 
-    //countdown with the diff
-    let timeparts = [
-        Math.floor(remainingtime / 86400), //d
-        Math.floor(remainingtime % 86400 / 3600), //h
-        Math.floor(remainingtime % 3600 / 60), //m
-        Math.floor(remainingtime % 60) //s
-    ];
+        let elapsedTime = (nowtime.getTime() - lastThursday.getTime()) / 1000 / 60 / 60;
+        let elapsedIntervals = Math.floor(elapsedTime / 7);
 
-    document.getElementById('warbands-countdown').innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
+        //get time of number of intervals + 1
+        let nextWarbands = new Date();
+        nextWarbands.setTime(lastThursday.getTime() + (elapsedIntervals + 1) * 7 * 60 * 60 * 1000);
+        let remainingtime = (nextWarbands.getTime() - nowtime.getTime()) / 1000;
+
+        //countdown with the diff
+        let timeparts = [
+            Math.floor(remainingtime / 86400), //d
+            Math.floor(remainingtime % 86400 / 3600), //h
+            Math.floor(remainingtime % 3600 / 60), //m
+            Math.floor(remainingtime % 60) //s
+        ];
+
+        document.getElementById('warbands-countdown').innerHTML = (timeparts[0] > 0 ? (timeparts[0] + 'd ') : '') + (timeparts[1] > 0 ? (timeparts[1] + 'h ') : '') + timeparts[2] + 'm ' + timeparts[3] + 's';
+    }
 };
 
 /**
