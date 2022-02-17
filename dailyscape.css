@@ -255,16 +255,11 @@ div.table_container[data-hide="hide"] .unhide_button {
 }
 
 .compact .activity_tables {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-around;
+    column-count: 2;
 }
 
 .compact .activity_tables .table_container {
     margin: 0 10px;
-    width: 40%;
-    width: calc(50% - 20px);
     min-width: 420px;
     padding-top: 0;
 }
@@ -445,8 +440,8 @@ footer a img {
         padding: 10px;
     }
 
-    .compact .activity_tables .table_container {
-        width: 100%
+    .compact .activity_tables {
+        column-count: 1;
     }
 }
 
