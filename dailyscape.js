@@ -717,6 +717,10 @@ const resettableSection = function(timeFrame) {
     resetButton.addEventListener('click', function () {
         // resetTable(timeFrame, false);
 
+        let unhideTable = document.querySelector('div.' + timeFrame + '_table');
+        unhideTable.dataset.hide = '';
+        storage.removeItem(profilePrefix + timeFrame + '-hide');
+
         for (let taskSlug in data) {
             let itemState = storage.getItem(profilePrefix + taskSlug) ?? 'false';
 
@@ -737,7 +741,6 @@ const resettableSection = function(timeFrame) {
 const hidableSection = function(timeFrame) {
     let hideButton = document.querySelector('#' + timeFrame + '_hide_button');
     hideButton.addEventListener('click', function () {
-        console.log(timeFrame);
         let hideTable = document.querySelector('div.' + timeFrame + '_table');
         hideTable.dataset.hide = 'hide';
         storage.setItem(profilePrefix + timeFrame + '-hide', 'hide');
@@ -1167,6 +1170,27 @@ const dropdownMenuHelper = function() {
     });
 };
 
+const dataUpdatedCheck = function() {
+    let xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+           if (xmlhttp.status == 200) {
+               console.log(xmlhttp.responseText);
+           }
+           else if (xmlhttp.status == 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    };
+
+    xmlhttp.open("GET", "/rsdata/rsapiupdated.json", true);
+    xmlhttp.send();
+}
+
 window.onload = function() {
     profiles();
     layouts();
@@ -1195,4 +1219,8 @@ window.onload = function() {
 
         warbandsCounter();
     }, 1000);
+
+    setInterval(function() {
+        dataUpdatedCheck();
+    }, 600000);
 };
