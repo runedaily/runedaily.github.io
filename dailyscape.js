@@ -30,12 +30,12 @@ var rs3daily = {
     "big-chinchompa": {task: "Big Chinchompa", url: "https://runescape.wiki/w/Big_Chinchompa", desc: "Private hunting instances and hunter xp"},
     "phoenix": {task: "Phoenix", url: "https://runescape.wiki/w/Phoenix_Lair", desc: "Baby phoenix pet"},
     "liberation-of-mazcab": {task: "Liberation of Mazcab", url: "https://runescape.wiki/w/Liberation_of_Mazcab", desc: "Every 2 Days 'Raid FC' FC"},
-
     "fish-flingers": {task: "Fish Flingers", url: "http://runescape.wiki/w/Fish_Flingers", desc: "2 entry tickets a day from fisherman"},
     "evil-tree": {task: "Evil Tree", url: "http://runescape.wiki/w/Evil_Tree", desc: "Woodcutting, firemaking and farming xp and woodcutting buff. 2x a day"},
     "shooting-star": {task: "Shooting Star", url: "http://runescape.wiki/w/Shooting_Star", desc: "Mining XP and double ore mining buff"},
     "bork": {task: "Bork", url: "http://runescape.wiki/w/Bork", desc: "Slayer XP and summoning charms"},
     "serenity-post": {task: "Serenity Posts", url: "https://runescape.wiki/w/Serenity_posts", desc: "20K agility XP, match poses to complete in 10ish minutes"},
+    "fixate": {task: "Fixate Charges", url: "https://runescape.wiki/w/Fixate", desc: "Use x3 fixate charges for guaranteed artefacts e.g. <a href=\"https://runescape.wiki/w/Red_Rum_Relics_III\" target=\"_blank\" rel=\"noreferrer noopener\">Red Rum Relics III</a>"},
 };
 
 var rs3dailyshops = {
