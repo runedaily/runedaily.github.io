@@ -2,7 +2,7 @@
 # DailyScape - RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape
 
 ## Features
-* List of dailies, weeklies and monthlies for Runescape 3
+* List of daily, weekly and monthly repeatable tasks for Runescape 3
 * Click the red area in right column (incomplete) to switch to green (completed)
 * Brief comments on the benefits of completing the task
 * Links to runescape.wiki or other relevant pages with further info
@@ -14,6 +14,9 @@
 * Makes profit calculations in "realtime" with data from [runescape.wiki GE API](https://runescape.wiki/w/User:Gaz_Lloyd/using_gemw#Exchange_API)
 * Tooltips on items showing more info
 * Allows hiding of tasks and sections and saves preference in localStorage
+* Compact view mode
+* Multiple profile capability
+* Ad free / tracking free
 
 ## Requests
 
