@@ -295,6 +295,7 @@ var rs3weekly = {
     "rush-of-blood": {task: "Rush Of Blood", url: "http://runescape.wiki/w/Rush_of_Blood", desc: "Slayer XP and titles"},
     "water-filtration": {task: "Water Filtration", url:"https://runescape.wiki/w/Water_filtration_system", desc: "Clean out water filtration system at Het's oasis for troves, golden roses etc"},
     "miscellania-weekly": {task: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer"},
+    "invention-machine-weekly": {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
 };
 
 var rs3monthly = {
