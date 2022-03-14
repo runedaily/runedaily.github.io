@@ -333,7 +333,18 @@ const populateTable = function(timeFrame) {
         let sortArray = customOrder.split(',');
 
         data = Object.keys(data).sort(function(a, b) {
-            return sortArray.indexOf(a) - sortArray.indexOf(b);
+            let indexA = sortArray.indexOf(a);
+            let indexB = sortArray.indexOf(b);
+
+            if (indexA == -1 && indexB == -1) {
+                return 0;
+            } else if (indexA == -1) {
+                return 1;
+            } else if (indexB == -1) {
+                return -1
+            } else {
+                return indexA - indexB;
+            }
         }).reduce(
             (obj, key) => {
                 obj[key] = data[key];
