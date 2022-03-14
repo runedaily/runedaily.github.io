@@ -36,6 +36,7 @@ var rs3daily = {
     "bork": {task: "Bork", url: "http://runescape.wiki/w/Bork", desc: "Slayer XP and summoning charms"},
     "serenity-post": {task: "Serenity Posts", url: "https://runescape.wiki/w/Serenity_posts", desc: "20K agility XP, match poses to complete in 10ish minutes"},
     "fixate": {task: "Fixate Charges", url: "https://runescape.wiki/w/Fixate", desc: "Use x3 fixate charges for guaranteed artefacts e.g. <a href=\"https://runescape.wiki/w/Red_Rum_Relics_III\" target=\"_blank\" rel=\"noreferrer noopener\">Red Rum Relics III</a>"},
+    "arc-contracts": {task: "Arc Contracts", url: "https://runescape.wiki/w/Contract", desc: "Complete up to 7 contracts in the Arc for chimes and xp"},
 };
 
 var rs3dailyshops = {
@@ -296,6 +297,7 @@ var rs3weekly = {
     "water-filtration": {task: "Water Filtration", url:"https://runescape.wiki/w/Water_filtration_system", desc: "Clean out water filtration system at Het's oasis for troves, golden roses etc"},
     "miscellania-weekly": {task: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer"},
     "invention-machine-weekly": {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
+    "arc-supplies": {task: "Arc Supplies Crate", url: "https://runescape.wiki/w/Rosie_(supplies)", desc: "Get free supplies from Rosie's crate for Arc voyages"},
 };
 
 var rs3monthly = {
