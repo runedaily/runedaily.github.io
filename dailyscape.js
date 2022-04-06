@@ -37,6 +37,14 @@ var rs3daily = {
     "serenity-post": {task: "Serenity Posts", url: "https://runescape.wiki/w/Serenity_posts", desc: "20K agility XP, match poses to complete in 10ish minutes"},
     "fixate": {task: "Fixate Charges", url: "https://runescape.wiki/w/Fixate", desc: "Use x3 fixate charges for guaranteed artefacts e.g. <a href=\"https://runescape.wiki/w/Red_Rum_Relics_III\" target=\"_blank\" rel=\"noreferrer noopener\">Red Rum Relics III</a>"},
     "arc-contracts": {task: "Arc Contracts", url: "https://runescape.wiki/w/Contract", desc: "Complete up to 7 contracts in the Arc for chimes and xp"},
+    "rapid-growth": {task: "Rapid Growth", url: "https://runescape.wiki/w/Rapid_Growth", desc: "Make plants grow faster up to 2x a day",
+        inputs: [
+            {id: 555, quantity: 3, shop_price: 0}, //water rune
+            {id: 557, quantity: 3, shop_price: 0}, //earth rune
+            {id: 561, quantity: 3, shop_price: 0}, //nature rune
+            {id: 566, quantity: 3, shop_price: 0}, //soul rune
+        ]
+    },
 };
 
 var rs3dailyshops = {
@@ -354,6 +362,7 @@ const populateTable = function(timeFrame) {
         );
     }
 
+    //loop through tasks in timeframe
     for (let taskSlug in data) {
         let rowClone = sampleRow.content.cloneNode(true);
         let newRow = rowClone.querySelector('tr');
@@ -436,6 +445,19 @@ const populateTable = function(timeFrame) {
                                                 + '</div>';
                     }
                 }
+            } else if (!!data[taskSlug].inputs) {
+                //entries with only inputs and no outputs for display purposes
+                newRowColor.innerHTML = data[taskSlug].desc;
+                for (let item of data[taskSlug].inputs) {
+                    let itemApiData = rsapidata[item.id];
+                    let itemInputData = !!item.inputs ? ' data-inputs="' + encodeURIComponent(JSON.stringify(item.inputs)) + '"' : '';
+
+                    newRowColor.innerHTML += '<div class="item_output" data-item_id="' + item.id + '" data-shop_price="' + item.shop_price + '"' + itemInputData + '>'
+                                            + '<img class="item_icon" src="https://secure.runescape.com/m=itemdb_rs/obj_sprite.gif?id=' + item.id + '">'
+                                            + (!!item.label_override ? item.label_override : itemApiData.name) + ' x' + item.quantity.toLocaleString()
+                                            + '</div>';
+                }
+
             } else if (!!data[taskSlug].desc) {
                 //@todo lazy hack for getting warbands timer to display for compact mode
                 if (taskSlug == 'wilderness-warbands') {
