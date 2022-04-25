@@ -306,6 +306,7 @@ var rs3weekly = {
     "miscellania-weekly": {task: "Miscellania", url: "https://runescape.wiki/w/Calculator:Other/Miscellania", short: true, desc: "Check approval rating and funds in coffer"},
     "invention-machine-weekly": {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
     "arc-supplies": {task: "Arc Supplies Crate", url: "https://runescape.wiki/w/Rosie_(supplies)", desc: "Get free supplies from Rosie's crate for Arc voyages"},
+    "dream-of-iaia-resource": {task: "Dream of Iaia Resources", url: "https://runescape.wiki/w/Dream_of_Iaia", desc: "Convert resources to skilling stations at a rate of 2 resource to 1 xp"},
 };
 
 var rs3monthly = {
@@ -315,6 +316,7 @@ var rs3monthly = {
     "god-statues": {task: "God Statues", url: "https://runescape.wiki/w/God_Statues", desc: "Up to 177k construction and 88k prayer or slayer xp"},
     "effigy-incubator": {task: "Effigy Incubator", url: "https://runescape.wiki/w/Effigy_Incubator", desc: "Get 10+ effigies"},
     "troll-invasion": {task: "Troll Invasion", url: "https://runescape.wiki/w/Troll_Invasion", desc: "Defend all waves for up to 77k xp book and a treasure hunter key"},
+    "dream-of-iaia-xp": {task: "Dream of Iaia XP", url: "https://runescape.wiki/w/Dream_of_Iaia", desc: "Use up stored xp in skilling stations"},
 };
 
 /**
