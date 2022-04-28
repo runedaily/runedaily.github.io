@@ -307,6 +307,7 @@ var rs3weekly = {
     "invention-machine-weekly": {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
     "arc-supplies": {task: "Arc Supplies Crate", url: "https://runescape.wiki/w/Rosie_(supplies)", desc: "Get free supplies from Rosie's crate for Arc voyages"},
     "dream-of-iaia-resource": {task: "Dream of Iaia Resources", url: "https://runescape.wiki/w/Dream_of_Iaia", desc: "Convert resources to skilling stations at a rate of 2 resource to 1 xp"},
+    "gwd2-bounties": {task: "GWD2 Bounties", url: "https://runescape.wiki/w/Feng,_the_Bounty_Master", desc: "Up to 5 bounties can be stored for GWD2 reputation"},
 };
 
 var rs3monthly = {
