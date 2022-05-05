@@ -308,6 +308,7 @@ var rs3weekly = {
     "arc-supplies": {task: "Arc Supplies Crate", url: "https://runescape.wiki/w/Rosie_(supplies)", desc: "Get free supplies from Rosie's crate for Arc voyages"},
     "dream-of-iaia-resource": {task: "Dream of Iaia Resources", url: "https://runescape.wiki/w/Dream_of_Iaia", desc: "Convert resources to skilling stations at a rate of 2 resource to 1 xp"},
     "gwd2-bounties": {task: "GWD2 Bounties", url: "https://runescape.wiki/w/Feng,_the_Bounty_Master", desc: "Up to 5 bounties can be stored for GWD2 reputation"},
+    "dnd-of-the-week": {task: "D&amp;D of the Week", url: "https://runescape.wiki/w/Distractions_and_Diversions#D&D_of_the_week", desc:"Participate for a TH key token:<span id=\"dnd-of-the-week\"></span>"},
 };
 
 var rs3monthly = {
@@ -989,6 +990,20 @@ const warbandsCounter = function() {
 };
 
 /**
+ * Calculate the featured dnd of the week
+ * @see https://runescape.wiki/w/Template:SofDnD
+ */
+const dndOfTheWeek = function() {
+    const outputElement = document.getElementById('dnd-of-the-week');
+
+    const dndRotation = ['Evil Tree', 'Shooting Star', 'Penguin Hide and Seek', 'Circus'];
+
+    let currentRotation = Math.floor(((Date.now() / 1000) + 86400) / 604800) % 4;
+
+    outputElement.innerHTML = '<br><strong>' + dndRotation[currentRotation] + '</strong>';
+}
+
+/**
  * Good enough for now profile system
  * @todo make it better
  */
@@ -1250,6 +1265,7 @@ window.onload = function() {
     itemStatsTooltip();
     warbandsCounter();
     merchantStock();
+    dndOfTheWeek();
 
     setInterval(function() {
         for (const timeFrame of timeframes) {
