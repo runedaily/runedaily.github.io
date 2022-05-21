@@ -21,3 +21,6 @@
 ## Requests
 
 Please submit any missing tasks, bugs or new feature requests to the [issue tracker](https://github.com/dailyscape/dailyscape.github.io/issues).
+
+
+RuneScape ® is a registered trademark of Jagex © 1999 Jagex Ltd.
