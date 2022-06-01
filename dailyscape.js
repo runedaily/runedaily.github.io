@@ -289,7 +289,7 @@ var rs3dailyshops = {
 var rs3weekly = {
     "capping-clan-citadel": {task: "Capping Clan Citadel", url: "https://runescape.wiki/w/Clan_Citadel", desc: "Get skill xp, set xp bonus, make clan happy"},
     "charge-anachronia-totems": {task: "Charge Anachronia Totems", url: "https://runescape.wiki/w/Totem", desc: "Recharge totems weekly and optionally swap out"},
-    "meg": {task: "Meg", url: "https://runescape.wiki/w/Meg", short: true, desc: "XP lamp and coins"},
+    "meg": {task: "Meg", url: "https://runescape.wiki/w/Meg#Meg's_questions", short: true, desc: "XP lamp and coins"},
     "tears-of-guthix": {task: "Tears of Guthix", url: "https://runescape.wiki/w/Tears_of_Guthix", short: true, desc: "Gain xp for lowest level skill"},
     "herby-werby": {task: "Herby Werby", url: "https://runescape.wiki/w/Herby_Werby", desc: "Herb bag and Totem pieces"},
     "big-top-bonanza": {task: "Big Top Bonanza", url: "https://runescape.wiki/w/Balthazar_Beauregard%27s_Big_Top_Bonanza", short: true, desc: "Do circus tricks for xp"},
@@ -1183,7 +1183,7 @@ const itemStatsTooltip = function() {
 
             tooltip.innerHTML = '<img src="/rsdata/images/' + this.dataset.item_id + '.gif" class="item_icon"> ' + itemdata.name + '<br>'
                                 + 'GE: ' + itemdata.price.toLocaleString() + '<span class="coin">●</span>' + (parseInt(this.dataset.shop_price) > 0 ? ' Shop: ' + parseInt(this.dataset.shop_price).toLocaleString() + '<span class="coin">●</span>' : '');
-            tooltip.innerHTML += '<br>Change: ' + (itemdata.price > itemdata.last ? '+' : '') + (itemdata.last != itemdata.price ? (itemdata.price - itemdata.last).toLocaleString() : '') + (itemdata.price > itemdata.last ? '<span class="trend_positive">▲</span>' : itemdata.price < itemdata.last ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>');
+            tooltip.innerHTML += '<br>Change: ' + (itemdata.price > itemdata.last ? '+' : '') + (itemdata.last != itemdata.price ? (itemdata.price - itemdata.last).toLocaleString() : '-') + (itemdata.price > itemdata.last ? '<span class="trend_positive">▲</span>' : itemdata.price < itemdata.last ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>');
 
             if (!!this.dataset.inputs) {
                 tooltip.innerHTML += '<br><strong>Inputs</strong>:<br>';
