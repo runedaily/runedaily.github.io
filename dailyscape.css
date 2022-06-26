@@ -406,6 +406,7 @@ footer a,
 footer a:active,
 footer a:link,
 footer a:visited {
+    margin: 0 5px;
     color:#777;
     text-decoration: none;
 }
@@ -417,6 +418,7 @@ footer a:hover {
 footer a img {
     height: 16px;
     width: 16px;
+    margin-right: 3px;
 }
 
 @media (max-width: 767px) {
