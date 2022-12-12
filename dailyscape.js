@@ -1275,7 +1275,7 @@ window.onload = function() {
     sortButton('rs3dailyshops');
     itemStatsTooltip();
     warbandsCounter();
-    // merchantStock();
+    merchantStock();
     dndOfTheWeek();
 
     setInterval(function() {
