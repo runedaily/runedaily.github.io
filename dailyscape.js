@@ -938,6 +938,7 @@ const warbandsCounter = function() {
         42285: {name: "Tangled fishbowl", shop_price: 50000},
         32708: {name: "Unfocused damage enhancer", shop_price: 500000},
         41034: {name: "Unstable air rune", shop_price: 250000},
+        54109: {name: "Horn of honour", shop_price: 1000000},
 
         28550: {name: "Crystal triskelion", shop_price: 2000000},
         25202: {name: "Deathtouched dart", shop_price: 5000000},
@@ -954,39 +955,48 @@ const warbandsCounter = function() {
         32716: {name: "Unfocused reward enhancer", shop_price: 10000000},
     }
 
-    var merchantab_rotation = [[41036,41036],[32708,32708],[41035,41035],[42285,40304],[36918,41034],[40304,42284],[42283,36918],[40306,40150],[40304,40150],[35202,34823],[27234,42285],[41036,35202],[42289,41036],[34918,32708],[42285,42284],[41034,40304],[34918,40304],[41035,42290],[41034,41036],[42284,41035],[40304,42289],[35202,34918],[40306,32708],[42289,35202],[35202,35202],[27234,27234],[42289,42289],[40150,42285],[34918,40150],[41035,34823],[41034,34918],[42284,42283],[41035,42283],[42285,40306],[42284,40150],[35202,41034],[42283,35202],[40306,27234],[42289,34823],[40150,41035],[27234,41035],[41036,35203],[40150,40304],[34823,41036],[42285,42283],[41034,40306],[32708,27234],[42283,41034],[41034,41034],[42284,42284],[35202,35202],[42283,42289],[40306,41035],[42289,35203],[40304,40306],[42290,41036],[42289,41036],[40150,32708],[42290,41035],[41034,40304],[41034,42285],[42284,36918],[42283,35203],[41035,42289],[42284,42289],[35202,34918],[41035,42285],[35203,35202],[42289,41034],[40150,42284],[42290,36918],[41034,40150],[40150,40150],[34823,34823],[41034,41034],[41036,42283],[32708,42289],[42283,34918],[41035,42284],[35203,40304],[35202,40304],[42283,42290],[35203,41036],[40150,41035],[40304,40150],[42290,34823],[41036,34918],[42289,42283],[42290,42283],[41034,40306],[41036,42289],[32708,42285],[42283,40304],[41035,42290],[36918,34823],[40304,41035],[41035,41035],[35203,35203],[40304,40304],[35202,41036],[42290,35202],[41034,27234],[42289,42290],[34918,42285],[41034,42285],[41036,36918],[34918,35202],[41035,42289],[41035,42283],[35203,40306],[40304,27234],[35202,41034],[35203,41034],[40150,42284],[35202,42283],[27234,40150],[41036,42285],[42289,36918],[34918,40306],[41035,41036]];
-    var merchantc_initial = [ 1, 8, 3, 7, 4, 11, 10, 13, 12, 2, 9, 5, 6 ];
-    var merchantc_rotation = [ 1, 1, 2, 1, 3, 4, 9, 1, 8, 6, 6, 6, 5, 7, 8, 5, 7, 9, 7, 2, 4, 4, 1, 4, 6, 10, 4, 11, 7, 2, 5, 5, 9, 12, 2, 9, 3, 12, 4, 12 ];
-    var merchantc_rotation2 = [ 18782, 27235, 25202, 40308, 18778, 35204, 28550, 37758, 42282, 32716, 35575, 32622, 27236 ];
+    // Rotation logic based on RSWiki implementation - https://runescape.wiki/w/Module:Rotations/Merchant
+    let merchanta_rotation = [ 1, 15, 1, 6, 4, 8, 14, 9, 12, 17, 9, 13, 2, 16, 2, 7, 1, 5, 11, 6, 9, 14, 10, 14, 18, 13, 18, 4, 17, 2, 8, 3, 6, 11, 7, 11, 19, 14, 15, 1, 14, 18, 5, 19, 7, 12, 8, 12, 16, 11, 12, 17, 15, 19, 6, 1, 4, 9, 5, 9, 13, 8, 13, 18, 12, 16, 3, 17, 1, 6, 2, 6, 10, 5, 10, 15, 13, 17, 19, 14, 17, 3, 18, 3, 11, 6, 11, 16, 10, 14, 16, 11, 18, 4, 19, 4, 8, 3, 8, 13, 7, 11, 17, 12, 15, 1, 16, 1, 5, 19, 5, 10, 4, 8, 14, 9, 16, 2, 13, 17 ];
+    let merchantb_rotation = [ 1, 15, 1, 1, 14, 9, 19, 14, 3, 17, 18, 18, 12, 7, 17, 12, 1, 15, 1, 1, 10, 5, 15, 10, 18, 13, 18, 18, 8, 3, 13, 8, 16, 11, 16, 16, 10, 5, 11, 6, 14, 9, 14, 14, 8, 3, 13, 8, 16, 11, 12, 12, 6, 1, 11, 6, 14, 9, 14, 14, 4, 18, 9, 4, 12, 7, 12, 12, 2, 16, 7, 2, 10, 5, 10, 10, 4, 18, 5, 19, 8, 3, 8, 8, 2, 16, 7, 2, 10, 5, 6, 6, 19, 14, 5, 19, 8, 3, 8, 8, 17, 12, 3, 17, 6, 1, 6, 6, 15, 10, 1, 15, 4, 18, 4, 4, 17, 12, 18, 13 ];
+    let merchantab_initial = [ 32, 15, 9, 20, 25, 17, 5, 19, 18, 2, 3, 6, 11, 24, 22, 1, 8, 21, 14 ];
+    let merchantab_mapping = [ 42283, 42285, 42284, 42282, 35202, 35203, 35204, 40304, 40306, 40308, 27234, 27235, 27236, 41034, 36918, 37758, 41035, 41036, 40150, 42290, 42289, 32708, 32716, 34823, 34918, 35575, 18782, 18778,  32622, 28550, 25202, 54109 ];
+    let merchantc_initial = [ 1, 8, 3, 7, 4, 11, 10, 13, 12, 2, 9, 5, 6 ];
+    let merchantc_rotation = [ 1, 1, 2, 1, 3, 4, 9, 1, 8, 6, 6, 6, 5, 7, 8, 5, 7, 9, 7, 2, 4, 4, 1, 4, 6, 10, 4, 11, 7, 2, 5, 5, 9, 12, 2, 9, 3, 12, 4, 12 ];
+    let merchantc_mapping = [ 18782, 27235, 25202, 40308, 18778, 35204, 28550, 37758, 42282, 32716, 35575, 32622, 27236 ];
 
     let nowtime = new Date();
 
     const outputElement = document.getElementById('traveling-merchant-stock');
 
-    const merchantStartDate = new Date('March 11, 2018 00:00:00 GMT+00:00');
-
-    var difference = Math.floor((nowtime.getTime() - merchantStartDate.getTime()) / (1000 * 3600 * 24));
-    let currentRotation = difference % 120;
-
-    outputElement.innerHTML = '<br><strong>Current stock:</strong><br>';
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + merchantab_rotation[currentRotation][0] + '.gif"> ' + merchantitems[merchantab_rotation[currentRotation][0]].name + '<br>';
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + merchantab_rotation[currentRotation][1] + '.gif"> ' + merchantitems[merchantab_rotation[currentRotation][1]].name + '<br>';
-
-    //3rd slot calc
-    var difference2 = Math.floor((nowtime.getTime() - merchantStartDate.getTime()) / (1000 * 3600 * 24));
-    let rotation_daily = difference2 % 40;
-    var rotation_40 = Math.floor(difference2 / 40);
-
-    let current_item_id = merchantc_rotation[rotation_daily] - 1;
-    let mapped_id = merchantc_initial[current_item_id]
-
-    // move the mapped id according to current rotation
-    output_item_id = ( (mapped_id + rotation_40) % 13) - 1;
-    if (output_item_id < 0) {
-        output_item_id = 13 + output_item_id;
+    function rotationDays(interval, rotation_count, offset) {
+        let days_after_epoch = Math.floor(nowtime.getTime() / (1000 * 60 * 60 * 24));
+        let days_into_period = (days_after_epoch + offset) % (interval * rotation_count);
+        return Math.floor(days_into_period / interval) + 1;
     }
 
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + merchantc_rotation2[output_item_id] + '.gif"> ' + merchantitems[merchantc_rotation2[output_item_id]].name;
+    function calculateSlotItem(rot) {
+        let rotation = rotationDays(1, rot.length, 39)
+        let current = rotationDays(120, merchantab_initial.length, 39)
+        let current_pos = rot[rotation - 1];
+        let output_pos = (current_pos + current - 2) % merchantab_initial.length
+        return merchantab_mapping[merchantab_initial[output_pos] - 1];
+    }
+
+    let slot_a = calculateSlotItem(merchanta_rotation);
+    let slot_b = calculateSlotItem(merchantb_rotation);
+
+    outputElement.innerHTML = '<br><strong>Current stock:</strong><br>';
+    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slot_a + '.gif"> ' + merchantitems[slot_a].name + '<br>';
+    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slot_b + '.gif"> ' + merchantitems[slot_b].name + '<br>';
+
+    //3rd slot calc
+    let rotation = rotationDays(1, merchantc_rotation.length, -1);
+    let current = rotationDays(40, 13, -1);
+    let current_item_id = merchantc_rotation[rotation - 1];
+    let output_item_id = (merchantc_initial[current_item_id - 1] + current) % merchantc_mapping.length
+    let slot_c = merchantc_mapping[output_item_id];
+
+    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slot_c + '.gif"> ' + merchantitems[slot_c].name;
 };
 
 /**
