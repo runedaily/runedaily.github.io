@@ -1193,7 +1193,7 @@ const itemStatsTooltip = function() {
 
             tooltip.innerHTML = '<img src="/rsdata/images/' + this.dataset.item_id + '.gif" class="item_icon"> ' + itemdata.name + '<br>'
                                 + 'GE: ' + itemdata.price.toLocaleString() + '<span class="coin">●</span>' + (parseInt(this.dataset.shop_price) > 0 ? ' Shop: ' + parseInt(this.dataset.shop_price).toLocaleString() + '<span class="coin">●</span>' : '');
-            // tooltip.innerHTML += '<br>Change: ' + (itemdata.price > itemdata.last ? '+' : '') + (itemdata.last != itemdata.price ? (itemdata.price - itemdata.last).toLocaleString() : '-') + (itemdata.price > itemdata.last ? '<span class="trend_positive">▲</span>' : itemdata.price < itemdata.last ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>');
+            tooltip.innerHTML += '<br>Change: ' + (itemdata.price > itemdata.last ? '+' : '') + (itemdata.last != itemdata.price ? (itemdata.price - itemdata.last).toLocaleString() : '-') + (itemdata.price > itemdata.last ? '<span class="trend_positive">▲</span>' : itemdata.price < itemdata.last ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>');
 
             if (!!this.dataset.inputs) {
                 tooltip.innerHTML += '<br><strong>Inputs</strong>:<br>';
