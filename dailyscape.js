@@ -45,6 +45,8 @@ var rs3daily = {
             {id: 566, quantity: 3, shop_price: 0}, //soul rune
         ]
     },
+    "runesphere": {task: "Runesphere", url: "https://runescape.wiki/w/Runesphere", desc: "Hand in up to 1k rune dust for 25k xp"},
+    "book-of-char": {task: "Book of Char", url: "https://runescape.wiki/w/The_Book_of_Char", desc: "Drop logs on the ground and use book for fast firemaking xp"},
 };
 
 var rs3dailyshops = {
@@ -265,7 +267,7 @@ var rs3dailyshops = {
             {id: 7936, quantity: 150, shop_price: 0}, //pure essence
         ]
     },
-    "coeden-logs": {task: "Logs from Croeden", url: "https://runescape.wiki/w/Coeden", desc: "Average of combinations you could receive", short: true,
+    "coeden-logs": {task: "Logs from Coeden", url: "https://runescape.wiki/w/Coeden", desc: "Average of combinations you could receive", short: true,
         outputs: [
             {id: 29556, quantity: 10, shop_price: 0}, //elder logs
             {id: 1513, quantity: 9.142857143, shop_price: 0}, //magic logs
