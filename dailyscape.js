@@ -13,11 +13,11 @@ var rs3daily = {
     "daily-challenge": {task: "Daily Challenge", url: "https://runescape.wiki/w/Challenge_System", short: true, desc: "Get xp, treasure hunter key x3"},
     "jack-of-trades": {task: "Jack of Trades", url: "https://runescape.wiki/w/Jack_of_trades_aura/Routines", short: true, desc: "Get xp in a range of skills to get an xp book"},
     "soul-reaper": {task: "Soul Reaper", url: "https://runescape.wiki/w/Soul_Reaper", desc: "Kill assigned bosses"},
-    "player-owned-ports": {task: "Player Owned Ports", url: "https://runescape.wiki/w/Player-owned_port", short: true, desc: "Manage your player owned port"},
+    "player-owned-ports": {task: "Player Owned Ports", url: "https://runescape.wiki/w/Player-owned_port", short: true, desc: "Manage your player owned port<br>Buy resources from <a href=\"https://runescape.wiki/w/The_Black_Marketeer\" target=\"_blank\" rel=\"noreferrer noopener\">Black Marketeer</a>"},
     "player-owned-farm": {task: "Player Owned Farm", url: "https://runescape.wiki/w/Player-owned_farm", short: true, desc: "Manage your player owned farm"},
     "crystal-tree-blossom": {task: "Crystal Tree Blossom", url: "https://runescape.wiki/w/Crystal_tree_blossom", short: true, desc: "Collect crystal tree blossom for perfect plus potions"},
     "invention-machine": {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
-    "motherlode-maw": {task: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw", short: true, desc: "Receive treasure from motherlode maw. Turn in 10 <a href=\"https://runescape.wiki/w/Crystal_motherlode_shard\" target=\"_blank\" rel=\"noreferrer noopener\">motherlode shards</a> to Wythien"},
+    "motherlode-maw": {task: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw", short: true, desc: "Receive treasure from motherlode maw.<br>Turn in 10 <a href=\"https://runescape.wiki/w/Crystal_motherlode_shard\" target=\"_blank\" rel=\"noreferrer noopener\">motherlode shards</a> to Wythien"},
     "gorajo-card": {task: "Gorajo Card", url: "https://runescape.wiki/w/Gorajo_card", short: true, desc: "Consistent yak card gives a guaranteed Meilyr combination potion recipe"},
     "divine-locations": {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Herb 1 best profit, Yews best xp"},
     "archaeology-research": {task: "Archaeology Research", url: "https://runescape.wiki/w/Research", short: true, desc: "Use Chronotes to send out research teams for Arch XP and resources"},
@@ -36,7 +36,7 @@ var rs3daily = {
     "bork": {task: "Bork", url: "http://runescape.wiki/w/Bork", desc: "Slayer XP and summoning charms"},
     "serenity-post": {task: "Serenity Posts", url: "https://runescape.wiki/w/Serenity_posts", desc: "20K agility XP, match poses to complete in 10ish minutes"},
     "fixate": {task: "Fixate Charges", url: "https://runescape.wiki/w/Fixate", desc: "Use x3 fixate charges for guaranteed artefacts e.g. <a href=\"https://runescape.wiki/w/Red_Rum_Relics_III\" target=\"_blank\" rel=\"noreferrer noopener\">Red Rum Relics III</a>"},
-    "arc-contracts": {task: "Arc Contracts", url: "https://runescape.wiki/w/Contract", desc: "Complete up to 7 contracts in the Arc for chimes and xp"},
+    "arc-contracts": {task: "Arc Contracts", url: "https://runescape.wiki/w/Contract", desc: "Complete up to 7 contracts in the Arc for chimes and xp<br>Deplete claimed island"},
     "rapid-growth": {task: "Rapid Growth", url: "https://runescape.wiki/w/Rapid_Growth", desc: "Make plants grow faster up to 2x a day",
         inputs: [
             {id: 555, quantity: 3, shop_price: 0}, //water rune
