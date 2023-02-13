@@ -19,7 +19,7 @@ var rs3daily = {
     "invention-machine": {task: "Invention Machine", url: "https://runescape.wiki/w/Machines", short: true, desc: "Fill and collect from invention machines"},
     "motherlode-maw": {task: "Motherlode Maw", url: "https://runescape.wiki/w/Motherlode_Maw", short: true, desc: "Receive treasure from motherlode maw.<br>Turn in 10 <a href=\"https://runescape.wiki/w/Crystal_motherlode_shard\" target=\"_blank\" rel=\"noreferrer noopener\">motherlode shards</a> to Wythien"},
     "gorajo-card": {task: "Gorajo Card", url: "https://runescape.wiki/w/Gorajo_card", short: true, desc: "Consistent yak card gives a guaranteed Meilyr combination potion recipe"},
-    "divine-locations": {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations, Herb 1 best profit, Yews best xp"},
+    "divine-locations": {task: "Divine Locations", url: "https://runescape.wiki/w/Divine_location", short: true, desc: "Gather resources from divine locations<br>Divine Yews best xp"},
     "archaeology-research": {task: "Archaeology Research", url: "https://runescape.wiki/w/Research", short: true, desc: "Use Chronotes to send out research teams for Arch XP and resources"},
     "wilderness-warbands": {task: "Wilderness Warbands", url: "https://runescape.wiki/w/Wilderness_Warbands", short: true, desc: "Every 7 hours. Defeat invaders in the wilderness for xp or gp"},
     "nemi-forest": {task: "Nemi Forest", url: "https://runescape.wiki/w/Nemi_Forest", desc: "'NemiForest' FC. See also <a href=\"https://www.reddit.com/r/NemiForest/new/\" target=\"_blank\" rel=\"noreferrer noopener\">Daily Maps</a>"},
