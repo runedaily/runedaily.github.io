@@ -915,8 +915,7 @@ const warbandsCounter = function() {
 
 /**
  * Determine current merchant stock and output to specific element
- * @todo seems kinda convoluted, revisit for refactor later
- * @see https://runescape.wiki/w/Travelling_Merchant%27s_Shop/Details
+ * @see https://runescape.wiki/w/Module:Rotations/Merchant
  */
  const merchantStock = function() {
     var merchantitems = {
@@ -957,48 +956,43 @@ const warbandsCounter = function() {
         32716: {name: "Unfocused reward enhancer", shop_price: 10000000},
     }
 
-    // Rotation logic based on RSWiki implementation - https://runescape.wiki/w/Module:Rotations/Merchant
-    let merchanta_rotation = [ 1, 15, 1, 6, 4, 8, 14, 9, 12, 17, 9, 13, 2, 16, 2, 7, 1, 5, 11, 6, 9, 14, 10, 14, 18, 13, 18, 4, 17, 2, 8, 3, 6, 11, 7, 11, 19, 14, 15, 1, 14, 18, 5, 19, 7, 12, 8, 12, 16, 11, 12, 17, 15, 19, 6, 1, 4, 9, 5, 9, 13, 8, 13, 18, 12, 16, 3, 17, 1, 6, 2, 6, 10, 5, 10, 15, 13, 17, 19, 14, 17, 3, 18, 3, 11, 6, 11, 16, 10, 14, 16, 11, 18, 4, 19, 4, 8, 3, 8, 13, 7, 11, 17, 12, 15, 1, 16, 1, 5, 19, 5, 10, 4, 8, 14, 9, 16, 2, 13, 17 ];
-    let merchantb_rotation = [ 1, 15, 1, 1, 14, 9, 19, 14, 3, 17, 18, 18, 12, 7, 17, 12, 1, 15, 1, 1, 10, 5, 15, 10, 18, 13, 18, 18, 8, 3, 13, 8, 16, 11, 16, 16, 10, 5, 11, 6, 14, 9, 14, 14, 8, 3, 13, 8, 16, 11, 12, 12, 6, 1, 11, 6, 14, 9, 14, 14, 4, 18, 9, 4, 12, 7, 12, 12, 2, 16, 7, 2, 10, 5, 10, 10, 4, 18, 5, 19, 8, 3, 8, 8, 2, 16, 7, 2, 10, 5, 6, 6, 19, 14, 5, 19, 8, 3, 8, 8, 17, 12, 3, 17, 6, 1, 6, 6, 15, 10, 1, 15, 4, 18, 4, 4, 17, 12, 18, 13 ];
-    let merchantab_initial = [ 32, 15, 9, 20, 25, 17, 5, 19, 18, 2, 3, 6, 11, 24, 22, 1, 8, 21, 14 ];
-    let merchantab_mapping = [ 42283, 42285, 42284, 42282, 35202, 35203, 35204, 40304, 40306, 40308, 27234, 27235, 27236, 41034, 36918, 37758, 41035, 41036, 40150, 42290, 42289, 32708, 32716, 34823, 34918, 35575, 18782, 18778,  32622, 28550, 25202, 54109 ];
-    let merchantc_initial = [ 1, 8, 3, 7, 4, 11, 10, 13, 12, 2, 9, 5, 6 ];
-    let merchantc_rotation = [ 1, 1, 2, 1, 3, 4, 9, 1, 8, 6, 6, 6, 5, 7, 8, 5, 7, 9, 7, 2, 4, 4, 1, 4, 6, 10, 4, 11, 7, 2, 5, 5, 9, 12, 2, 9, 3, 12, 4, 12 ];
-    let merchantc_mapping = [ 18782, 27235, 25202, 40308, 18778, 35204, 28550, 37758, 42282, 32716, 35575, 32622, 27236 ];
+    let slotABMap = [41035,42284,42283,36918,35202,35203,40304,40306,40150,27234,42289,42290,41036,34823,41034,34918,42285,32708,54109];
+    let slotCMap = [37758,35204,40308,27235,27236,35575,42282,28550,18778,25202,18782,32622,32716];
+    let runedate = Math.floor(((new Date() / 1000) - 1014768000) / 86400); // Days since 2002/02/27 
 
-    let nowtime = new Date();
+    function avoidLimit(num) {
+        let multi = [0, 2, 3, 5, 6, 9, 10, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 27, 28, 30, 31, 32, 34];
+        let out = 0;
+        let mask = Math.pow(2, 48);
+        for (let i = 0; i <= 35; i++) {
+            if (multi.includes(i)) {
+                out = (out + num) % mask;
+            }
+            num = (num * 2) % mask;
+        }
+        return out;
+    }
+
+    function slotIndex(runedate, k, n) {
+        // Need to use BigInts through this method otherwise JS will treat numbers as 32bit whilst doing bitwise operations, which results in the wrong output
+        let seed = (BigInt(runedate) << 32n) + (BigInt(runedate) % k);
+        let multiplier = 25214903917n;
+        let mask = 281474976710655n;
+        seed = (seed ^ multiplier) & mask;
+        seed = BigInt(avoidLimit(Number(seed)));
+        seed = (seed + 11n) & mask;
+        return (seed >> 17n) % n;
+    }
+
+    let slotA = slotABMap[slotIndex(runedate, 3n, 19n)];
+    let slotB = slotABMap[slotIndex(runedate, 8n, 19n)];
+    let slotC = slotCMap[slotIndex(runedate, 5n, 13n)];
 
     const outputElement = document.getElementById('traveling-merchant-stock');
-
-    function rotationDays(interval, rotation_count, offset) {
-        let days_after_epoch = Math.floor(nowtime.getTime() / (1000 * 60 * 60 * 24));
-        let days_into_period = (days_after_epoch + offset) % (interval * rotation_count);
-        return Math.floor(days_into_period / interval) + 1;
-    }
-
-    function calculateSlotItem(rot) {
-        let rotation = rotationDays(1, rot.length, 39)
-        let current = rotationDays(120, merchantab_initial.length, 39)
-        let current_pos = rot[rotation - 1];
-        let output_pos = (current_pos + current - 2) % merchantab_initial.length
-        return merchantab_mapping[merchantab_initial[output_pos] - 1];
-    }
-
-    let slot_a = calculateSlotItem(merchanta_rotation);
-    let slot_b = calculateSlotItem(merchantb_rotation);
-
     outputElement.innerHTML = '<br><strong>Current stock:</strong><br>';
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slot_a + '.gif"> ' + merchantitems[slot_a].name + '<br>';
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slot_b + '.gif"> ' + merchantitems[slot_b].name + '<br>';
-
-    //3rd slot calc
-    let rotation = rotationDays(1, merchantc_rotation.length, -1);
-    let current = rotationDays(40, 13, -1);
-    let current_item_id = merchantc_rotation[rotation - 1];
-    let output_item_id = (merchantc_initial[current_item_id - 1] + current) % merchantc_mapping.length
-    let slot_c = merchantc_mapping[output_item_id];
-
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slot_c + '.gif"> ' + merchantitems[slot_c].name;
+    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slotA + '.gif"> ' + merchantitems[slotA].name + '<br>';
+    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slotB + '.gif"> ' + merchantitems[slotB].name + '<br>';
+    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slotC + '.gif"> ' + merchantitems[slotC].name;
 };
 
 /**
