@@ -68,7 +68,7 @@ var rs3dailyshops = {
             {id: 9075, quantity: 100, shop_price: 220}, //astral rune
         ]
     },
-    "vis-wax": {task: "Vis wax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "Profit from shop price and avg of combinations",
+    "vis-wax": {task: "Vis wax", url: "https://runescape.wiki/w/Rune_Goldberg_Machine", short: true, desc: "Profit from shop price and avg of combinations<br>See <a href=\"https://runescape.wiki/w/Calculator:Vis_wax\" target=\"_blank\" rel=\"noreferrer noopener\">Calculator:Vis wax</a>",
         outputs: [
             {id: 32092, quantity: 100, shop_price: 0}, //vis wax
         ],
