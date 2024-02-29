@@ -289,6 +289,7 @@ var rs3dailyshops = {
 };
 
 var rs3weekly = {
+    "thalmunds-wares": {task: "Thalmund's Wares", url: "https://runescape.wiki/w/Thalmund%27s_Wares", desc: "Merchant in City of Um"},
     "capping-clan-citadel": {task: "Capping Clan Citadel", url: "https://runescape.wiki/w/Clan_Citadel", desc: "Get skill xp, set xp bonus, make clan happy"},
     "charge-anachronia-totems": {task: "Charge Anachronia Totems", url: "https://runescape.wiki/w/Totem", desc: "Recharge totems weekly and optionally swap out"},
     "meg": {task: "Meg", url: "https://runescape.wiki/w/Meg#Meg's_questions", short: true, desc: "XP lamp and coins"},
@@ -958,7 +959,7 @@ const warbandsCounter = function() {
 
     let slotABMap = [41035,42284,42283,36918,35202,35203,40304,40306,40150,27234,42289,42290,41036,34823,41034,34918,42285,32708,54109];
     let slotCMap = [37758,35204,40308,27235,27236,35575,42282,28550,18778,25202,18782,32622,32716];
-    let runedate = Math.floor(((new Date() / 1000) - 1014768000) / 86400); // Days since 2002/02/27 
+    let runedate = Math.floor(((new Date() / 1000) - 1014768000) / 86400); // Days since 2002/02/27
 
     function avoidLimit(num) {
         let multi = [0, 2, 3, 5, 6, 9, 10, 13, 14, 15, 18, 19, 21, 22, 23, 25, 26, 27, 28, 30, 31, 32, 34];
