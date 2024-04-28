@@ -1289,7 +1289,6 @@ const importExportModal = function() {
         }
 
         // Force a reload instead of manipulating the DOM to correctly display the tables
-        // Bit hacky, but eh
         location.reload();
     });
 }
