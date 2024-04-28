@@ -282,7 +282,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="">
                     <div class="form-group">
                         <label for="token-output">This is your token. Copy it, and then import it on another computer.</label>
                         <div class="row pb-3">
@@ -298,7 +298,10 @@
                         <div class="row mb-sm">
                             <label for="token-input">Import your token below. This operation will overwrite your current data, with no way to undo it.</label>
                             <div class="col-sm-12">
-                                <input class="form-control" type="text" id="token-input">
+                                <input class="form-control" type="text" id="token-input" aria-describedby="validation-token-input" required>
+                                <div id="validation-token-input" class="invalid-feedback">
+                                    That doesn't look right. Check your token and try again.
+                                </div>
                             </div>
                         </div>
                     </div>

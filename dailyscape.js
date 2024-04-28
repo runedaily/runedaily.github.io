@@ -1280,9 +1280,21 @@ const importExportModal = function() {
         tokenOutput.value = generateToken();
     });
     
+    tokenInput.addEventListener('focus', function() {
+       tokenInput.classList.remove("is-invalid");
+    });
+    
     importButton.addEventListener('click', function() {
-        let inputToken = atob(tokenInput.value);
-        let jsonObject = JSON.parse(inputToken);
+        let inputToken;
+        let jsonObject;
+        
+        try {
+            inputToken = atob(tokenInput.value);
+            jsonObject = JSON.parse(inputToken);
+        } catch {
+            tokenInput.classList.add("is-invalid");
+            return;
+        }
         
         for(let key in jsonObject) {
             storage.setItem(key, jsonObject[key]);
