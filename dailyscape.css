@@ -71,7 +71,8 @@ body {
 }
 
 #profile-button span.expanding_text,
-#layout-button span.expanding_text {
+#layout-button span.expanding_text,
+#token-button span.expanding_text {
     font-size: 1rem;
     font-weight: normal;
 }
@@ -460,4 +461,14 @@ footer a img {
     .activity_table td.activity_name {
         width: 66%;
     }
+}
+
+.modal-content {
+    background-color: #343a40;
+    margin-bottom: 10px;
+    color: #FFF;
+}
+
+.form-control[readonly] {
+    color: #555
 }
