@@ -1296,6 +1296,8 @@ const importExportModal = function() {
             return;
         }
         
+        localStorage.clear();
+        
         for(let key in jsonObject) {
             storage.setItem(key, jsonObject[key]);
         }
