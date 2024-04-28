@@ -992,9 +992,9 @@ const warbandsCounter = function() {
 
     const outputElement = document.getElementById('traveling-merchant-stock');
     outputElement.innerHTML = '<br><strong>Current stock:</strong><br>';
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slotA + '.gif"> ' + merchantitems[slotA].name + '<br>';
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slotB + '.gif"> ' + merchantitems[slotB].name + '<br>';
-    outputElement.innerHTML += '<img class="item_icon" src="/rsdata/images/' + slotC + '.gif"> ' + merchantitems[slotC].name;
+    outputElement.innerHTML += '<img class="item_icon" src="https://dailyscape.github.io/rsdata/images/' + slotA + '.gif"> ' + merchantitems[slotA].name + '<br>';
+    outputElement.innerHTML += '<img class="item_icon" src="https://dailyscape.github.io/rsdata/images/' + slotB + '.gif"> ' + merchantitems[slotB].name + '<br>';
+    outputElement.innerHTML += '<img class="item_icon" src="https://dailyscape.github.io/rsdata/images/' + slotC + '.gif"> ' + merchantitems[slotC].name;
 };
 
 /**
@@ -1189,7 +1189,7 @@ const itemStatsTooltip = function() {
 
             item.after(tooltip);
 
-            tooltip.innerHTML = '<img src="/rsdata/images/' + this.dataset.item_id + '.gif" class="item_icon"> ' + itemdata.name + '<br>'
+            tooltip.innerHTML = '<img src="https://dailyscape.github.io/rsdata/images/' + this.dataset.item_id + '.gif" class="item_icon"> ' + itemdata.name + '<br>'
                                 + 'GE: ' + itemdata.price.toLocaleString() + '<span class="coin">●</span>' + (parseInt(this.dataset.shop_price) > 0 ? ' Shop: ' + parseInt(this.dataset.shop_price).toLocaleString() + '<span class="coin">●</span>' : '');
             tooltip.innerHTML += '<br>Change: ' + (itemdata.price > itemdata.last ? '+' : '') + (itemdata.last != itemdata.price ? (itemdata.price - itemdata.last).toLocaleString() : '-') + (itemdata.price > itemdata.last ? '<span class="trend_positive">▲</span>' : itemdata.price < itemdata.last ? '<span class="trend_negative">▼</span>' : '<span class="trend_neutral">-</span>');
 
@@ -1200,7 +1200,7 @@ const itemStatsTooltip = function() {
 
                 for (let itemkey in inputItems) {
                     let inputItemData = rsapidata[itemkey];
-                    tooltip.innerHTML += ' <img src="/rsdata/images/' + itemkey + '.gif" class="item_icon"> ' + inputItemData.name + ' x' + inputItems[itemkey] + ' (-' + parseInt(inputItemData.price * inputItems[itemkey]).toLocaleString() + ')<br>';
+                    tooltip.innerHTML += ' <img src="https://dailyscape.github.io/rsdata/images/' + itemkey + '.gif" class="item_icon"> ' + inputItemData.name + ' x' + inputItems[itemkey] + ' (-' + parseInt(inputItemData.price * inputItems[itemkey]).toLocaleString() + ')<br>';
                 }
 
             }
@@ -1255,7 +1255,47 @@ const dataUpdatedCheck = function() {
     xmlhttp.send();
 }
 
+const enableBootstrapTooltips = function() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.map(function (e) {
+        return new bootstrap.Tooltip(e)
+    })
+}
+
+const importExportModal = function() {
+    let tokenButton = document.getElementById('token-button');
+    let tokenOutput = document.getElementById('token-output')
+    let tokenInput = document.getElementById('token-input');
+    let copyButton = document.getElementById('token-copy');
+    let importButton = document.getElementById('token-import');
+    
+    copyButton.addEventListener('click', function() {
+        navigator.clipboard.writeText(tokenOutput.value);
+    });
+    
+    tokenButton.addEventListener('click', function() {
+        tokenOutput.value = generateToken();
+    });
+    
+    importButton.addEventListener('click', function() {
+        let inputToken = atob(tokenInput.value);
+        let jsonObject = JSON.parse(inputToken);
+        
+        for(let key in jsonObject) {
+            storage.setItem(key, jsonObject[key]);
+        }
+
+        location.reload();
+    });
+}
+
+const generateToken = function() {
+    const items = { ...localStorage };
+    return btoa(JSON.stringify(items));
+}
+
 window.onload = function() {
+    enableBootstrapTooltips();    
     profiles();
     layouts();
 
@@ -1275,6 +1315,7 @@ window.onload = function() {
     warbandsCounter();
     merchantStock();
     dndOfTheWeek();
+    importExportModal();
 
     setInterval(function() {
         for (const timeFrame of timeframes) {
