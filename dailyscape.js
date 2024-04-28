@@ -1262,6 +1262,9 @@ const enableBootstrapTooltips = function() {
     })
 }
 
+/**
+ * Set up token modal popup with event listeners
+ */
 const importExportModal = function() {
     let tokenButton = document.getElementById('token-button');
     let tokenOutput = document.getElementById('token-output')
@@ -1285,10 +1288,15 @@ const importExportModal = function() {
             storage.setItem(key, jsonObject[key]);
         }
 
+        // Force a reload instead of manipulating the DOM to correctly display the tables
+        // Bit hacky, but eh
         location.reload();
     });
 }
 
+/**
+ * Take all the local application storage, turn it in to a JSON payload and Base64 encode it
+ */
 const generateToken = function() {
     const items = { ...localStorage };
     return btoa(JSON.stringify(items));
