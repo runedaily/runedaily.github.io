@@ -47,6 +47,10 @@ var rs3daily = {
     },
     "runesphere": {task: "Runesphere", url: "https://runescape.wiki/w/Runesphere", desc: "Hand in up to 1k rune dust for 25k xp"},
     "book-of-char": {task: "Book of Char", url: "https://runescape.wiki/w/The_Book_of_Char", desc: "Drop logs on the ground and use book for fast firemaking xp"},
+    "premier-xp": {task: "Premier XP boost", url: "https://runescape.wiki/w/Premier_artefact", desc: "10% bonus XP for an hour"},
+    "premier-porter": {task: "Premier Porter", url: "https://runescape.wiki/w/Premier_artefact", desc: "50% chance to act as a porter for an hour"},
+    "premier-aura": {task: "Premier Aura Reset", url: "https://runescape.wiki/w/Premier_artefact", desc: "Reset one aura once per day"},
+    "premier-slayer": {task: "Premier Slayer Aura", url: "https://runescape.wiki/w/Premier_artefact", desc: "20% hit chance on enemies < 15% health, 10% chance to not decrease slayer kill count"},
 };
 
 var rs3dailyshops = {
