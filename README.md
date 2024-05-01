@@ -18,6 +18,28 @@
 * Multiple profile capability
 * Ad free / tracking free
 
+## Dev setup / How to contribute
+
+```
+# fork this rep and replace with your repo URL
+git clone https://github.com/dailyscape/dailyscape.github.io.git
+
+# setup data import locally
+cd ..
+git clone https://github.com/dailyscape/rsdata.git
+cd rsdata
+pip install requests
+python ./.github/scripts/rsapidata.py
+python ./.github/scripts/rselydata.py
+cd ../dailyscape.github.io
+ln -s rsdata ../rsdata
+
+# run a local test server
+python -m http.server
+
+# commit to your fork and make a PR to this repo!
+```
+
 ## Requests
 
 Please submit any missing tasks, bugs or new feature requests to the [issue tracker](https://github.com/dailyscape/dailyscape.github.io/issues).
