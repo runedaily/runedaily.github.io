@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="dailyscape.css?v=21">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://dailyscape.github.io/rsdata/rsdata.js"></script>
+    <script src="/rsdata/rsdata.js"></script>
     <script src="dailyscape.js?v=33"></script>
 
     <meta name="title" content="DailyScape">
@@ -89,17 +89,14 @@
             </ul>
             <ul class="navbar-nav nav-pills ms-auto nav-right">
                 <li class="nav-item dropdown">
-                    <a class="nav-link expanding_button" href="#" id="profile-button" title="Profiles"><span
-                            id="profile-name" style="display: none; visibility: hidden;"></span>㉾<span
-                            class="expanding_text">&nbsp;Profiles</span></a>
+                    <a class="nav-link expanding_button" href="#" id="profile-button" title="Profiles"><span id="profile-name" style="display: none; visibility: hidden;"></span>㉾<span class="expanding_text">&nbsp;Profiles</span></a>
                     <div id="profile-control" style="display:none; visibility: hidden;" data-display="none">
                         <strong>Profiles</strong>
                         <ul id="profile-list"></ul>
                         <form autocomplete="off">
                             <div class="row g-3 align-items-right">
                                 <div class="col-auto form-check" style="padding: 0 0 0 5px;">
-                                    <input type="text" class="form-control" id="profileName" name="profileName"
-                                           placeholder="New Profile Name" maxlength="25" required>
+                                    <input type="text" class="form-control" id="profileName" name="profileName" placeholder="New Profile Name" maxlength="25" required>
                                     <div class="invalid-feedback">Example invalid feedback text</div>
                                 </div>
                                 <div class="col-auto" style="padding: 0 5px 0 0;">
@@ -110,12 +107,10 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link expanding_button" href="#" id="layout-button" title="Toggle Layout">⊟ <span
-                            class="expanding_text"> Compact Mode</span></a>
+                    <a class="nav-link expanding_button" href="#" id="layout-button" title="Toggle Layout">⊟ <span class="expanding_text"> Compact Mode</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link expanding_button" href="#" id="token-button" title="Import / Export"
-                       data-bs-toggle="modal" data-bs-target="#token-modal">🖫 <span class="expanding_text">&nbsp;Import / Export</span></a>
+                    <a class="nav-link expanding_button" href="#" id="token-button" title="Import / Export" data-bs-toggle="modal" data-bs-target="#token-modal">🖫 <span class="expanding_text">&nbsp;Import / Export</span></a>
                 </li>
             </ul>
         </div>
@@ -124,25 +119,18 @@
 
 <div class="container-xl activity_tables">
     <div id="dailies" class="table_container rs3daily_table">
-        <table id="rs3daily_table" class="activity_table table table-dark table-striped table-hover"
-               data-timeframe="rs3daily">
+        <table id="rs3daily_table" class="activity_table table table-dark table-striped table-hover" data-timeframe="rs3daily">
             <thead>
-            <tr>
-                <th>Dailies <span id="countdown-rs3daily" class="countdown"></span></th>
-                <td>
-                        <span class="text-nowrap">
-                            <button id="rs3daily_reset_button"
-                                    class="reset_button expanding_button btn btn-secondary btn-sm active"
-                                    title="Reset hiding and order to default">↺<span class="expanding_text">Reset</span></button>
-                            <button id="rs3daily_hide_button"
-                                    class="hide_button expanding_button btn btn-secondary btn-sm active"
-                                    title="Hide section">▲<span class="expanding_text">Hide</span></button>
-                            <button id="rs3daily_unhide_button"
-                                    class="unhide_button expanding_button btn btn-secondary btn-sm active"
-                                    title="Unhide Section">▼<span class="expanding_text">Unhide</span></button>
-                        </span>
-                </td>
-            </tr>
+                <tr>
+                    <th>Dailies <span id="countdown-rs3daily" class="countdown"></span></th>
+                    <td>
+                            <span class="text-nowrap">
+                                <button id="rs3daily_reset_button" class="reset_button expanding_button btn btn-secondary btn-sm active" title="Reset hiding and order to default">↺<span class="expanding_text">Reset</span></button>
+                                <button id="rs3daily_hide_button" class="hide_button expanding_button btn btn-secondary btn-sm active" title="Hide section">▲<span class="expanding_text">Hide</span></button>
+                                <button id="rs3daily_unhide_button" class="unhide_button expanding_button btn btn-secondary btn-sm active" title="Unhide Section">▼<span class="expanding_text">Unhide</span></button>
+                            </span>
+                    </td>
+                </tr>
             </thead>
             <tbody></tbody>
         </table>
