@@ -1259,7 +1259,68 @@ const dataUpdatedCheck = function() {
     xmlhttp.send();
 }
 
+const enableBootstrapTooltips = function() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.map(function (e) {
+        return new bootstrap.Tooltip(e)
+    })
+}
+
+/**
+ * Set up token modal popup with event listeners
+ */
+const importExportModal = function() {
+    let tokenButton = document.getElementById('token-button');
+    let tokenOutput = document.getElementById('token-output')
+    let tokenInput = document.getElementById('token-input');
+    let copyButton = document.getElementById('token-copy');
+    let importButton = document.getElementById('token-import');
+    
+    copyButton.addEventListener('click', function() {
+        navigator.clipboard.writeText(tokenOutput.value);
+    });
+    
+    tokenButton.addEventListener('click', function() {
+        tokenOutput.value = generateToken();
+    });
+    
+    tokenInput.addEventListener('focus', function() {
+       tokenInput.classList.remove("is-invalid");
+    });
+    
+    importButton.addEventListener('click', function() {
+        let inputToken;
+        let jsonObject;
+        
+        try {
+            inputToken = atob(tokenInput.value);
+            jsonObject = JSON.parse(inputToken);
+        } catch {
+            tokenInput.classList.add("is-invalid");
+            return;
+        }
+        
+        localStorage.clear();
+        
+        for(let key in jsonObject) {
+            storage.setItem(key, jsonObject[key]);
+        }
+
+        // Force a reload instead of manipulating the DOM to correctly display the tables
+        location.reload();
+    });
+}
+
+/**
+ * Take all the local application storage, turn it in to a JSON payload and Base64 encode it
+ */
+const generateToken = function() {
+    const items = { ...localStorage };
+    return btoa(JSON.stringify(items));
+}
+
 window.onload = function() {
+    enableBootstrapTooltips();    
     profiles();
     layouts();
 
@@ -1279,6 +1340,7 @@ window.onload = function() {
     warbandsCounter();
     merchantStock();
     dndOfTheWeek();
+    importExportModal();
 
     setInterval(function() {
         for (const timeFrame of timeframes) {

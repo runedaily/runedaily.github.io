@@ -36,7 +36,7 @@
         <a class="navbar-brand" href=".">
             <img src="/img/dailyscape.png" alt="DailyScape - RS3 Dailies, Weeklies, Monthlies Task Checklist for RuneScape with Money Making Guide links" width="24" height="24" class="d-inline-block align-text-top">
             DailyScape
-          </a>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -108,6 +108,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link expanding_button" href="#" id="layout-button" title="Toggle Layout">⊟ <span class="expanding_text"> Compact Mode</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link expanding_button" href="#" id="token-button" title="Import / Export" data-bs-toggle="modal" data-bs-target="#token-modal">🖪 <span class="expanding_text">&nbsp;Import / Export</span></a>
                 </li>
             </ul>
         </div>
@@ -198,6 +201,46 @@
 </template>
 
 <div id="tooltip" style="display:none; visibility: hidden;"></div>
+
+<div id="token-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Import / Export Token</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="">
+                    <div class="form-group">
+                        <label for="token-output">This is your token. Copy it, and then import it on another computer.</label>
+                        <div class="row pb-3">
+                            <div class="col-sm-8">
+                                <input id="token-output" class="form-control" type="text" value="Readonly input here..." aria-label="readonly input example" readonly>
+                            </div>
+                            <div class="col-sm-2">
+                                <span class="d-inline-block" tabindex="0" data-bs-trigger="focus" data-bs-toggle="tooltip" title="Copied!">
+                                    <button id="token-copy" type="button" class="btn btn-primary">Copy</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="token-input">Import your token below. This operation will overwrite your current data, with no way to undo it.</label>
+                            <div class="col-sm-12">
+                                <input class="form-control" type="text" id="token-input" aria-describedby="validation-token-input" required>
+                                <div id="validation-token-input" class="invalid-feedback">
+                                    That doesn't look right. Check your token and try again.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id='token-import' type="button" class="btn btn-primary">Import</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer>
     <a href="https://github.com/dailyscape/dailyscape.github.io" target="_blank" rel="noopener noreferrer"><img src="/img/github.png">Github</a>
